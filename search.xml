@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>luxun</title>
+      <link href="/2020/03/04/luxun/"/>
+      <url>/2020/03/04/luxun/</url>
+      
+        <content type="html"><![CDATA[<p>尼采式的超人，虽然太觉渺茫，但就世界观有人种的事实看来，却可以确信将来总有尤为高尚尤近圆满的人类出现。到那时候，类人猿上面，怕要添出“类猿人”这一个名词。 所以我时常害怕，愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。</p><p>此后如竟没有炬火：我便是唯一的光。倘若有了炬火，出了太阳，我们自然心悦诚服的消失。不但毫无不平，而且还要随喜赞美这炬火或太阳；因为他照了人类，连我都在内。 　　</p><p>我又愿中国青年都只是向上走，不必理会这冷笑和暗箭。尼采说：“真的，人是一个浊流。应该是海了，能容这浊流使他干净。</p><p>“咄，我教你们超人：这便是海，在他这里，能容下你们的大侮蔑。”(《札拉图如是说》的《序言》第三节) 　　纵令不过一洼浅水，也可以学学大海；横坚都是水，可以相通。几粒石子，任他们暗地里掷来；几滴秽水，任他们从背后泼来就是了。 　</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/02/24/hello-world/"/>
       <url>/2020/02/24/hello-world/</url>
