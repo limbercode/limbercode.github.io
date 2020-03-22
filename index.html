@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -164,15 +157,6 @@
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>友情链接</span>
-        </a>
-    </li>
-    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -288,19 +272,6 @@
             
       </li>
     
-      <li class="hide-on-med-and-down nav-item" >
-
-        
-            <a href="/friends" class="waves-effect waves-light">
-              
-                <i class="fa fa-address-book"></i>
-              
-              <span>友情链接</span>
-            </a>
-
-            
-      </li>
-    
 
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
@@ -400,15 +371,6 @@
             </a>
         </li>
         
-        <li>
-            <a href="/friends" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                友情链接
-            </a>
-        </li>
-        
         
     </ul>
 
@@ -505,17 +467,6 @@
               
             </li>
         
-        <li class="m-nav-item">
-                
-                    <a href="/friends" class="waves-effect waves-light">
-                        
-                        <i class="fa fa-fw fa-address-book"></i>
-                        
-                        友情链接
-                    </a>
-              
-            </li>
-        
 
         
     </ul> -->
@@ -597,8 +548,8 @@
                     <span id="jinrishici-sentence">正在加载今日诗词...</span>
                 
             </div>
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -606,7 +557,6 @@
 // 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
-
 
 
             <div class="cover-btns">
@@ -673,7 +623,7 @@ $(function () {
     let autoCarousel = function() {
         carouselIntervalId = setInterval(function () {
             coverSlider.carousel('next');
-        }, 88);
+        }, 8);
     };
     autoCarousel();
     
@@ -708,6 +658,19 @@ $(function () {
         <div class="container ">
             <div class="card">
                 <div class="card-content">
+                    
+                    <div class="dream">
+    
+    <div class="title center-align">
+        <i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;我的梦想
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            人间最得意
+        </div>
+    </div>
+</div>
                     
                     
                     <!-- shw2018 洪卫  modify 2019.08.15-->
@@ -768,7 +731,85 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/03/12/da-yin-sha-lou/" target="_blank">
+                    <a href="/2020/03/21/lemon-collection/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="lemon-like feeling and pear-shaped study career">
+                            
+                            <span class="card-title">lemon-like feeling and pear-shaped study career</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            Born with jeopardy , grow with mental disease  and  other strange disease(neither danger nor mild),now I have  go throug
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-21
+                            </span>
+                            <span class="publish-author">
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="打印沙漏【PAT乙级1027】">
+                            
+                            <span class="card-title">打印沙漏【PAT乙级1027】</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            
+本题要求你写个程序把给定的符号打印成沙漏的形状。例如给定17个“*”，要求按下列格式打印
+*****
+ ***
+  *
+ ***
+*****所谓“沙漏形状”，是指每行输出奇数个符号；各行符号中心对齐；相邻两行符号数差2；符号数先从大到小顺
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
+                            </span>
+                            <span class="publish-author">
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PAT/" target="_blank">
+                            <span class="chip bg-color">PAT</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/03/14/tai-wan-deng-di-qu-gong-kai-ke-mu-lu/" target="_blank">
                         <div class="card-image">
                             
                             
@@ -781,18 +822,15 @@ $(function () {
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                            
-title： YIJI1024PAT本题要求你写个程序把给定的符号打印成沙漏的形状。例如给定17个“*”，要求按下列格式打印
-*****
- ***
-  *
- ***
-*****所谓“沙漏形状”，是指每行输出奇数个符号；各行符号中心对齐；相
+                            台湾等地区公开课目录这个目录包括所有 Bilibili 台湾等地区公开课，建议尽早缓存或下载备份。
+数学 / Math科普 / Popular Science【数学科普向】数学潜水艇：分析
+【数学科普向】数学潜水艇：微积分
+【数学科普向】数
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-14
                             </span>
                             <span class="publish-author">
                                 
@@ -900,7 +938,7 @@ title： YIJI1024PAT本题要求你写个程序把给定的符号打印成沙漏
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">2.5k</span> 字
+                <span class="white-color">3.2k</span> 字
             
 
             
