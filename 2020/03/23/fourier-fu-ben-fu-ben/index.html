@@ -1,0 +1,2310 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- shw2018 洪卫  modify 2019.08.15-->
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Fourier,laplace,z的理解（二）, 专业电烙铁驱蚊">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="description" content="转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
+序言佛语中有箴言：坐亦禅,行亦禅,一花一世界,一叶一如来
+世间万物是复杂的，但是又是纯粹的简单">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Fourier,laplace,z的理解（二） | limbercode的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">limbercode的博客</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/AV" class="waves-effect waves-light">
+            
+            <i class="fa fa-music"></i>
+            
+            <span>视听</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/galleries" class="waves-effect waves-light">
+            
+            <i class="fa fa-photo"></i>
+            
+            <span>相册</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-envelope"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/tags" class="waves-effect waves-light">
+              
+                <i class="fa fa-tags"></i>
+              
+              <span>标签</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/categories" class="waves-effect waves-light">
+              
+                <i class="fa fa-bookmark"></i>
+              
+              <span>分类</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/archives" class="waves-effect waves-light">
+              
+                <i class="fa fa-archive"></i>
+              
+              <span>归档</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/AV" class="waves-effect waves-light">
+              
+                <i class="fa fa-music"></i>
+              
+              <span>视听</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/galleries" class="waves-effect waves-light">
+              
+                <i class="fa fa-photo"></i>
+              
+              <span>相册</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fa-user-circle-o"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-envelope"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">limbercode的博客</div>
+        <div class="logo-desc">
+            
+            FZU | 微电
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/AV" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-music"></i>
+                
+                视听
+            </a>
+        </li>
+        
+        <li>
+            <a href="/galleries" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-photo"></i>
+                
+                相册
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-envelope"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        
+    </ul>
+
+   
+   
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/tags" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-tags"></i>
+                        
+                        标签
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/categories" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-bookmark"></i>
+                        
+                        分类
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/archives" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-archive"></i>
+                        
+                        归档
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/AV" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-music"></i>
+                        
+                        视听
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/galleries" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-photo"></i>
+                        
+                        相册
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-envelope"></i>
+                        
+                        留言板
+                    </a>
+              
+            </li>
+        
+
+        
+    </ul> -->
+
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+        
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Fourier,laplace,z的理解（二）
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/signals-and-systems/" target="_blank">
+                                <span class="chip bg-color">signals and systems</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-23
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        张益豪
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        5.1k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        18 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>转自：链接：<a href="https://www.zhihu.com/question/22085329/answer/774074211" target="_blank" rel="noopener">https://www.zhihu.com/question/22085329/answer/774074211</a><br>作者：DBinary</p>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>佛语中有箴言：坐亦禅,行亦禅,一花一世界,一叶一如来</p>
+<p>世间万物是复杂的，但是又是纯粹的简单的，从宏观的花花世界到微观的原子电子，万物都在按照它的规律运行，而我们的先辈前人，一直都在用自己的方式与经验，总结着万物运行的规律。</p>
+<p>不要误会，本文并不是哲学论题的讨论，一个偶然的机会拜读了知乎上的一篇关于频域水印的问答。（<strong>阿里巴巴公司根据截图查到泄露信息的具体员工的技术是什么？</strong></p>
+<p><a href="https://www.zhihu.com/question/50735753/answer/122593277）当中有对频域数字水印的实现与讨论，在群里有不少的朋友对此颇感兴趣，于是我就想以后机会写一个“从零开始的频域变换到水印的完整解答”" target="_blank" rel="noopener">https://www.zhihu.com/question/50735753/answer/122593277）当中有对频域数字水印的实现与讨论，在群里有不少的朋友对此颇感兴趣，于是我就想以后机会写一个“从零开始的频域变换到水印的完整解答”</a></p>
+<p>如果阅读到这里你还不明白本文的主旨与目标是什么，你可以直接跳转到本文的最后一章节“鲁棒盲水印”来查看频域水印是如何在版权保护中起作用并对抗各类版权偷盗者的攻击的。</p>
+<p>当然，本人并非全才，本文中多有疏漏错误还望各位读者多多指正，文章将从最基础的三角函数开始，一步一步地推到并演化到傅里叶变换直到频域签名。</p>
+<p>我相信学习如流水，希望读者能在本文的循序渐进的推导过程中满足对相关技术的求知欲，并对文中的不足与错误不吝赐教。</p>
+<p>最后再次引用箴言的后半句作为导言的结束语：</p>
+<p>春来花自青,秋至叶飘零,无穷般若心自在,语默动静体自然</p>
+<h2 id="从三角形开始"><a href="#从三角形开始" class="headerlink" title="从三角形开始"></a>从三角形开始</h2><p>有人说，上帝使用三角形创造了这个世界，这点我完全同意，三角形拥有如此之多的特性，足够让每一个探究者为之所着迷，它仿佛维系着几何与世界的基石，诞生出数学中众多的定律并在今天成就了我们的学术与技术大厦。</p>
+<p>当然，本文并不是抒情散文，我并不打算也没有这个能力去探究那些更深层次的数学理论关系，但理解三角形并不是制作变形金刚，你可以在一张纸上画三个点然后用直线把他们连起来，那就是一个三角形了如图（a.1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-c3a3a2043b3120841277bbd80a5e7807_720w.jpg" alt="img">（图a.1）</p>
+<p>三角形有非常多的特性，首先，确定它是一个稳定的结构。另外确定一个平面也仅仅只需要一个三角形就足够了，三角形的所有内角角度之和是180°（a.2）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-c226bb099ec7df44c689e722caa0f694_720w.jpg" alt="img">（图a.2）</p>
+<p>但最为有意思的是被称之为直角三角形的东西，在直角三角形中有一个角的角度是90°（a.3），例如图（a.3）就是一个直角三角形。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-3d668e531154898ddf9568dfecd163c4_720w.jpg" alt="img">图（a.3）</p>
+<p>实际上在这个直角三角形中，三角形的边长比例，将随着角度θ的变化而变化，一个角度θ决定了abc三边长度的比例关系，于是在这里，我们引入了一个叫三角函数的东西，其中 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Ctheta+%3D+%5Cfrac%7Bb%7D%7Bc%7D%EF%BC%8C%5Ccos%7B%5Ctheta+%3D+%5Cfrac%7Ba%7D%7Bc%7D%7D%EF%BC%8C%5Ctan%7B%5Ctheta+%3D+%5Cfrac%7Ba%7D%7Bb%7D%7D" alt="[公式]"> ，当θ小于90°的时候，我们可以在直角三角形中非常直观地看到三角函数的变化关系，但在直角三角形中，θ的取值范围，也被限制到了0到90°，为了能让θ表示更大的范围，我们就需要引入新的表达方式了。</p>
+<p>我们首先先建立一个直角坐标系（a.4），然后以原点为院校，画一个圆。同时，我们在圆上任意取一点，并将该点的坐标设为（x，y）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-34db303ec180353f6f90882796769f5e_720w.jpg" alt="img">（图a.4）</p>
+<p>通过勾股定理我们知道，圆上的点到原点的距离， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=r%3D%5Csqrt%7Bx%5E%7B2%7D+%2B+y%5E%7B2%7D%7D" alt="[公式]"> 那么，对三角函数我们重新定义为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Ctheta+%3D+%5Cfrac%7By%7D%7Br%7D%EF%BC%8C%5Ccos%7B%5Ctheta+%3D+%5Cfrac%7Bx%7D%7Br%7D%7D%EF%BC%8C%5Ctan%7B%5Ctheta+%3D+%5Cfrac%7By%7D%7Bx%7D%7D" alt="[公式]"> ，这样一来，我们就可以表示θ为任意实数时三角函数对应的值了。</p>
+<p>通过这个图我们同时可以知道，当 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctheta+%5Cgeq+360" alt="[公式]"> 时，实际上相当于在一个圆上绕了若干个个圈，你可以想象看着你家里的时钟，秒针每过60秒就转了一个圈，你现在看到秒针的位置，在60秒后，120秒后，180秒后…它仍然会指向同样的位置，这个特性在三角函数中同样有效，我们管它叫做三角函数的周期性。</p>
+<p>现在，让我们引入一个新的符号π，π在角度上代表180°，除了角度外，我们还引入弧度，它的定义是弧长等于半径的弧，其所对的圆心角为1弧度。实际上半圆弧长和半径的比例恰好是一个定值，因此，π除了在角度上表示180°，在弧度上则是一个定值，这个值是一个无限不循环小数，我们常常将它约等于为3.14。</p>
+<p>所以 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%7B180+%3D+%5Csin%7B%5Cpi+%3D+0%7D%7D%2C%5Ccos%7B180%7D+%3D+%5Ccos%5Cpi+%3D+-+1" alt="[公式]"> ，同时因为周期性， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%7B%5Cleft%28+%5Ctheta+%2B+2%5Cpi+n+%5Cright%29+%3D+%5Csin%5Ctheta%7D%2C%5Ccos%7B%5Cleft%28+%5Ctheta+%2B+2%5Cpi+n+%5Cright%29+%3D+%5Ccos%5Ctheta%7D" alt="[公式]"> 其中n是一个整数。</p>
+<p>那么，在第一章节，三角函数sin,cos的几何意义，就显而易见了。</p>
+<h2 id="让三角函数动起来"><a href="#让三角函数动起来" class="headerlink" title="让三角函数动起来"></a>让三角函数动起来</h2><h2 id="假如我们把时间引入进来，那么，三角函数就开始变得生动了，最直观的比喻就是现在挂在大厅墙上的时钟，秒针每分钟都会转动360°，现在，让我们假设秒针指向“12”，也就是垂直于水平面时，它的角度是0°，那么经过15秒后，秒针指向“3”，也就是转动了90°，30秒后经过了半分钟，指向“6”也就是转动了180°，那么，秒针每秒转动的角度是-我们用t来表示时间，那么时间与秒针转动角度我们可以用θ-6t来表示，在物理上，我们常常使用ω来表示角速度，那么，时间内转过的角度就是"><a href="#假如我们把时间引入进来，那么，三角函数就开始变得生动了，最直观的比喻就是现在挂在大厅墙上的时钟，秒针每分钟都会转动360°，现在，让我们假设秒针指向“12”，也就是垂直于水平面时，它的角度是0°，那么经过15秒后，秒针指向“3”，也就是转动了90°，30秒后经过了半分钟，指向“6”也就是转动了180°，那么，秒针每秒转动的角度是-我们用t来表示时间，那么时间与秒针转动角度我们可以用θ-6t来表示，在物理上，我们常常使用ω来表示角速度，那么，时间内转过的角度就是" class="headerlink" title="假如我们把时间引入进来，那么，三角函数就开始变得生动了，最直观的比喻就是现在挂在大厅墙上的时钟，秒针每分钟都会转动360°，现在，让我们假设秒针指向“12”，也就是垂直于水平面时，它的角度是0°，那么经过15秒后，秒针指向“3”，也就是转动了90°，30秒后经过了半分钟，指向“6”也就是转动了180°，那么，秒针每秒转动的角度是  ,我们用t来表示时间，那么时间与秒针转动角度我们可以用θ=6t来表示，在物理上，我们常常使用ω来表示角速度，那么，时间内转过的角度就是"></a>假如我们把时间引入进来，那么，三角函数就开始变得生动了，最直观的比喻就是现在挂在大厅墙上的时钟，秒针每分钟都会转动360°，现在，让我们假设秒针指向“12”，也就是垂直于水平面时，它的角度是0°，那么经过15秒后，秒针指向“3”，也就是转动了90°，30秒后经过了半分钟，指向“6”也就是转动了180°，那么，秒针每秒转动的角度是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B360%7D%7B60s%7D+%3D6%2Fs" alt="[公式]"> ,我们用t来表示时间，那么时间与秒针转动角度我们可以用θ=6t来表示，在物理上，我们常常使用ω来表示角速度，那么，时间内转过的角度就是</h2><p>θ=ωt</p>
+<p>现在，让我们画一个二维坐标系，并设横坐标为时间，角速度ω=2π，那么， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28%5Comega+t%29" alt="[公式]"> 的坐标如下图（b.1）所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-301025ec6190219f5ebe0b4676793c82_720w.jpg" alt="img">（图b.1）</p>
+<p>可以看到，在一秒0-1秒， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28%5Comega+t%29" alt="[公式]"> 已经是一个完整的周期了，因为它在1秒内拥有一个完整的周期，我们就称他的频率为1hz，显然的当ω=4π时1秒内有两个完整的周期，因此，它的频率就为2hz（图b.2）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-3b0e954d4680338bc4bffc29cefed412_720w.jpg" alt="img">（图b.2）</p>
+<p>可以看到，频率实际上和角速度是相关联的，我们使用字母f来表示频率，函数公式如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f+%3D+%5Cfrac%7B%5Comega%7D%7B2%5Cpi%7D" alt="[公式]"></p>
+<p>角速度和频率是一个正比关系，角速度越大，频率也就越大</p>
+<p>对正余弦函数而言，我们也常常写作 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%7B%5Cleft%28+2%5Cpi+fx+%5Cright%29%2C%5Ccos%7B%282%5Ctext%7B%CF%80fx%7D%29%7D%7D" alt="[公式]"></p>
+<h2 id="三角函数的一些常用公式"><a href="#三角函数的一些常用公式" class="headerlink" title="三角函数的一些常用公式"></a>三角函数的一些常用公式</h2><p>我们可以非常直观的从几何图像中推导出三角函数的一些性质，画一个坐标系，同时以原点为圆心绘制一个半径为1的圆（图c.1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-9c47c6ba1a45e6ab7dd3cb293f6ce2d5_720w.jpg" alt="img">（图c.1）</p>
+<p>那么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Ctheta+%3D+%5Cfrac%7By%7D%7Br%7D+%3D+y%EF%BC%8C%5Ccos%7B%5Ctheta+%3D+%5Cfrac%7Bx%7D%7Br%7D+%3D+x%5C+%28r+%3D+1%29%7D" alt="[公式]"></p>
+<p>可知</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Ccos%7B%28+-+%5Ctheta%7D%29+%3D+%5Ccos%5Ctheta%5C++" alt="[公式]"></p>
+<p>由周期性可知</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Ccos%7B%28%5Ctheta+%2B+2k%5Cpi%7D%29+%3D+%5Ccos%5Ctheta%5C+%28k%29+" alt="[公式]"></p>
+<p>同时，三角函数间是可以互相转换的，我们很容易得出这样的公式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Ccos%7B%28%5Ctheta+%2B+%5Cfrac%7B%5Cpi%7D%7B2%7D%7D%29+%3D+%5Csin%5Ctheta%5C+" alt="[公式]"></p>
+<p>因为正余弦函数存在这种互相转换的关系，因此之后我们统称它们为正弦函数</p>
+<p>我们还可以进一步证明二角的更多公式（证明过程略），这些公式我们都可以直接拿来使用</p>
+<p>二角和差：</p>
+<p>和差化积</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+sin%5Calpha+%2B+sin%5Cbeta+%3D+2sin%5Cfrac%7B%5Calpha+%2B+%5Cbeta%7D%7B2%7D%5Ccos%5Cfrac%7B%5Calpha+-+%5Cbeta%7D%7B2%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%5Calpha+-+sin%5Cbeta+%3D+2cos%5Cfrac%7B%5Calpha+%2B+%5Cbeta%7D%7B2%7D%5Csin%5Cfrac%7B%5Calpha+-+%5Cbeta%7D%7B2%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos%5Calpha+%2B+cos%5Cbeta+%3D+2cos%5Cfrac%7B%5Calpha+%2B+%5Cbeta%7D%7B2%7D%5Ccos%5Cfrac%7B%5Calpha+-+%5Cbeta%7D%7B2%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos%5Calpha+-+cos%5Cbeta+%3D+-+2sin%5Cfrac%7B%5Calpha+%2B+%5Cbeta%7D%7B2%7D%5Csin%5Cfrac%7B%5Calpha+-+%5Cbeta%7D%7B2%7D" alt="[公式]"></p>
+<p>通过联立二角和差公式，我们还可以得到积化和差公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+cos%5Calpha+sin%5Cbeta+%3D+%5Cfrac%7B1%7D%7B2%7D%5Clbrack%5Csin%5Cleft%28+%5Calpha+%2B+%5Cbeta+%5Cright%29+-+%5Csin%5Cleft%28+%5Calpha+-+%5Cbeta+%5Cright%29%5Crbrack+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos%5Calpha+cos%5Cbeta+%3D+%5Cfrac%7B1%7D%7B2%7D%5Clbrack%5Ccos%5Cleft%28+%5Calpha+%2B+%5Cbeta+%5Cright%29+%2B+%5Ccos%5Cleft%28+%5Calpha+-+%5Cbeta+%5Cright%29%5Crbrack" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%5Calpha+sin%5Cbeta+%3D+-+%5Cfrac%7B1%7D%7B2%7D%5Clbrack%5Ccos%5Cleft%28+%5Calpha+%2B+%5Cbeta+%5Cright%29+-+%5Ccos%5Cleft%28+%5Calpha+-+%5Cbeta+%5Cright%29%5Crbrack+" alt="[公式]"></p>
+<p>和二角和差推导出的二倍角公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+sin2%5Calpha+%3D+2sin%5Calpha+cos%5Calpha+" alt="[公式]"></p>
+<h2 id="三角函数的正交性"><a href="#三角函数的正交性" class="headerlink" title="三角函数的正交性"></a>三角函数的正交性</h2><p>在讨论正交性之前，让我们用最简单的了解下微积分，我们取一个最简单的一元函数做比方</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+x+" alt="[公式]"></p>
+<p>现在，让我们画一个坐标轴，那么，这个函数的图像是这样的(d.1)：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-f3bcd381a8f9e1cd1a5474e6d1cfb3ea_720w.jpg" alt="img">)(d.1)</p>
+<p>现在，做一条经过（2,0）并垂直于x轴的直线，交 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+x" alt="[公式]"> 于点A，（2,0）为B，原点为C如图（d.2）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-29fd6a70c6ff2e573064f7a8ae041d79_720w.jpg" alt="img">图d.2</p>
+<p>那么，我们很容易求出三角形ABC的面积</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=S+%3D+BC%C2%B7AB%5Cfrac%7B1%7D%7B2%7D+%3D+2" alt="[公式]"></p>
+<p>实际上这个求面积的过程，就是微积分于该函数上的几何意义，这个求面积的过程，我们用微积分来表示，就是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=S+%3D+%5Cint_%7B0%7D%5E%7B2%7D%7Bf%28x%29dx%7D" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+S+%3D+%5Cint_%7B2%7D%5E%7B4%7D%7Bf%28x%29dx%7D+" alt="[公式]"></p>
+<p>这个积分方程实际上是求四边形ABCD的面积（d.3）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-b22b77ab0e71852098ab2a959a773803_720w.jpg" alt="img">图d.3</p>
+<p>在二维平面上我们很容易将微积分理解为函数在一定范围内和x轴围成的面积，在但实际上面积和微积分稍有不同，因为面积肯定是一个非负数，但积分却可以是负数，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=S+%3D+%5Cint_%7B-+2%7D%5E%7B0%7D%7Bf%28x%29dx%7D" alt="[公式]"></p>
+<p>他在坐标系中是三角形HCI的面积，但是它的x轴下方，我们可以理解为三角形的高度是一个“负数”，因此，这个区域的面积也是一个“负的面积”，所以，这段的积分为-2（d.3）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-1c991fdb8a949d58a83f15829acfd51e_720w.jpg" alt="img">图d.3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=S+%3D+%5Cint_%7B-+2%7D%5E%7B2%7D%7Bf%5Cleft%28+x+%5Cright%29%5Ctext%7Bdx%7D%7D+%3D+%5Cint_%7B-+2%7D%5E%7B0%7D%7Bf%5Cleft%28+x+%5Cright%29%5Ctext%7Bdx%7D%7D+%2B+%5Cint_%7B0%7D%5E%7B2%7D%7Bf%5Cleft%28+x+%5Cright%29%5Ctext%7Bdx%7D%7D+%3D+-+2+%2B+2+%3D+0+" alt="[公式]"></p>
+<p>实际上连续的中心对称函数图形h(x)，在 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+a%7D%5E%7Ba%7D%7Bh%5Cleft%28+x+%5Cright%29%5Ctext%7Bdx%7D%7D" alt="[公式]"> 的积分都是0</p>
+<p>显然的，正弦函数图像满足这个性质（d.4），不仅如此，我们可以非常直观的看出来，正余弦函数在函数的一个周期内的积分都是0（d.4 d.5）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-f97d0952120dbb7b16ea95cb5822bac3_720w.jpg" alt="img">图d.4</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-f4f869d992054b8359c3e144270dee83_720w.jpg" alt="img">图d.5</p>
+<p>现在，我们假设有两个自然数m，n且 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=m+%5Cneq+n" alt="[公式]"> ，并假设两个函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Ccos%5Cleft%28+%5Ctext%7Bmx%7D+%5Cright%29%2C%5Ccos%5Cleft%28+%5Ctext%7Bnx%7D+%5Cright%29%2C%5Csin%5Cleft%28+%5Ctext%7Bmx%7D+%5Cright%29%2Csin%28nx%29" alt="[公式]"></p>
+<p>然后我们将这两个正余弦函数任意进行组合，并对他们在-π到π进行积分</p>
+<p>通过上述的常用公式，我们可以推导出下面的三个式子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%28+%5Ctext%7Bmx%7D+%29%5Ccos%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack+%2B+%5Ccos%5Clbrack+%28+m+%2B+nx+%29+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%3D+0+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%28+%5Ctext%7Bmx%7D+%29%5Ccos%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack+%2B+%5Ccos%5Clbrack+%28+m+%2B+nx+%29+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%3D+0+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Csin%28+%5Ctext%7Bmx%7D+%29%5Csin%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack+-+%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D%3D%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+-+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%3D+0" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Csin%28+%5Ctext%7Bmx%7D+%29%5Ccos%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Csin%5Clbrack+%28+m+-+n+%29x+%5Crbrack+%2B+%5Csin%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Csin%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%5Csin%5Clbrack+%28+m+%2B+n+%29+%5Crbrack%5Ctext%7Bdx%7D%7D+" alt="[公式]"></p>
+<p>可以看到，m不等于n时，积分结果都是0</p>
+<h2 id="从正交性得到的启发"><a href="#从正交性得到的启发" class="headerlink" title="从正交性得到的启发"></a>从正交性得到的启发</h2><p>还记得之前我们使用的将时间作为变量的三角函数么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Cleft%28+%5Comega+t+%2B+%5Cfrac%7B1%7D%7B4%7DT+%5Cright%29+%3D+%5Csin%7B%5Cleft%28+%5Comega%28t+%2B+%5Cfrac%7B1%7D%7B4%7D%5Cpi%29+%5Cright%29+%3D+%5Ccos%5Cleft%28+%5Comega+t+%5Cright%29%7D+" alt="[公式]"></p>
+<p>也就是正弦波了，我们用更加通用的公式来表示一个正弦波</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+%5Coperatorname%7BAsin%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29" alt="[公式]"></p>
+<p>或者，余弦波也同样是这个道理，毕竟它与正弦波的不同仅仅只是“移动了一下”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+%5Coperatorname%7BAcos%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29" alt="[公式]"></p>
+<p>其中，t表示时间，ω表示角速度，如果我们将ω除以一个2π，那么结果就是频率也就是f， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega+t+%2B+%5Cvarphi" alt="[公式]"> 我们称为相位， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cvarphi" alt="[公式]"> 表示初相位，A表示振幅，当然，振幅和相位并不影响其正交性，从上章节的正交证明推导出的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=A%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Ccos%7B%28+m+-+n+%29x+%2B+%5Cbeta%7D+%7D%5Ctext%7Bdx%7D%7D%3D0+%EF%BC%88m+%5Cneq+n%EF%BC%89" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=A%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7B%7B+%5Csin%7B%28+m+-+n+%29x+%2B+%5Cbeta%7D+%7D%5Ctext%7Bdx%7D%7D%3D0+%EF%BC%88m+%5Cneq+n%EF%BC%89" alt="[公式]"></p>
+<p>我们很容易证明这点。</p>
+<p>现在我们可以想象一个正弦波在二维坐标上的样子，或者是我们在科幻电影或科研实验室中，看到仪器仪表上那一段段的波形。或者更加直观的，我们将一块石投进水池里，荡起的波浪也像极了正弦波。</p>
+<p>当然，在自然界一般不会出现标准的正弦波，各种波的叠加，你可以想象在一个房间里一群朋友聊天，或者是在KTV中歌声和谈话声混杂的场景，它就是声波的各种叠加</p>
+<p>尽管聊天中大家都在说话，但是我们仍然不会把朋友们说的话混淆起来，因为不同的人发出的声音频率也不一样，这也就是我们常说的未见其人先闻其声，我们天生具备有分别不同频率声波的能力，所以尽管环境嘈杂，我们仍然能够取得我们想要的信息。</p>
+<p>但是现在我们如何使用数学的手段，查看波形函数f(x)中是否有我们想要频率的波形呢。</p>
+<p>显而易见的，答案当然就是本章节的标题，应用波的相关性，例如我们使用一个正弦波 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=nsin%282%5Cpi+t%29" alt="[公式]"> 去乘以一个由多个正余弦波叠加而成的函数f(t)，然后对它们进行积分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cpi%7D%5E%7B%5Cpi%7D%7Bsin%282%5Cpi+t%29f%28t%29dt%7D+" alt="[公式]"></p>
+<p>从相关性可以知道，当角速度（上一章节的m，n）不同时，也就是频率不同时，积分结果是0，只有相同时，积分结果才不为0，因此，如果f(t)中包含1HZ的正弦波，那么积分的结果就不为0，否者，结果就是0</p>
+<p>那么，一个检波手段也就诞生了。</p>
+<h2 id="欧拉公式复变函数"><a href="#欧拉公式复变函数" class="headerlink" title="欧拉公式复变函数"></a>欧拉公式复变函数</h2><p>正弦函数和复数表面上并没有什么关联，但正所谓千里姻缘一线牵，在我们考虑着那根看不见的红线另一端系的是谁的时候，欧拉早在几个世纪前就将正弦函数与复数牵了一条红线，从而撮合了数学上这一段流传千古的因缘，不过如果再在红线上扯下去，这篇文章就要变爱情小说了，但是我们仍然需要回到这个渣作的现实三次元，现在让我们来介绍一下大名鼎鼎的一个复变函数，它的知名程度基本上在是数学上的安徒生童话，人人皆知</p>
+<p>它的公式如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D+%3D+cos%5Ctheta+%2B+isin%5Ctheta" alt="[公式]"></p>
+<p>其中，i表示复数的虚部，它是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csqrt%7B-+1%7D" alt="[公式]"> ，也就是说 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=i%5E%7B2%7D+%3D+-+1" alt="[公式]"> ，当然我们并不能深究他在现实生活中的意义，但它在数学多个方面，起着举足轻重的意义。</p>
+<p>那么，复数如何理解呢</p>
+<p>我们来看看复数的标准形式</p>
+<p>a + bi</p>
+<p>其中，a，b为任意实数，a在复数中表示实部，b在复数中表示虚部</p>
+<p>假设我们现在画一条二维坐标系，x轴为实部，y表示虚部，那么，1+2i实际上表示的是坐标上的（1,2）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-65e2ecf62e56793f6192813ffa909750_720w.jpg" alt="img">图d.6</p>
+<p>那么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D+%3D+cos%5Ctheta+%2B+isin%5Ctheta+" alt="[公式]"></p>
+<p>在坐标系上，实际上是一个半径为1的圆（d.7）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-34a2dd6dccb4008c1915c78bc8a424ba_720w.jpg" alt="img">图d.7</p>
+<h2 id="复数在信号的表示"><a href="#复数在信号的表示" class="headerlink" title="复数在信号的表示"></a>复数在信号的表示</h2><p>现在让我们来考虑下面这个复数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csqrt%7B3%7D+%2B+i+" alt="[公式]"></p>
+<p>它的实部为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csqrt%7B3%7D+" alt="[公式]"> ，如果我们希望用 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D" alt="[公式]"> 的形式来表示它，那么，它就变成了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7B2e%7D%5E%7Bi%5Cfrac%7B%5Cpi%7D%7B6%7D%7D+%3D+2+cos%5Cfrac%7B%5Cpi%7D%7B6%7D+%2B+2+isin%5Cfrac%7B%5Cpi%7D%7B6%7D" alt="[公式]"></p>
+<p>画在坐标系中，如图d.8</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-f814f74026a7b23666797b0e94a2086b_720w.jpg" alt="img">图d.8</p>
+<p>按照极坐标的角度而言，即一个长度为2的变绕X轴逆时针旋转 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B%5Cpi%7D%7B6%7D" alt="[公式]"></p>
+<p>现在让我们更进一步放大我们的脑洞，以原点为圆心，2为半径画一个圆（图d.9）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-1cfa952a843db1eba29c43693d687d7c_720w.jpg" alt="img">图d.9</p>
+<p>那么,假如我们将</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Ctext%7Bi%CF%89t%7D%7D+%3D+cos%5Comega+t+%2B+isin%5Comega+t+" alt="[公式]"></p>
+<p>看作是与原点距离为1，绕x轴逆 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega" alt="[公式]"> 时针旋转的点，将 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7B2e%7D%5E%7Bi%5Cfrac%7B%5Cpi%7D%7B6%7D%7D" alt="[公式]"> 与之相乘</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7B%7B2e%7D%5E%7Bi%5Cfrac%7B%5Cpi%7D%7B6%7D%7De%7D%5E%7B%5Ctext%7Bi%CF%89t%7D%7D%3D%7B2e%7D%5E%7Bi%28%5Comega+t+%2B+%5Cfrac%7B%5Cpi%7D%7B6%7D%29%7D+%3D+%5C+2%28%5Ccos%28+%5Comega+t+%2B+%5Cfrac%7B%5Cpi%7D%7B6%7D+%29+%2B+isin%28+%5Comega+t+%2B+%5Cfrac%7B%5Cpi%7D%7B6%7D+%29%29" alt="[公式]"></p>
+<p>就变成了，初始位置为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%28%5Csqrt%7B3%7D%2C1%29" alt="[公式]"> 以角速度以原点为圆心逆时针旋转的点</p>
+<p>那么，假如我们将复数用在信号中，就从复数坐标系上的点拓展到了在线信号的幅度与初相了。</p>
+<p>还记得之前我们写的通用的正弦/余弦函数么，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+%5Coperatorname%7BAcos%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29+" alt="[公式]"></p>
+<p>这就是上面的通用公式，因为这个公式太重要了（或者说避免你翻回去找这个公式），我将它再写了一遍</p>
+<p>可以看到，对于一个正选函数，我们仅需要知道它的幅度，角频率，初相，就可以确定这个正弦函数是什么样子的了</p>
+<p>但正弦函数比善变的女人还有能耐，通过一些数学变形，你还会发现它有时比哄妹纸有意思多了，通过三角函数的公式，我们可以得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Coperatorname%7BAcos%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29+%3DA%28cos%5Ctext%7B%CF%86cos%7D%5Comega+t+-+sin%5Cvarphi+sin%5Comega+t%29" alt="[公式]"></p>
+<p>设 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a%3DAcos%5Cvarphi%EF%BC%8Cb%3D+Asin%5Cvarphi" alt="[公式]"></p>
+<p>那么就有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Coperatorname%7BAcos%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29+%3Da%5Ccos%5Comega+t+-+bsin%5Comega+t" alt="[公式]"></p>
+<p>那么，这个函数就变成了正余弦函数的组合，同时我们也得出了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+A+%3D+%5Csqrt%7Ba%5E%7B2%7D+%2B+b%5E%7B2%7D%7D" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cvarphi+%3D+arctan%5Cfrac%7B-+b%7D%7Ba%7D++" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7Bi%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29%7D+%3D+cos%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29+%2B+isin%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29" alt="[公式]"></p>
+<p>那么就有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Coperatorname%7BAcos%7D%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29+%3D+A+%5Cfrac%7B1%7D%7B2%7D%28e%5E%7Bi%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29%7D+%2B+e%5E%7B-+i%5Cleft%28+%5Comega+t+%2B+%5Cvarphi+%5Cright%29%7D%29" alt="[公式]"></p>
+<p>= <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B2%7DA%28e%5E%7B%5Cvarphi%7De%5E%7Bi%5Ctext%7B%CF%89t%7D%7D+%2B+e%5E%7B-+%5Cvarphi%7De%5E%7B-+i%5Ctext%7B%CF%89t%7D%7D%29" alt="[公式]"></p>
+<p>= <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B2%7DAe%5E%7B%5Cvarphi%7De%5E%7Bi%5Ctext%7B%CF%89t%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Ctext%7BAe%7D%5E%7B-+%5Cvarphi%7De%5E%7B-+i%5Ctext%7B%CF%89t%7D%7D" alt="[公式]"></p>
+<h2 id="傅里叶的故事"><a href="#傅里叶的故事" class="headerlink" title="傅里叶的故事"></a>傅里叶的故事</h2><p>这里我们抛开那些繁琐的数学公式，然后把时间拉回到17世纪，当时有一位法国的男爵名叫巴普蒂斯·约瑟夫·傅里叶（Baron Jean Baptiste Joseph Fourier）当然，并不是因为它当了一官半职我们才介绍它，但他的成就，却从17世纪一直影响到我们今天，毫不夸张的说他奠定了信号系统的基础(或者说给出了指导方向？)。</p>
+<p>具体时间还是要回到18世纪，伯努利（D.Bernoulli）就曾经提出：一个弦的实际运动都可以用标准张模的线性组合来表示，但是当时另一个数学大神拉格朗日是不兹磁这个说法的，拉格朗日认为，不可能用三角级数来表示一个具有间断点的函数，就在这个环境下，傅里叶仍然坚信：“任何”周期信号都能够成谐波关系的正弦级数来表示，他还专门写了一篇论文，但迫于拉格朗日当时在学术界的威望，傅里叶理论的论文一直没能被发表，直到傅里叶的晚年，他才得到他应有的承认。</p>
+<p>当然，以我们现在的角度来说，傅里叶当时的理论是有缺陷的，在后人不懈努力下，傅里叶变换才趋于完善，实际上傅里叶变换并不是因为傅里叶对这个理论在数学上做了多大的贡献，但傅里叶当时对问题的前瞻性与指导性，却奠定了这个数字信号举足轻重的公式基础。</p>
+<h2 id="检波与傅里叶变换"><a href="#检波与傅里叶变换" class="headerlink" title="检波与傅里叶变换"></a>检波与傅里叶变换</h2><p>现在我们讨论的就是傅里叶大神“任何连续周期信号都可以由一组适当的正弦曲线组合而成”这一命题，在信号系统或者是工学，傅里叶变换绝对是入门的加减乘除，实际上傅里叶变换并不是一个公式，而是多个分别应对不同类型信号的多个公式，但万变不离其宗，不管变体如何变换，其核心的思想是不会改变的。</p>
+<p>那么傅里叶变换的意义是什么呢，回想一下我们之前说的正弦函数的相关性，通过这个相关性，我们可以检测某个波里是否包含某个频率的正弦波，进一步的，假设我们用无限多个不同频率的正弦波与它正交组合，我们就能知道，这个波是由哪些频率的正弦波组合而成的了，我们管波在时间轴上的表达，叫做时域，图b.1其实就是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%282%5Cpi+t%29" alt="[公式]"> 的时域图，通过傅里叶变换，我们能够将 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%282%5Cpi+t%29" alt="[公式]"> 是由哪些频率组成的图像表示出来（当然只有一个1HZ频率），也就是横坐标由时间变成了频率，也就是我们说的频域了。</p>
+<p>简单来说，傅里叶变换就是将时域信号转换为频域信号的一个变换过程</p>
+<p>这里，我们先来看看连续傅里叶变换，因为傅里叶英文的开头是F，所以我们使用大写的F来表示傅里叶变换，f(t)用来表示某连续非周期性的时域信号函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%28t%29e%5E%7B-+iwt%7D%5Ctext%7Bdt%7D%7D" alt="[公式]"></p>
+<p>看看我们的欧拉公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D+%3D+cos%5Ctheta+%2B+isin%5Ctheta+" alt="[公式]"></p>
+<p>然后把欧拉公式代入傅里叶变换</p>
+<p>角速度乘以时间，不就是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctheta" alt="[公式]"> 了么，我们将这个变换函数写成这种形式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Clbrack%5Ccos%5Cleft%28+%5Ctext%7Bwt%7D+%5Cright%29+-+isin%28wt%29%5Crbrack%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Ccos%5Cleft%28+2%5Cpi+ft+%5Cright%29%5Ctext%7Bdt%7D%7D+-+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Coperatorname%7Bisin%7D%5Cleft%28+2%5Cpi+ft+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
+<p>结果变得显而易见了，简单来看，傅里叶变换与检波的手段多多少少的相似性</p>
+<h2 id="傅里叶级数的三角函数表达"><a href="#傅里叶级数的三角函数表达" class="headerlink" title="傅里叶级数的三角函数表达"></a>傅里叶级数的三角函数表达</h2><p>但仅从上面的检波手法来推断傅里叶变换，是不严谨的，</p>
+<p>设一个函数由一个直流分量（简单来说就是一个常数）和多个正弦函数组成，那么它可以写成这种形式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7Bc_%7Bn%7D%5Ccos%7D%28n%5Comega+t+%2B+%5Cvarphi%29+" alt="[公式]"></p>
+<p>其中 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csum_%7B%7D%5E%7B%7Dn" alt="[公式]"> 表示一个累加符号， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7Dn" alt="[公式]"> 相当于0+1+2+3…..+N-1。因为定积分只能用在线性可导的函数中，对于离散的信号，我们只能用累加。如果你学过C或java，C#之类的语言，那么它很像这段代码</p>
+<pre class="line-numbers language-text"><code class="language-text">int sum;
+for(n=0;n\<N-1;n++)
+{
+Sum+=n;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>并且由上式可知， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctext%7Bn%CF%89%7D" alt="[公式]"> 表示这个三角函数的角速度或者叫角频率，当n=1时，我们管 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega" alt="[公式]"> 叫基频，管 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=c_%7Bn%7D" alt="[公式]"> 叫傅里叶级数（余弦信号形式）</p>
+<p>利用三角函数的变换公式，上式可变形为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+c_%7Bn%7Dcos%5Cvarphi+cos%28n%5Comega+t%29+-+c_%7Bn%7Dsin%5Cvarphi+sin%28n%5Comega+t%29%5Crbrack%7D+" alt="[公式]"></p>
+<p>设</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bn%7D+%3D+c_%7Bn%7D%5Ctext%7Bcos%CF%86%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+b_%7Bn%7D+%3D+-+c_%7Bn%7D%5Ctext%7Bsin%CF%86%7D+" alt="[公式]"></p>
+<p>那么，上式变为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+a_%7Bn%7D%5Ccos%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29+%2B+b_%7Bn%7D%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Crbrack%7D+" alt="[公式]"></p>
+<p>现在，让我们正式的引入正交性的性质，还记得检波手段么，这里，我们假设对f(x)用<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28k%5Ctext%7B%CF%89t%7D%29" alt="[公式]">进行检波，那么就有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B%7D%5E%7B%7D%7Bf%5Cleft%28+x+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bk%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
+<p>假设f(x)中含有 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctext%7Bn%CF%89%7D" alt="[公式]"> 角频率的正弦波系数为，那么根据三角函数的正交性，上式就有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=b_%7Bn%7D" alt="[公式]">)<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B%7D%5E%7B%7D%7Bf%5Cleft%28+x+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cint_%7B%7D%5E%7B%7D%7B%5Csin%7B%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Csin%5Cleft%28+k%5Ctext%7B%CF%89t%7D+%5Cright%29%7D%5Ctext%7Bdt%7D%7D" alt="[公式]"></p>
+<p>进一步计算，可得</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B%7D%5E%7B%7D%7Bf%5Cleft%28+x+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cfrac%7BT%7D%7B2%7D" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+b_%7Bn%7D+%3D+%5Cfrac%7B2%7D%7BT%7D%5Cint_%7B%7D%5E%7B%7D%7Bf%5Cleft%28+x+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
+<p>同样，<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bn%7D" alt="[公式]"> 也可以使用相同的方式进行推导</p>
+<p>因此，通过 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bn%7Db_%7Bn%7D" alt="[公式]"> 也就是其傅里叶级数，我们可以知道这个波的波幅与相位：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+c_%7Bn%7D+%3D+%5Csqrt%7B%7Ba_%7Bn%7D%7D%5E%7B2%7D+%2B+%7Bb_%7Bn%7D%7D%5E%7B2%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cvarphi+%3D+arctan%28+-+%5Cfrac%7Bb_%7Bn%7D%7D%7Ba_%7Bn%7D%7D%29" alt="[公式]"> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7Bi%5Cfrac%7B2%5Cpi+t%7D%7BT%7D%7D+" alt="[公式]"></p>
+<h2 id="周期连续时间傅里叶级数"><a href="#周期连续时间傅里叶级数" class="headerlink" title="周期连续时间傅里叶级数"></a>周期连续时间傅里叶级数</h2><p>现在，让我们来想象一个函数f(x)它是一个周期 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctheta+%3D+%5Comega+t+%3D+%5Cfrac%7B2%5Cpi%7D%7BT%7Dt" alt="[公式]"> 函数，那么根据傅里叶的理论，它能够表示成若干个（无穷个）一组“适当”的正弦曲线组合而成，在前面几个章节，我们通过欧拉公式，得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D+%3D+cos%5Ctheta+%2B+jsin%5Ctheta+" alt="[公式]"></p>
+<p>显然，它是一个周期性函数，当然i是一个复数，显然他是周期复指数信号，同时因为那么，这个公式也可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Ctext%7Bj%CF%89t%7D%7D+" alt="[公式]"></p>
+<p>或者是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7Bi%5Cfrac%7B2%5Cpi+t%7D%7BT%7D%7D+" alt="[公式]"></p>
+<p>显然的，这个复指数信号的频率是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega" alt="[公式]"> ，现在我们假设有另一组“适当”的正弦函数，它们的频率刚好是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Ctext%7Bi%CF%89t%7D%7D" alt="[公式]"> 的整数倍并且幅度也不同，那么，这组信号我们可以使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Ctext%7Bjn%CF%89t%7D%7D+" alt="[公式]"></p>
+<p>来表示（k为自然数）。那么从上面的根据欧拉公式，我们也很容易得出下面的推导</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Ccos%5Cleft%28+%5Ctext%7Bnwt%7D+%5Cright%29+%3D+%5Cfrac%7Be%5E%7B%5Ctext%7Bjnwt%7D%7D+%2B+e%5E%7B-+jnwt%7D%7D%7B2%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%24%5Csin%5Cleft%28+%5Ctext%7Bnwt%7D+%5Cright%29+%3D+%5Cfrac%7Be%5E%7B%5Ctext%7Bjnwt%7D%7D+-+e%5E%7B-+jnwt%7D%7D%7B2j%7D+" alt="[公式]"></p>
+<p>现在将这两个公式带入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+a_%7Bn%7D%5Ccos%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29+-+b_%7Bn%7D%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Crbrack%7D+" alt="[公式]"></p>
+<p>得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+a_%7Bn%7D%5Cfrac%7Be%5E%7B%5Ctext%7Bjnwt%7D%7D+%2B+e%5E%7B-+jnwt%7D%7D%7B2%7D+-+b_%7Bn%7D%5Cfrac%7Be%5E%7B%5Ctext%7Bjnwt%7D%7D+-+e%5E%7Bj+-+nwt%7D%7D%7B2j%7D%5Crbrack%7D+" alt="[公式]"></p>
+<p>化简后得</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7De%5E%7B%5Ctext%7Bjnwt%7D%7D+%2B+%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+%2B+jb_%7Bn%7D+%5Cright%29%7D%7B2%7De%5E%7B-+jnwt%7D%5Crbrack%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7De%5E%7B%5Ctext%7Bjnwt%7D%7D%7D+%2B+%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B-+1%7D%7B%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7De%5E%7B%5Ctext%7Bjnwt%7D%7D%5Crbrack%7D+" alt="[公式]"></p>
+<p>因此，上式最终变为了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7De%5E%7B%5Ctext%7Bjnwt%7D%7D%7D+" alt="[公式]"></p>
+<p>设 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D+%3D+%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7D" alt="[公式]"> 上式就写成了,n=k</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+%5Csum_%7Bk+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Ba_%7Bk%7De%7D%5E%7B%5Ctext%7Bjk%CF%89t%7D%7D+" alt="[公式]"></p>
+<p>显然，一个信号如果可以写成这种形式，那么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D" alt="[公式]"> 就是对应不同频率正弦波的系数（复数形式），我们称之为频谱系数，那么，如何通过f(x)求的 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D" alt="[公式]"> 呢</p>
+<p>首先，我们将这个等式的两边分别乘以</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-+jn%5Comega+t%7D+" alt="[公式]"></p>
+<p>并对两边同时在一个周期内积分，那么我们就得到公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cint_%7B0%7D%5E%7BT%7D%7Bf%28x%29e%5E%7B-+jn%5Comega+t%7D%7Ddt+%3D+%5Cint_%7B0%7D%5E%7BT%7D%7B%5Csum_%7B-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Ba_%7Bk%7De%5E%7Bj%28k+-+n%29%5Comega+t%7D%7D%7D%5Ctext%7Bdt%7D+" alt="[公式]"></p>
+<p>进一步变形为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cint_%7B0%7D%5E%7BT%7D%7Bf%28x%29e%5E%7B-+jn%5Comega+t%7D%7Ddt+%3D+%5Csum_%7B-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7Da_%7Bk%7D%5Cint_%7B0%7D%5E%7BT%7De%5E%7Bj%28k+-+n%29%5Comega+t%7D%5Ctext%7Bdt%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bn%7DT+" alt="[公式]"></p>
+<p>于是，得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cint_%7B0%7D%5E%7BT%7D%7Bf%28x%29e%5E%7B-+jn%5Comega+t%7D%7Ddt+%3D+a_%7Bn%7DT+" alt="[公式]"></p>
+<p>也就是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bn%7D%3D%5Cfrac%7B1%7D%7BT%7D%5Cint_%7B0%7D%5E%7BT%7D%7Bf%28x%29e%5E%7B-+jn%5Comega+t%7D%7D%5Ctext%7Bdt%7D" alt="[公式]"></p>
+<p>实际上$$a_{n}$$就是我们所说的傅里叶级数，或者说是频域系数。通过这个系数的值，我们可以知道这个频率的波对原始波的能量贡献值，在之前的《信号的复数表示》章节中，我们可以了解到这个系数确定了该频率波的幅度，初相，从而完成信号时域到频域的分解，并且我们还知道了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bk%7D+%3D+%5Cfrac%7B%5Cleft%28+a_%7Bn%7D+-+jb_%7Bn%7D+%5Cright%29%7D%7B2%7D+" alt="[公式]"></p>
+<p>也就是说，通过 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D" alt="[公式]"> 的模</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7B%7Ca%7D%7Bk%7D%7C+%3D+%5Cfrac%7B1%7D%7B2%7D%5Csqrt%7B%7Ba%7Bn%7D%7D%5E%7B2%7D+%2B+%7Bb_%7Bn%7D%7D%5E%7B2%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7Dc_%7Bn%7D+" alt="[公式]"></p>
+<p>我们知道对应角频率波的波幅（等于波幅的一半）</p>
+<p>通过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bk%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Csqrt%7B%7Ba_%7Bn%7D%7D%5E%7B2%7D+%2B+%7Bb_%7Bn%7D%7D%5E%7B2%7D%7De%5E%7B-+jarctan%5Cfrac%7Bb_%7Bn%7D%7D%7Ba_%7Bn%7D%7D%7D+" alt="[公式]"></p>
+<p>可以得出其相角。</p>
+<h2 id="周期离散时间傅里叶级数"><a href="#周期离散时间傅里叶级数" class="headerlink" title="周期离散时间傅里叶级数"></a>周期离散时间傅里叶级数</h2><p>在上一个章节中，讨论了周期连续时间信号的傅里叶级数求解方式，那么，连续信号可以求其级数，离散的是否也有这样一个公式呢</p>
+<p>但在介绍离散变换变换前，我们先来了解连续和离散是什么，。其实顾名思义。比如给你一段长度100米的绳子，当然，这个100米的绳子是连续的，如果你在50米的地方剪短这根绳子，那么它就是不连续的了，假设我们把这根绳子切成若干个段。直到每个段都变成一个“点”，我们可以直接用数字编号每一个点，那么他就变成离散的了。</p>
+<p>用图像来继续说明，如图e.1，这是一个sinx的函数图像，当然，它是周期无限长且连续的</p>
+<p>![img](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="705" height="398"></svg>)图e.1</p>
+<p>现在，我们每隔 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B%5Cpi%7D%7B2%7D" alt="[公式]"> 就取一个点，那么这些点在坐标系上就是周期离散的（e.2）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-1af599e64ce23fae861aa4c4143736c7_720w.jpg" alt="img">图e.2</p>
+<p>说到这里，我们现在要介绍的变换，就是处理这些点的变换方式</p>
+<p>首先，因为是等间距对周期信号采样，所以采样出的点也是周期性的，假设采样的点用数组x[n]来表示，也就是说假设周期为N，x[a]与x[a+Nk]是完全相等的值，也就是说，整个离散样本中取任意周期N内他们的累加和是一样的，同样的，x[n]仍然可以用“恰当”的正弦函数组合而成（或者说可以由基波频率为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B2%5Cpi%7D%7BN%7D" alt="[公式]"> 的一系列波形组合而成）基于这点，我们就可以将x[n]写成这种形式（k=&lt;N&gt;表示取任意连续N点即一个周期内点，不管如何取，结果都是一样的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7D%7Ba_%7Bk%7De%5E%7B%5Ctext%7Bik%CF%89n%7D%7D%7D+" alt="[公式]"></p>
+<p>那么， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D" alt="[公式]"> 就是我们要求的周期离散时间傅里叶级数了，它的推导与上一章节周期连续时间傅里叶级数的求解方式出奇的相似</p>
+<p>首先，因为周期为N，所以 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega+%3D+%5Cfrac%7B2%5Cpi%7D%7BN%7D" alt="[公式]"> ，那么，式子就变形为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7D%7Ba_%7Bk%7De%5E%7B%5Ctext%7Bik%7D%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D%7D+" alt="[公式]"></p>
+<p>我们取</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7De%5E%7B%5Ctext%7Bik%7D%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D+" alt="[公式]"></p>
+<p>可以知道，当K不等于N时的结果为0，仅当K等于N时的结果为N。同样的，我们再次将两边同时乘以 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D" alt="[公式]"> 得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D+%3D+%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7D%7Ba_%7Bk%7De%5E%7B%5Ctext%7Bik%CF%89n%7D%7De%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>然后再同时对两边进行N项上求和</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+%3D+%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7Da_%7Bk%7D%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7De%5E%7Bj%28k+-+r%29%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D+" alt="[公式]"></p>
+<p>显然的，仅当k=r或n为N的整数倍时，右式才不为0，那么，上式就变为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+%3D+Na_%7Br%7D+" alt="[公式]"></p>
+<p>那么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Br%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>频谱系数求得！。</p>
+<h2 id="非周期离散时间傅里叶变换"><a href="#非周期离散时间傅里叶变换" class="headerlink" title="非周期离散时间傅里叶变换"></a>非周期离散时间傅里叶变换</h2><p>如果严格来说，自然界大多是没有理想的周期信号的，那么，是否有办法处理非周期离散时间的信号么。</p>
+<p>我们来看看这样一个离散信号（图e.3），它只有一个脉冲取样</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-ff7ecf1f8a385e0c1810e67bc3e1437f_720w.jpg" alt="img">图e.3</p>
+<p>这个脉冲信号仅在-3，-2，-1上是有值的，其余的值都是0</p>
+<p>那么我们是否可以把它当成一个周期无穷大的周期信号呢。</p>
+<p>我们先来看看上一节中周期离散时间傅里叶级数的分析公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Br%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>假如把这个分析公式套用在上述的信号中，那么因为仅在三点有值（其它都是0）并且周期是无穷大那么我们就得到了公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Br%7D+%3D+%5Cfrac%7B1%7D%7B3%7D%5Csum_%7Bn+%3D+-+3%7D%5E%7B-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ir%28%5Cfrac%7B2%5Cpi%7D%7B3%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>当然，它和下面这个式子是等价的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Br%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+i%5Ctext%7Br%CF%89n%7D%7D%7D+" alt="[公式]"></p>
+<p>这样我们就将公式推广到了更加通用的公式类型</p>
+<p>现在定义函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89%7D%7D+%5Cright%29+%3D+%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+i%5Ctext%7B%CF%89n%7D%7D%7D+" alt="[公式]"></p>
+<p>那么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Br%7D+%3D+%5Cfrac%7B1%7D%7BN%7DX%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89r%7D%7D+%5Cright%29+" alt="[公式]"></p>
+<p>我们现在再将$$a_{r}$$代入原式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Br+%3D+%3C+N+%3E%7D%5E%7B%7D%7Ba_%7Br%7De%5E%7B%5Ctext%7Bir%CF%89n%7D%7D%7D+" alt="[公式]"></p>
+<p>中，得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Br+%3D+%3C+N+%3E%7D%5E%7B%7D%7B%5Cfrac%7B1%7D%7BN%7DX%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89r%7D%7D+%5Cright%29e%5E%7B%5Ctext%7Bir%CF%89n%7D%7D%7D+" alt="[公式]"></p>
+<p>因为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega+%3D+%5Cfrac%7B2%5Cpi%7D%7BN%7D" alt="[公式]"></p>
+<p>所以</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Csum_%7Br+%3D+%3C+N+%3E%7D%5E%7B%7D%7BX%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89r%7D%7D+%5Cright%29e%5E%7B%5Ctext%7Bir%CF%89n%7D%7D%7D%5Comega+" alt="[公式]"></p>
+<p>从式中看出，随着N趋近于无穷大， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega" alt="[公式]"> 趋近于无穷小，那么，上式就从累加变成了积分，且因为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89%7D%7D+%5Cright%29e%5E%7B%5Ctext%7Bi%CF%89n%7D%7D" alt="[公式]"> 的周期为2π，且其仅在周期内有值，于是，上式也随之变为了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint_%7B2%5Cpi%7D%5E%7B%7D%7BX%5Cleft%28+e%5E%7B%5Ctext%7Bi%CF%89%7D%7D+%5Cright%29e%5E%7B%5Ctext%7Bi%CF%89n%7D%7D%5Ctext%7Bd%CF%89%7D%7D+" alt="[公式]"></p>
+<h2 id="非周期离散有限长度傅里叶变换"><a href="#非周期离散有限长度傅里叶变换" class="headerlink" title="非周期离散有限长度傅里叶变换"></a>非周期离散有限长度傅里叶变换</h2><p>最后，我们将上述的变换公式进行进一步的推广，就是非周期离散有限长度傅里叶变换了，实际上它与周期离散傅里叶变换已经非常的接近了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7D%7Ba_%7Bk%7De%5E%7B%5Ctext%7Bik%CF%89n%7D%7D%7D" alt="[公式]"></p>
+<p>如果我们将有限长的信号推广到无限长的信号，那么我们先假设信号的样本点数为N个，那么，信号 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack" alt="[公式]"> 的n取值范围就可以定义在[0,N-1]</p>
+<p>我们假设将这个有限长的区间补到无限长，除了[0,N-1]区间，我们仅仅需要在其他区间再补上N个同样的离散信号就行了，这并不影响其结果，那么我们就可以将有限长非周期离散信号变为周期离散信号了，这样我们就可以直接套用周期离散时间傅里叶变换的分析公式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bk%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+%3C+N+%3E%7D%5E%7B%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ik%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>为了方便计算，我们周期取[0,N-1]，那么，公式就变成了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bk%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ik%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D%7D+" alt="[公式]"></p>
+<p>当然在实际应用中，我们常常设：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Bk%5D%3DNa_%7Bk%7D" alt="[公式]"></p>
+<p>那么就有了有限长非周期傅里叶变换的的分析公式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Clbrack+k%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+e%5E%7B-+ik%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D%7D+" alt="[公式]"></p>
+<p>又因为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Bk%5D%3DNa_%7Bk%7D" alt="[公式]"> 将 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bk%7D+%3D+%5Cfrac%7B1%7D%7BN%7DX%5Clbrack+k%5Crbrack" alt="[公式]"> 代入回周期离散时间傅里叶变换的综合公式中，得到：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bk+%3D+%3C+N+%3E%7D%5E%7B%7D%7BX%5Clbrack+k%5Crbrack+e%5E%7B%5Ctext%7Bik%7D%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D%7D" alt="[公式]"></p>
+<p>为了方便计算，我们仍然取[0,N-1]作为计算周期那么就得到了有限长离散时间傅里叶变换的综合公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bk+%3D+0%7D%5E%7BN+-+1%7D%7BX%5Clbrack+k%5Crbrack+e%5E%7B%5Ctext%7Bik%7D%5Cfrac%7B2%5Cpi%7D%7BN%7Dn%7D%7D+" alt="[公式]"></p>
+<h2 id="非周期离散时间傅里叶变换的应用"><a href="#非周期离散时间傅里叶变换的应用" class="headerlink" title="非周期离散时间傅里叶变换的应用"></a>非周期离散时间傅里叶变换的应用</h2><p>在上面几个章节中，我们从周期连续时间的傅里叶级数逐步的推广到了有限长离散时间傅里叶变换。虽然内容不少，但是真正实际在日常用的多的，是有限长非周期离散时间傅里叶变换，为何？当然我们幸运的不是在一个老牛拉破车的年代计算只能靠人脑算盘，现在的信号处理除非一些数学推导应用，大多数实际生活应用都是靠计算机来完成的，而这也决定了我们的公式必须与计算机的硬件相关，我们的计算机目前存储空间是有限的，而连续的信号（不管是频域还是时域），就相当于由无穷多个点组成，很遗憾，现在仍然没有存储容量无穷大的内存，就算有，也没有能够处理无穷大数据的CPU，因此，我们无法直接处理连续的信号，观察上面几个变换，也就只有时域和频域都是有限长度且离散的有限长离散时域傅里叶变换能够满足我们的需求了。</p>
+<p>下面为了说明方便，我们将有限长度且离散的有限长离散时域傅里叶变换的分析公式统一简称为离散傅里叶变换（Discrete Fourier Transform）或者其英文缩写DFT，将它的逆变换（Inverse Discrete Fourier Transform）也就是综合公式简称为IDFT。</p>
+<p>现在让我们来看看离散傅里叶变换对</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bk%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7De%5E%7B%5Cfrac%7B-+2%5Ctext%7B%CF%80i%7D%7D%7BN%7D%5Ctext%7Bkn%7D%7D%7D" alt="[公式]"></p>
+<p>其中， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f_%7Bs%7D" alt="[公式]"> 为采样率,N表示信号的采样点数，n的范围是0到N-1， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x_%7B0%7D" alt="[公式]"> 的第一个点， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x_%7B1%7D" alt="[公式]"> 的第二个点，以此类推，k的取值范围是0到N-1，由 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%3D+%5Cfrac%7B%5Comega%7D%7B2%5Cpi%7D" alt="[公式]"> 可知，其分辨率等于</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f_%7Bs%7D%28%5Cfrac%7Bk+%2B+1%7D%7BN%7D+-+%5Cfrac%7BK%7D%7BN%7D%29+%3D+%5Cfrac%7Bf_%7Bs%7D%7D%7BN%7D+" alt="[公式]"></p>
+<p>为了更加方便浅显地了解其中的计算，我们继续观察公式中的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Cfrac%7B-+2%5Ctext%7B%CF%80i%7D%7D%7BN%7D%5Ctext%7Bkn%7D%7D+" alt="[公式]"></p>
+<p>仍然是我们熟悉的味道，现在我们使用欧拉公式替换它于是离散傅里叶变换的公式变成了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bk%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D+%5Cright%29%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B0%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+0+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+0+%5Cright%29%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7Dx_%7Bn%7D+" alt="[公式]"></p>
+<p>可以看到，它实际上是所有样本点的累加和，那么它意味着什么呢，我想象一个波形函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=g%5Cleft%28+x+%5Cright%29+%3D+%5Coperatorname%7BAsin%7D%5Cleft%28+w_%7B1%7Dt+%5Cright%29+%2B+%5Coperatorname%7BBsin%7D%5Cleft%28+w_%7B2%7Dt+%5Cright%29+%2B+%5Coperatorname%7BCsin%7D%5Cleft%28+w_%7B3%7Dt+%5Cright%29+%2B+%5Cldots..+%2B+%5Cbeta" alt="[公式]"></p>
+<p>假设当中的正弦波最大频率为F并且频率都是自然数, 现在在纸上你可以随手画一个正弦波，你可以看看你至少需要采样几个点才能够还原出这个波出来，显然的，我们可以在波峰波谷分别取样一个点，这样我们就能靠这两个点将它还原了，这也就是说，我们至少需要2F的采样频率，才不至于让它失真，实际上，采样频率至少要被采样频率的2倍才不至于失真，这个采样定律我们管它叫香农采样定律，现在假设我们就使用2F的频率对g(x)进行等距采样，并采样了1秒，显然的，采样后的结果每个波都进行了周期整数倍的采样，因为正弦波在一个周期内的累加是0，所以累加的结果也会是0，因此，将所有样本点加起来的和，实际上就是$$\beta$$的N倍，我们将累加和除以N就能得到 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> ，实际上我们管 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> 叫做直流分量。</p>
+<p>当k=1时，也就是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B%5Cfrac%7B-+2%5Ctext%7B%CF%80i%7D%7D%7BN%7Dn%7D" alt="[公式]"> 或者写作 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ccos%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80n%7D%7D%7BN%7D+%5Cright%29-%5Coperatorname%7Bisin%7D%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80n%7D%7D%7BN%7D+%5Cright%29" alt="[公式]"></p>
+<p>它表示基频成分，因为我们从公式中可以看到，频率都是其整数倍，至于多少倍，就是由k值决定的。</p>
+<p>现在，让我们用一个实际的范例来验证离散傅里叶变换</p>
+<p>假设正弦函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=h%5Cleft%28+x+%5Cright%29+%3D+sin%282%5Cpi+t%29+" alt="[公式]"></p>
+<p>我们假设对这个函数进行采样，采样频率是4HZ，那么，实际上我们将在0.25s，0.5s，0.75s，1s处取得其样本点，那么，对应的值应该是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bn%7D+%3D%EF%BC%881%2C0%EF%BC%8C-1%2C0%EF%BC%89" alt="[公式]"></p>
+<p>现在对其进行离散傅里叶变换那么</p>
+<p>因为有四个样本点，所以，N的值是4，k的取值范围是0-N-1，也就是0到3了</p>
+<p>我们先来计算 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B0%7D" alt="[公式]"> 的值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B0%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+0+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+0+%5Cright%29%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7B3%7Dx_%7Bn%7D+%3D+0+" alt="[公式]"></p>
+<p>这点没错，因为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Cleft%28+2%5Cpi+t+%5Cright%29" alt="[公式]"> 没有直流分量，所以它理所当然是0</p>
+<p>继续是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B1%7D" alt="[公式]"> 的值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7B1%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80n%7D%7D%7B4%7D+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80n%7D%7D%7B4%7D+%5Cright%29%7D+%3D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos0+%2B+0+-+cos%5Cpi+%2B+0+-+i%5Cleft%28+%5Csin+0+%2B+0+-+sin%5Cpi+%2B+0+%5Cright%29+%3D+2%2B0i" alt="[公式]"></p>
+<p>可以看到，结果的实部是有值的，那么它对应的频率是多少6呢，以一个不大准确的运算来讲，首先让我们回到变换公式中的 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5Cleft%28+%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D+%5Cright%29" alt="[公式]"> ，这个函数的频率是多少呢，实际上，n就是我们在时域的t，那么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega+%3D+%5Cfrac%7B2%5Ctext%7B%CF%80k%7D%7D%7BN%7D" alt="[公式]"> ，基波频率 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f+%3D+%5Cfrac%7B2%5Ctext%7B%CF%80k%7D%7D%7B2%5Cpi+N%7D+%3D+%5Cfrac%7Bk%7D%7BN%7D" alt="[公式]"> ，因为k和采样频率是对应的，因此，基波频率f实际上就是采样频率除以采样点数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+sin%282%5Cpi+t%29+" alt="[公式]"></p>
+<p>也确实是1HZ，那么，结果中实部的2是怎么回事，2与这个波的振幅有什么关系。</p>
+<p>从运算的过程我们可以看到， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%282%5Cpi+t%29" alt="[公式]"> 进行了相关操作，实际就是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csin%5E%7B2%7D%282%5Cpi+t%29" alt="[公式]"> ，我们采样的点是波峰与波谷，然后将所有值累加，波峰是1，波谷是-1，于是平方后都变成了正数，累加后就是0+1+0+1=2了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B2%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+%5Cfrac%7B4%5Ctext%7B%CF%80n%7D%7D%7B4%7D+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+%5Cfrac%7B4%5Ctext%7B%CF%80kn%7D%7D%7B4%7D+%5Cright%29%7D+%3D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos0+%2B+0+-+cos2%5Cpi+%2B+0+-+i%5Cleft%28+%5Csin+0+%2B+0+-+sin2%5Cpi+%2B+0+%5Cright%29+%3D+0+%2B+0i+" alt="[公式]"></p>
+<p>这是2HZ的值，显然，它为0</p>
+<p>最后是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B3%7D" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B3%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+%5Cfrac%7B6%5Ctext%7B%CF%80n%7D%7D%7B4%7D+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7B3%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+%5Cfrac%7B6%5Ctext%7B%CF%80kn%7D%7D%7B4%7D+%5Cright%29%7D+%3D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+cos0+%2B+0+-+cos3%5Cpi+%2B+0+-+i%5Cleft%28+%5Csin+0+%2B+0+-+sin3%5Cpi+%2B+0+%5Cright%29+%3D+2+%2B+0i+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B3%7D" alt="[公式]"> 的值是2，但是我们知道，并不包含3HZ的波，实际上根据香农采样定律，4HZ的采样只能表达2HZ的波，因此这个点实际上是不准确的。但是，出现2的结果并不是偶然，我们接着往下看。</p>
+<h2 id="巧妙的对称性，共轭"><a href="#巧妙的对称性，共轭" class="headerlink" title="巧妙的对称性，共轭"></a>巧妙的对称性，共轭</h2><p>如果说对称是世界上共有的一种美的表达，那么，在几何平面上，无穷多的函数就拥有这种对称性，在对称美这一个方面，出色的数学家也许并不逊色于毕加索。</p>
+<p>当然深究的话就是后话了，在这里我们来简单看看几个拥有对称性的简单函数：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+x%5E%7B2%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-c424b514137ebebfc5397e88436167e0_720w.jpg" alt="img">图f.2</p>
+<p>这是一个非常简单的二元一次方程，可以从图f.2中看到，他是关于y轴对称的，这句话如果用数学的语言来将，非常简单且直观的，我们可以用下面的公式来表达这个“对称”的思想</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+-+x+%5Cright%29+%3D+f%28x%29" alt="[公式]"></p>
+<p>对于这类关于满足上述公式的函数，我们管它叫偶函数。</p>
+<p>现在再让我们看另外一个函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+%5Cfrac%7B1%7D%7Bx%7D+" alt="[公式]"></p>
+<p>它的函数图像如图f.3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-dd491c650f7dfbbadf348d24d7682733_720w.jpg" alt="img">图f.3</p>
+<p>可以看到，函数的图像是原点对称的，相对的，我们用如下公式表示这种“原点对称”关系</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+-+x+%5Cright%29+%3D+-+f%28x%29+" alt="[公式]"></p>
+<p>我们管它叫奇对称</p>
+<p>当然，对称未必一定要是y轴或者是原点，现在我们将</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+x%5E%7B2%7D+" alt="[公式]"></p>
+<p>的函数图像向右平移两个单位，变成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+x+%5Cright%29+%3D+%7B%28x+-+2%29%7D%5E%7B2%7D+" alt="[公式]"></p>
+<p>这样，它就关于x=2这条竖线对称了（f.4）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-f41ec99adec51fc9fa34c6490d3aaac0_720w.jpg" alt="img">图f.4</p>
+<p>这回我们在数学上用这个方程式来表示它关于x=2对称</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+f%5Cleft%28+2+%2B+x+%5Cright%29+%3D+f%282+-+x%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+f%284+-+x%29+" alt="[公式]"></p>
+<p>最后，我们用更加通用的方程式来表示某个函数f(x)关于x=N/2这条垂线对称</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x+%5Cright%29+%3D+f%28N+-+x%29+" alt="[公式]"></p>
+<p>现在，让我们来看看共轭是什么：</p>
+<p>你看过几米的《向左走，向右走》么，共轭是数学中一个文艺而浪漫的代名词，一句相当文艺诗来总结这个关系，就是：</p>
+<p>向左走，向右走，纵使背道而驰，相隔万里，但只要心连接在一起，也终会在大洋的彼岸，迎来相会的交点。</p>
+<p>文艺的诗歌艺术生看到后也许就开始感叹，多么美的诗句，世间万物芸芸众生，千里有缘一线牵，感谢我能遇见你，但对于地理大神也许不削一顾：这不就是说地球是圆的么，数学系的牛人毅然站出来，别做梦了少年，你们只会越离越远，就算到了世界末日，你们也碰不到一块儿。</p>
+<p>结果，文艺青年赢的了女神的芳心。理工大神则斩获了“屌丝”的称号</p>
+<p>实际上，共轭我们可以理解成相关联，也就是所谓的“缘分”，就是这一对数存在某种联系的意思，这里我们不深究更深层次的含义，我们主要说说共轭复数，首先，复数的形式是：</p>
+<p>a + bi</p>
+<p>它的共轭是</p>
+<p>a - bi</p>
+<p>非常简单的一句概括：实部相等，虚部取反，这两个复数互为共轭。</p>
+<p>那么，和我们之前说的对称性相结合的话什么是共轭对称性呢</p>
+<p>我们这样给出定义：</p>
+<p>当一个函数f其实部为偶函数，虚部为奇函数时，此函数就为共轭对称函数，即f(x)的共轭等于f(-x)，举一个非常简单的例子：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%28x%29%3Dx%5E%7B2%7D+%2B+xi" alt="[公式]"></p>
+<p>显然的，实部是个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5E%7B2%7D" alt="[公式]"> 偶函数，虚部xi是个奇函数，因此它是一个共轭对称函数，现在，我们来看看离散的范例，假设有以下复数序列</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=1%2Bi%2C2%2B2i%2C3%2B3i%2C3-3i%2C2-2i%2C1-i" alt="[公式]"></p>
+<p>我们分别提取实部与虚部那么分别是</p>
+<p>实部：1,2,3,3,2,1</p>
+<p>虚部：1,2,3，-3，-2，-1</p>
+<p>我们很清晰的看到了序列的对称性，实部偶对称，虚部奇对称。在这里，因为他是离散的序列，所以我们管它叫共轭对称序列。</p>
+<h2 id="离散傅里叶变换的共轭对称性"><a href="#离散傅里叶变换的共轭对称性" class="headerlink" title="离散傅里叶变换的共轭对称性"></a>离散傅里叶变换的共轭对称性</h2><p>对称之美存在世间万物中的每一个角落，作为信号与系统中最美的变换函数之一，她也存在这种对称性。</p>
+<p>我们回到离散傅里叶变换的公式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bk%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7De%5E%7B%5Cfrac%7B-+2%5Ctext%7B%CF%80i%7D%7D%7BN%7D%5Ctext%7Bkn%7D%7D%7D+" alt="[公式]"></p>
+<p>我们假设：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+W_%7BN%7D+%3D+e%5E%7B-+%5Cfrac%7B2%5Ctext%7B%CF%80i%7D%7D%7BN%7D%7D+" alt="[公式]"></p>
+<p>依据欧拉公式，可以得出</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+W_%7BN%7D+%3D+%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D+%5Cright%29+-+isin%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29+" alt="[公式]"></p>
+<p>那么，上式可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7Bk%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7DW_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%7D+" alt="[公式]"></p>
+<p>我们设k=N-k，并将它带入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D+" alt="[公式]"></p>
+<p>当中，那么就有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D%5E%7B%28N+-+k%29n%7D+%3D+e%5E%7B-+i%5Cfrac%7B2%5Cpi%7D%7BN%7D%28N+-+k%29n%7D+%3D+%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D%28N+-+k%29n+%5Cright%29+-+isin%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D%5Cleft%28+N+-+k+%5Cright%29n+%5Cright%29+%3D+%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D%5Ctext%7Bkn%7D+%5Cright%29+%2B+isin%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D%5Ctext%7Bkn%7D+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D+%3D+%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7D%5Ctext%7Bkn%7D+%5Cright%29+-+isin%28%5Cfrac%7B2%5Cpi%7D%7BN%7Dkn%29+" alt="[公式]"></p>
+<p>进行对比，发现，实部相同虚部相反，假如输入的信号为实信号时，刚好呈共轭对称性，将它代入离散傅里叶变换方程后</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B%28N+-+k%29%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7DW_%7BN%7D%5E%7B%28N+-+k%29n%7D%7D%3D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%7B%7B%28W%7D_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%29%7D%5E%7B%7D%7D+%3D+%7BX_%7Bk%7D%7D%5E%7B%7D" alt="[公式]"></p>
+<p>其中*的意思就是共轭。也就是说离散傅里叶变换具有这种共轭对称性（输入为实信号时）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7B0%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Ccos%5Cleft%28+0+%5Cright%29%7D+-+i%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx_%7Bn%7D%5Csin%5Cleft%28+0+%5Cright%29%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7Dx_%7Bn%7D+" alt="[公式]"></p>
+<p>也就是之前所说的直流分量了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%282%5Cpi+t%29+" alt="[公式]"></p>
+<p>的序列离散傅里叶变换的结果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7B0%7D+%3D+0+%2C++X_%7B1%7D+%3D+2+%2C++X_%7B2%7D+%3D+0+%2C++X_%7B3%7D+%3D+2+" alt="[公式]"></p>
+<p>根据共轭对称性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7B1%7D+%3D+%7BX_%7B3%7D%7D%5E%7B%2A%7D+" alt="[公式]"></p>
+<p>也就是2+0i=2-0i，这也解释了为什么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7B1%7D+%3D+X_%7B3%7D%24" alt="[公式]"></p>
+<h2 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h2><p>在上文的范例中，我们仅仅是计算了序列长度只有4的离散傅里叶变换，也可以看到非常麻烦，倘若序列再长点的话，工作量就会呈指数级增长，我们使用矩阵运算来表达离散傅里叶变换的运算过程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Clbrack%5Cbegin%7Bmatrix%7D+X_%7B0%7D+%5C+X_%7B1%7D+%5C+X_%7B2%7D+%5C+X_%7B3%7D+%5C+%5Cend%7Bmatrix%7D%5Crbrack+%3D+%5Cbegin%7Bbmatrix%7D+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B0%7D+%5C+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B1%7D+%26+W_%7B4%7D%5E%7B2%7D+%26+W_%7B4%7D%5E%7B3%7D+%5C+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B2%7D+%26+W_%7B4%7D%5E%7B4%7D+%26+W_%7B4%7D%5E%7B6%7D+%5C+W_%7B4%7D%5E%7B0%7D+%26+W_%7B4%7D%5E%7B3%7D+%26+W_%7B4%7D%5E%7B6%7D+%26+W_%7B4%7D%5E%7B9%7D+%5C+%5Cend%7Bbmatrix%7D+%5Clbrack%5Cbegin%7Bmatrix%7D+0+%5C+1+%5C+0+%5C++-+1+%5C+%5Cend%7Bmatrix%7D%5Crbrack+" alt="[公式]"></p>
+<p>可以看到需要16次乘法运算，按照时间复杂度来算的话，它的复杂度是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=O%28n%5E%7B2%7D%29" alt="[公式]"> ，当然，这还没算上sin cos与复数加减法带来的性能开销。所以，如果你想将一段2000长度的离散信号进行DFT运算，意味着你至少需要做400万次的运算，巨大的性能花销，导致了DFT在以前并不被看好，毕竟除非一些非常重要的信号，谁会花大量的人力物力去做这几百万次的运算呢，即使是在今天，几百万次的计算开销在有了计算机的帮助之后，也并不算一个小数目，倘若对于那些实时的频域分析，这些计算开销都是非常昂贵的，不过幸运的是，一个DFT的优化算法很快被开发出来，我们称之为快速傅里叶变换（Fast Fourier Transformation），当然，其本质上仍然是DFT只是算法上进行了优化使它更加适合于计算机处理，不过话说归说，不给出理论证明的广告都是瞎扯淡，那么，接下来就继续看看，DFT是如何被优化的：</p>
+<p>首先第一点，我们仍然先把离散傅里叶变换对贴上来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Clbrack+k%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack+W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bk+%3D+0%7D%5E%7BN+-+1%7D%7BX%5Clbrack+k%5Crbrack+W_%7BN%7D%5E%7B-+kn%7D%7D+" alt="[公式]"></p>
+<p>现在，我们假设对离散序列x[n]的离散傅里叶变换写作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+DFT%28x%5Clbrack+n%5Crbrack%29+" alt="[公式]"></p>
+<p>其中，k，n为范围为[0,N-1]的整数，现在，我们将离散序列x[n]分成两组，例如x[0],x[2],x[4],x[8]……x[2i]为偶数序列，记为x[2i],意思是偶（even）序列，而将x[1],x[3],x[5]….x[2i+1]记为x[2i+1],意思是奇(odd)序列</p>
+<p>那么，不管是偶序列还是奇序列，他们的个数都变为了 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7BN%7D%7B2%7D" alt="[公式]"> 个，所以，i的取值范围是[0， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7BN%7D%7B2%7D" alt="[公式]"> ],同时为了刚好平分，也要求N必须是一个偶数。</p>
+<p>那么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Clbrack+k%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack+W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%7D+" alt="[公式]"></p>
+<p>就可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7BN%7D%5E%7B2ki%7D%7D+%2B+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7BN%7D%5E%7Bk%282i+%2B+1%29%7D%7D+" alt="[公式]"></p>
+<p>进一步变形，得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7BN%7D%5E%7B2ki%7D%7D+%2B+W_%7BN%7D%5E%7Bk%7D%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7BN%7D%5E%7B2ki%7D%7D+" alt="[公式]"></p>
+<p>还记得 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D" alt="[公式]"> 么</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D+%3D+e%5E%7B-+%5Cfrac%7B2%5Ctext%7B%CF%80j%7D%7D%7BN%7D%7D+" alt="[公式]"></p>
+<p>那么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D%5E%7B2%7D" alt="[公式]"> 就是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D%5E%7B2%7D+%3D+e%5E%7B-+%5Cfrac%7B2%5Ctext%7B%CF%80j%7D%7D%7B%5Cfrac%7BN%7D%7B2%7D%7D%7D+%3D+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D+" alt="[公式]"></p>
+<p>于是，上式又可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D%5E%7B%5Ctext%7Bki%7D%7D%7D+%2B+W_%7BN%7D%5E%7Bk%7D%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7Bx%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7B%5Cfrac%7B2%7D%7BN%7D%7D%5E%7B%5Ctext%7Bki%7D%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7Bm+-+1%7D%7Be%5Cleft%5Clbrack+i+%5Cright%5Crbrack+W_%7Bm%7D%5E%7B%5Ctext%7Bki%7D%7D%7D+%2B+W_%7BN%7D%5E%7Bk%7D%5Csum_%7Bi+%3D+0%7D%5E%7Bm+-+1%7D%7Bo%5Cleft%5Clbrack+i+%5Cright%5Crbrack+W_%7Bm%7D%5E%7B%5Ctext%7Bki%7D%7D%7D+" alt="[公式]"></p>
+<p>后面两个式子是不是非常眼熟，没错，一个DFT变换变成了2个DFT变换，不同的是，后面序列的长度只有前面的一半，为了保证后面两个DFT变换成立，k的范围也应随之变为了 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5B0%EF%BC%8C%5Cfrac%7BN%7D%7B2%7D%5D" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+%2B+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+E%28k%29+%2B+W_%7BN%7D%5E%7Bk%7D+O%5Clbrack+k%5Crbrack+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%280+%5Cleq+i%2Ck+%5Cleq+%5Cfrac%7BN%7D%7B2%7D+-+1%29+" alt="[公式]"></p>
+<p>既然，前半部分可以变为两个DFT变换，那么后半部分呢，我们使用 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=k%2B%5Cfrac%7BN%7D%7B2%7D" alt="[公式]"> 来表示离散序列后半部分，那么，DFT就变为了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack+W_%7BN%7D%5E%7B%28k+%2B+%5Cfrac%7BN%7D%7B2%7D%29n%7D%7D+" alt="[公式]"></p>
+<p>进一步变形得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack+W_%7BN%7D%5E%7B%5Cfrac%7BN%7D%7B2%7Dn%7DW_%7BN%7D%5E%7Bkn%7D%7D+" alt="[公式]"></p>
+<p>根据欧拉公式，因为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=W_%7BN%7D%5E%7B%5Cfrac%7BN%7D%7B2%7Dn%7D+%3D+e%5E%7B-+%5Cfrac%7B2%5Ctext%7B%CF%80j%7D%7D%7BN%7D+%5Cfrac%7BN%7D%7B2%7D%7D+%3D+e%5E%7B%5Ctext%7Bj%CF%80%7D%7D%3D-1" alt="[公式]"></p>
+<p>所以</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack%7B%28+-+1%29%7D%5E%7Bn%7DW_%7BN%7D%5E%7Bkn%7D%7D+" alt="[公式]"></p>
+<p>可以看到，仅仅是多了一个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7B%28+-+1%29%7D%5E%7Bn%7D" alt="[公式]"> ，其它都与之前的推导相同，那么这也就是为什么我们要将离散序列分为奇数列与偶数列的原因了，偶数列不变，奇数列多个负号，于是，公式变为了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+-+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+E%5Cleft%28+k+%5Cright%29+-+W_%7BN%7D%5E%7Bk%7D+O%5Clbrack+k%5Crbrack+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%280+%5Cleq+i%2Ck+%5Cleq+%5Cfrac%7BN%7D%7B2%7D+-+1%29+" alt="[公式]"></p>
+<p>那么，公式总结为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+%2B+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+-+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%280+%5Cleq+i%2Ck+%5Cleq+%5Cfrac%7BN%7D%7B2%7D+-+1%29+" alt="[公式]"></p>
+<p>那么，计算的复杂度就从 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=O%28n%5E%7B2%7D%29" alt="[公式]"> 变为了 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=O%282%2A%7B%28%5Cfrac%7Bn%7D%7B2%7D%29%7D%5E%7B2%7D%29" alt="[公式]"> 只要n的值大于2，计算的时间复杂度无疑是降低了，我们进一步对多项式进行分解，直到最后仅剩下2个离散点的傅里叶变换，那么，它的复杂度将会降低至 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=O%28n%5Clog_%7B2%7D%5E%7Bn%7D%29" alt="[公式]"> ，同时，这也就要求我们的离散序列项的个数必须是2的整数次幂，因此，这种快速傅里叶变换又叫做基2快速傅里叶变换，当然同样的，也有其它基底的快速傅里叶变换，但这里就不做更多的讨论了。</p>
+<h2 id="快速傅里叶逆变换"><a href="#快速傅里叶逆变换" class="headerlink" title="快速傅里叶逆变换"></a>快速傅里叶逆变换</h2><p>快速傅里叶逆变换完全可按照正变换的过程进行推导，实际上就是换汤不换药，根据IDFT公式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bk+%3D+0%7D%5E%7BN+-+1%7D%7BX%5Clbrack+k%5Crbrack+W_%7BN%7D%5E%7B-+kn%7D%7D+" alt="[公式]"></p>
+<p>同样的，我们将离散序列X[n]分成两组，例如X[0],X[2],X[4],x[6]……x[2i]为偶数序列，记为x[2i],，而将X[1],X[3],X[5]….X[2i+1]记为X[2i+1],意思是奇(odd)序列</p>
+<p>那么，公式可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%28%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7BN%7D%5E%7B-+2ni%7D%7D+%2B+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7BN%7D%5E%7B-+n%5Cleft%28+2i+%2B+1+%5Cright%29%7D%7D%29+" alt="[公式]"></p>
+<p>进一步变形，得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+N+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7BN%7D%5E%7B-+2ni%7D%7D+%2B+W_%7BN%7D%5E%7B-+n%7D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7BN%7D%5E%7B-+2ni%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+N+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D%5E%7B-+ni%7D%7D+%2B+W_%7BN%7D%5E%7B-+n%7D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7B%5Cfrac%7B2%7D%7BN%7D%7D%5E%7B-+ni%7D%7D+" alt="[公式]"></p>
+<p>后式与DFT正变换，仅仅只是W指数正负的不同，我们只需要修改下符号就可以了。</p>
+<p>按照上面步骤同样推导出（因推导步骤一样，推导过程略）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=N+x%5Cleft%5Clbrack+n+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D%5E%7B-+ni%7D%7D+-+W_%7BN%7D%5E%7B-+n%7D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7B%5Cfrac%7B2%7D%7BN%7D%7D%5E%7B-+ni%7D%7D+" alt="[公式]"></p>
+<h2 id="使用C语言编写DFT-IDFT代码"><a href="#使用C语言编写DFT-IDFT代码" class="headerlink" title="使用C语言编写DFT/IDFT代码"></a>使用C语言编写DFT/IDFT代码</h2><p>回到离散傅里叶变换对</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Clbrack+k%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Clbrack+n%5Crbrack+W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7BX%5Clbrack+k%5Crbrack+W_%7BN%7D%5E%7B-+kn%7D%7D+" alt="[公式]"></p>
+<p>我们需要先将它们变成容易编码的格式，首先是正变换</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+W_%7BN%7D%5E%7B%5Ctext%7Bkn%7D%7D%7D+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack%7De%5E%7B-+ik%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D+" alt="[公式]"></p>
+<p>利用欧拉公式，变为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack%7D%28cos%28%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D%29-isin%28%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D%29%29" alt="[公式]"></p>
+<p>然后是逆变换</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7B0%7D%5E%7BN+-+1%7D%7BX%5Clbrack+k%5Crbrack+W_%7BN%7D%5E%7B-+kn%7D%7D+" alt="[公式]"></p>
+<p>利用欧拉公式，变形为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack+W_%7BN%7D%5E%7B-+kn%7D%7D+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7Bx%5Cleft%5Clbrack+n+%5Cright%5Crbrack%7De%5E%7Bik%28%5Cfrac%7B2%5Cpi%7D%7BN%7D%29n%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bn+%3D+0%7D%5E%7BN+-+1%7D%7BX%5Cleft%5Clbrack+n+%5Cright%5Crbrack%7D%28cos%28%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D%29%2Bisin%28%5Cfrac%7B2%5Ctext%7B%CF%80kn%7D%7D%7BN%7D%29%29" alt="[公式]"></p>
+<p>首先因为频域涉及到复数运算（输入信号一般为实信号）因此我们需要复数结构体complex,现定义结构体</p>
+<pre class="line-numbers language-text"><code class="language-text">typedef struct __complex
+{
+float re;// really
+float im;// imaginary
+}complex;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>及复数的加乘运算函数</p>
+<pre class="line-numbers language-text"><code class="language-text">complex complexAdd(complex a,complex b)
+{
+complex ret;
+ret.re=a.re+b.re;
+ret.im=a.im+b.im;
+return ret;
+}
+complex complexMult(complex a,complex b)
+{
+complex ret;
+ret.re=a.re*b.re-a.im*b.im;
+ret.im=a.im*b.re+a.re*b.im;
+return ret;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后定义DFT运算函数</p>
+<p>void DFT(complex x[],complex X[],int N);</p>
+<p>其中，x[]为输入时域信号，X[]为输出频域信号，N为时域信号的样本点数</p>
+<pre class="line-numbers language-text"><code class="language-text">void DFT(_IN complex x[],_OUT complex X[],int N)
+{
+int k,n;
+complex Wnk;
+for (k=0;k\<N;k++)
+{
+X[k].re=0;
+X[k].im=0;
+for (n=0;n\<N;n++)
+{
+Wnk.re=(float)cos(2*__PI*k*n/N);
+Wnk.im=(float)-sin(2*__PI*k*n/N);
+X[k]=complexAdd(X[k],complexMult(x[n],Wnk));
+}
+}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同时定义DFT逆变换函数</p>
+<p>void IDFT(complex x[],complex X[],int N);</p>
+<p>其中，X[]为输入频域信号，x[]为输出时域信号，N为频域信号的样本点数</p>
+<pre class="line-numbers language-text"><code class="language-text">void IDFT(_IN complex X[],_OUT complex x[],int N)
+{
+int k,n;
+float im=0;
+complex ejw;
+for (k=0;k\<N;k++)
+{
+x[k].re=0;
+x[k].im=0;
+for (n=0;n\<N;n++)
+{
+ejw.re=(float)cos(2*__PI*k*n/N);
+ejw.im=(float)sin(2*__PI*k*n/N);
+x[k]=complexAdd(x[k],complexMult(X[n],ejw));
+}
+x[k].re/=N;x[k].im/=N;
+}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>实际上通过离散傅里叶变换后频域的共轭对称性，我们仅仅需要计算前半部分就可以了，这个优化操作若读者有兴趣可以自己完成。</p>
+<h2 id="使用C语言编写FFT-IFFT代码"><a href="#使用C语言编写FFT-IFFT代码" class="headerlink" title="使用C语言编写FFT/IFFT代码"></a>使用C语言编写FFT/IFFT代码</h2><p>根据FFT的公式有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+%2B+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+-+W_%7BN%7D%5E%7Bk%7D+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p>其中，$$W_{N}^{k}$$写成易于编码的格式为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%5Cleft%5Clbrack+k+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+%2B+%28%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7Dk+%5Cright%29+-+isin%28%5Cfrac%7B2%5Cpi%7D%7BN%7Dk%29%29+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X%5Cleft%5Clbrack+k+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+DFT%5Cleft%28+e%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+-+%28%5Ccos%5Cleft%28+%5Cfrac%7B2%5Cpi%7D%7BN%7Dk+%5Cright%29+-+isin%28%5Cfrac%7B2%5Cpi%7D%7BN%7Dk%29%29+%5Ctext%7BDFT%7D%5Cleft%28+o%5Cleft%5Clbrack+i+%5Cright%5Crbrack+%5Cright%29+" alt="[公式]"></p>
+<p>那么，我们就可以采用迭代的方式，将输入序列不断地拆分重组，直到它变为2点的DFT，代码如下：</p>
+<pre class="line-numbers language-text"><code class="language-text">void FFT_Base2(_IN _OUT complex x[],int N)
+{
+int exbase,exrang,i,j,k;
+complex excomplex,Wnk,cx0,cx1;
+if (N>>2)
+{
+// x[] 4 base odd/even Sort
+exbase=1;
+exrang=0;
+while (exrang\<N)
+{
+exrang=exbase\<\<2;
+for (i=0;i\<N/exrang;i++)//for each token
+{
+for (j=0;j\<exbase;j++)//for each atom in token
+{
+excomplex=x[exrang*i+exbase+j];
+x[exrang*i+exbase+j]=x[exrang*i+exbase*2+j];
+x[exrang*i+exbase*2+j]=excomplex;
+}
+}
+exbase\<\<=1;
+}
+FFT_Base2(x,N>>1);
+FFT_Base2(x+(N>>1),N>>1);
+for(k=0;k\<N>>1;k++)
+{
+Wnk.re=(float)cos(-2*__PI*k/N);
+Wnk.im=(float)sin(-2*__PI*k/N);
+cx0=x[k];
+cx1=x[k+(N>>1)];
+x[k]=complexAdd(cx0,complexMult(Wnk,cx1));
+Wnk.re=-Wnk.re;
+Wnk.im=-Wnk.im;
+x[k+(N>>1)]=complexAdd(cx0,complexMult(Wnk,cx1));
+}
+}
+else
+{
+//2 dot DFT
+cx0=x[0];
+cx1=x[1];
+x[0]=complexAdd(cx0,cx1);
+cx1.im=-cx1.im;
+cx1.re=-cx1.re;
+x[1]=complexAdd(cx0,cx1);
+}
+}
+void FFT(_IN complex x[],_OUT complex X[],int N)
+{
+int size=1;
+complex *i_px;
+while((size\<\<=1)\<N);
+i_px=(complex *)malloc(sizeof(complex)*size);
+memset(i_px,0,sizeof(complex)*N);
+memcpy(i_px,x,sizeof(complex)*N);
+FFT_Base2(i_px,size);
+memcpy(X,i_px,sizeof(complex)*N);
+free(i_px);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>IFFT的理论则依据下面两个公式，就不再复述了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=N+x%5Cleft%5Clbrack+n+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D%5E%7B-+ni%7D%7D+%2B+W_%7BN%7D%5E%7B-+n%7D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7B%5Cfrac%7B2%7D%7BN%7D%7D%5E%7B-+ni%7D%7D+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=N+x%5Cleft%5Clbrack+n+%2B+%5Cfrac%7BN%7D%7B2%7D+%5Cright%5Crbrack+%3D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%5Cright%5Crbrack+W_%7B%5Cfrac%7BN%7D%7B2%7D%7D%5E%7B-+ni%7D%7D+-+W_%7BN%7D%5E%7B-+n%7D+%5Csum_%7Bi+%3D+0%7D%5E%7B%5Cfrac%7BN%7D%7B2%7D+-+1%7D%7BX%5Cleft%5Clbrack+2i+%2B+1+%5Cright%5Crbrack+W_%7B%5Cfrac%7B2%7D%7BN%7D%7D%5E%7B-+ni%7D%7D+" alt="[公式]"></p>
+<p>C语言代码如下：</p>
+<pre class="line-numbers language-text"><code class="language-text">void IFFT_Base2(_IN _OUT complex X[],int N)
+{
+int exbase,exrang,i,j,n;
+complex excomplex,Wnnk,cx0,cx1;
+if (N>>2)
+{
+// x[] 4 base odd/even Sort
+exbase=1;
+exrang=0;
+while (exrang\<N)
+{
+exrang=exbase\<\<2;
+for (i=0;i\<N/exrang;i++)//for each token
+{
+for (j=0;j\<exbase;j++)//for each atom in token
+{
+excomplex=X[exrang*i+exbase+j];
+X[exrang*i+exbase+j]=X[exrang*i+exbase*2+j];
+X[exrang*i+exbase*2+j]=excomplex;
+}
+}
+exbase\<\<=1;
+}
+IFFT_Base2(X,N>>1);
+IFFT_Base2(X+(N>>1),N>>1);
+for(n=0;n\<N>>1;n++)
+{
+Wnnk.re=(float)cos(2*__PI*n/N);
+Wnnk.im=(float)sin(2*__PI*n/N);
+cx0=X[n];
+cx1=X[n+(N>>1)];
+X[n]=complexAdd(cx0,complexMult(Wnnk,cx1));
+Wnnk.re=-Wnnk.re;
+Wnnk.im=-Wnnk.im;
+X[n+(N>>1)]=complexAdd(cx0,complexMult(Wnnk,cx1));
+}
+}
+else
+{
+//2 dot IDFT
+cx0=X[0];
+cx1=X[1];
+X[0]=complexAdd(cx0,cx1);
+cx1.im=-cx1.im;
+cx1.re=-cx1.re;
+X[1]=complexAdd(cx0,cx1);
+}
+}
+void IFFT(_IN complex X[],_OUT complex x[],int N)
+{
+int size=1,i;
+complex *i_px;
+while((size\<\<=1)\<N);
+i_px=(complex *)malloc(sizeof(complex)*size);
+memset(i_px,0,sizeof(complex)*N);
+memcpy(i_px,X,sizeof(complex)*N);
+IFFT_Base2(i_px,size);
+// 1/N operate
+for (i=0;i\<N;i++)
+{
+i_px[i].re/=N;
+i_px[i].im/=N;
+}
+memcpy(x,i_px,sizeof(complex)*N);
+free(i_px);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="信号与采样"><a href="#信号与采样" class="headerlink" title="信号与采样"></a>信号与采样</h2><p>《淮南子·说山训》中有“见一叶落而知岁之将暮。”, 宋朝《文录》则引曰：“山僧不解数甲子，一叶落知天下秋。”直到今天的“一沙一世界,一花一天堂.双手握无限,刹那是永恒”都在传达着局部概括全局，一刻即是永恒的思想。</p>
+<p>如果是一个充满文艺气息的理科青年，应该很容易就能发出这样的感慨：</p>
+<p>我们都是宇宙的一份子，我们是宇宙的缩影，即便微不足道，但冥冥之中我们也是世界不可或缺的一环。</p>
+<p>但如果是一个理科大神，这会儿可要费点脑子了，大神抱着心爱的四路泰坦32G内存1T的PCIE SSD和ryzen 18x的电脑，琢磨着如何把</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28x%29+" alt="[公式]"></p>
+<p>的波形图像完整地存入电脑，很快的大神发现即使它再把电脑容量升级一倍，他也无法存储sinx的完整波形，哪怕是一段他也办不到:</p>
+<p>首先sin(x)是周期函数，它的区间是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%28+-+%5Cinfty%2C+%2B+%5Cinfty%29" alt="[公式]"> ,很遗憾，就算把整个地球的沙子都做成内存颗粒，也没有办法存储一个无穷大的量。</p>
+<p>那么存储一个周期如何，很遗憾，sin(x)是连续的函数，就算是一个周期也包含着无穷多个幅度信息，就算把整个银河系的沙子都做成内存颗粒，也无法存储无穷多的幅度信息。</p>
+<p>不过很快的，大神找到了门道，既然无法存储完整的波形，那么存储当中一些关键的点总能办得到</p>
+<p>很快，大神就找到了一个周期内的波峰和波谷,如图x.1</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-71f485e09e053396afada49fec28a7e7_720w.jpg" alt="img">图x.1</p>
+<p>很快，波峰和波谷的水平间距刚好是周期的一半，而波峰与x轴的垂直距离刚好就是波幅。那么最终大神用2个离散的点表示了sin(x)，并且我们也知道了，假设sin(x)的频率是n，那么我们至少要以2n的频率进行采样才能够还原出原始的波形。</p>
+<p>那么，波形函数如何以数学的形式对一个时域点进行采样呢，实际上前辈们早就定义了一个理想的函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cdelta%28x%29+%3B++%5Cdelta%5Cleft%28+0+%5Cright%29+%3D+%5Cinfty%3B++%5Cdelta%5Cleft%28+0+%5Cright%29+%3D+1+" alt="[公式]"></p>
+<p>而非无穷大以便于我们的处理</p>
+<p>因此我们就可以得到一个采样的方程，例如对sin(x)的x=0点进行采样那么我们就可以用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28x%29%5Cdelta%5Cleft%28+x+%5Cright%29+%3D+sin%280%29+" alt="[公式]"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cdelta%28x%29+" alt="[公式]"></p>
+<p>进行右移位处理就可以了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28x%29%5Cdelta%5Cleft%28+x+-+2+%5Cright%29+%3D+sin%282%29+" alt="[公式]"></p>
+<p>当然假设我们需要对多个点进行采样，那么我们完全可以写成这种形式(对sinx整数值采样)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=P%5Cleft%28+x+%5Cright%29+%3D+%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bsin%28x%29%5Cdelta%28x+-+n%29%7D+" alt="[公式]"></p>
+<p>在奥本海姆的《信号与系统》7.1.1中有如下的推论</p>
+<p>设对一信号以T间隔取样，那么就有如下数学式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x_%7Bp%7D%5Cleft%28+t+%5Cright%29+%3D+%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bx%28nT%29%5Cdelta%28t+-+nT%29%7D+" alt="[公式]"></p>
+<p>根据卷积性质时域内的相乘对应于频域内的卷积，那么就有 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=P%28j%7B%5C+%CF%89%7D%29" alt="[公式]"> 为冲击串频域函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7Bp%7D%5Cleft%28+%5Ctext%7Bjw%7D+%5Cright%29+%3D+%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bx%28jw%29P%28j%28%5Comega+-+%5Ctheta%29%29d%5Ctheta%7D+" alt="[公式]"></p>
+<p>根据公式（《信号与系统》例4.8推论, <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5C+%5Comega_%7Bs%7D" alt="[公式]"> 为基波频率或叫频域间距）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=P%5Cleft%28+j%5Comega+%5Cright%29+%3D+%5Cfrac%7B2%5Cpi%7D%7BT%7D%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7B%5Cdelta%28%5Comega+-+k%5Comega_%7Bs%7D%29%7D+" alt="[公式]"></p>
+<p>及（*为卷积符号）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bp%7D%5Cleft%28+%5Ctext%7Bjw%7D+%5Cright%29%2A%7B%5C+%CE%B4%7D%28%5Comega+-+%5Comega_%7B0%7D%29%3DX%28j%28%5Comega+-+%5Comega_%7B0%7D%29%29" alt="[公式]"></p>
+<p>于是有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+X_%7Bp%7D%5Cleft%28+%5Ctext%7Bjw%7D+%5Cright%29+%3D+%5Cfrac%7B1%7D%7BT%7D%5Csum_%7Bn+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7BX%28j%28%5Comega+-+k%5Comega_%7Bs%7D%29%29%7D+" alt="[公式]"></p>
+<p>上式说明 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X_%7Bp%7D%5Cleft%28+%5Ctext%7Bjw%7D+%5Cright%29" alt="[公式]"> 是频率为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega" alt="[公式]"> 的周期函数，由一组移位的X(jw)叠加而成，在幅度标以 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7BT%7D" alt="[公式]"> 的变化，当 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega_%7Bs%7D" alt="[公式]"> 大于频带宽度的一半时 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Comega_%7Bs%7D++2%5Comega_%7BM%7D" alt="[公式]"> 频带不会发生堆叠，反之会发生堆叠（引用信号与系统 7.1.1 冲击串采样，详细推论请查阅书籍）。</p>
+<p>实际上上面的推论可以用一个简单的话来说：</p>
+<p>表示一个持续期为T且最高频率为W的时间函数，有2TW的样本个数就足够了。</p>
+<p>实际上这句话说的内容就是著名的香农采样定律，看！那些物理学家，数学家和诗人都是虽然表达方式不一样，但他们表达的东西常常都是一个意思，不管怎么说，他们都是会玩的。</p>
+<h2 id="钢琴与按键识别"><a href="#钢琴与按键识别" class="headerlink" title="钢琴与按键识别"></a>钢琴与按键识别</h2><h3 id="录音频率与采样"><a href="#录音频率与采样" class="headerlink" title="录音频率与采样"></a>录音频率与采样</h3><p>“未见其人先闻其声”说的就是靠声音识别人的道理，从声学的角度来说，各个人发出的嗓音也是各有不同的，我们大脑进化出了自动筛分频率的功能，因此尽管我们见不到真人，仍然可以从他说话的声音分辨出他，在一个嘈杂的环境中，我们也可以在分辨出那个人在说什么，看来，人脑也是一个实时的滤波系统。</p>
+<p>当然，人并不是能听到所有的声音，声音归根结底仍然是波在介质中传播，人只能听到20~20000HZ的声波，因此，低于20HZ的波我们叫次声波，高于20000HZ的波叫超声波，根据上一章节所属的香农采样定律，如果我们要记录一段声波例如演唱会，那么我们的采样频率至少就应该是40000HZ</p>
+<p>实际上大部分的MP3，WAV，OGG等音乐媒体文件，使用的采样率是44100HZ，如果一个样本点用16bits也就是2字节来计算的话，每分钟大约就需要5M字节的数据量。</p>
+<p>在多媒体的音乐文件中，我们一般需要以下几个参数，来确定多媒体文件的声音是如何采样并如何播放的：</p>
+<ol>
+<li>SampleRate 采样速率</li>
+<li>Channel 声道数量</li>
+<li>BitPerSample 每个样本的位数</li>
+</ol>
+<blockquote>
+<p><strong>依靠这几个参数，我们就可以播放音乐文件了</strong></p>
+</blockquote>
+<h3 id="PCM码流与WAV文件格式"><a href="#PCM码流与WAV文件格式" class="headerlink" title="PCM码流与WAV文件格式"></a>PCM码流与WAV文件格式</h3><p>PCM 脉冲编码调制是Pulse Code Modulation的缩写，简单来说就是抽样、量化和编码，也就是上章节分别对应的采样速率、每个样本的位数（量化）的概括了，它相当于信号的RAW（原始数据格式）。</p>
+<p>WAV文件（波形文件）应该是最接近这种原始格式的文件了，它没有对数据额外的压缩，由一个文件头构成后，剩下的都是原始的PCM数据，对播放参数进行配置后将它写入声卡就可以直接播放出声音来了。</p>
+<p>WAV的文件头如下（C++ 引用PainterEngine Audio代码）</p>
+<pre class="line-numbers language-text"><code class="language-text">struct WaveHeader
+{
+pt_uchar riff[4]; //data exchange flag
+pt_dword size; //filesize-header
+pt_uchar wave_flag[4]; //wave
+pt_uchar fmt[4]; //fmt
+pt_dword fmt_len; //
+pt_word tag; //format
+pt_word channels; //
+pt_dword samp_freq; //sample rate
+pt_dword byte_rate; //samplerate*bytes of per sample
+pt_word block_align; //channles * bit_samp / 8
+pt_word bit_samp; //bits per sample
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中，最关键的几个参数是channels，samp_freq和bit_samp。读取信息头之后，往后搜索data字符串，之后的数据都是PCM码流了。</p>
+<h3 id="WAV文件与频谱分析"><a href="#WAV文件与频谱分析" class="headerlink" title="WAV文件与频谱分析"></a>WAV文件与频谱分析</h3><p>WavFreq是由C++编写，UI框架使用Qt 4.8.6，播放接口使用DirectSound的一款简易的声波频谱分析器。</p>
+<p>每隔0.1秒，它会对声波取样4096个点并做FFT后将频谱图显示。</p>
+<p>作为本文的附录程序，WavFreq的源代码你可以在附件中找到，同时源码遵循GPLv3开源协议。</p>
+<p>软件界面如图g.1</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-dbcb4b66cc35d681024a4ba9090d8954_720w.jpg" alt="img">图g.1</p>
+<p>然后打开一个WAV波形文件，如图g.2</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-223ee48e80b5911dac6f0cf13954bdfa_720w.jpg" alt="img">图g.2</p>
+<p>打开后将显示这个波形文件的一些基本信息，如图g.3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-9c29e787362f8e9b91f168067ebc4825_720w.jpg" alt="img">图g.3</p>
+<p>点击菜单上的Start Analyse，观察波形频谱，如图g.4</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-0b2da598518b5d20da28a9c2d9878318_720w.jpg" alt="img">图g.4</p>
+<h3 id="琴键分析与声学建模"><a href="#琴键分析与声学建模" class="headerlink" title="琴键分析与声学建模"></a>琴键分析与声学建模</h3><p>为了更好的讲解频域在声学分析上举足轻重的作用，笔者以一段钢琴按键音作为示范，范例文件你同样可以在附录的文件当中找到。</p>
+<p>钢琴中分别标注了七个不同的音，使用1,2,3,4,5,6,7,8（dou rui mi fa so la xi do）进行标注，它们的频谱分别如下。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-71165e81336f081f6c694e145388d32a_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-a4494cde7b564b02a98220747dbd7755_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-3dd203247ba038cb7addf32c4c5fe87a_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-2adcc4d4c478edb5f2dc555d80aec644_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-b447d048f828d600a02439846b3902af_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-f79de5aaea4a5380a49b53902cace7a8_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-ab924e05cbffd9119b0eac72d9f76d54_720w.jpg" alt="img"></p>
+<p>从上面的频谱图中我们可以看出，钢琴音的频率有着明显的差别，随着音调的升高，主要的频率也随之右移动。</p>
+<p>在这里，我们使用一些非常简单的检波滤波手段来区分这个时候按下的音是哪个。</p>
+<p>首先我们先过滤掉那些并不主要的频域信号，例如在上图中，我们主要频域在150~350的区间内，同时，我们取2500000的度量值作为其阈值 以避免一些噪声的干扰。</p>
+<p>这样，钢琴按键的识别过程就简单变为了：</p>
+<p>当前频幅度量大于2500000时，在150~350HZ区间内找到幅值能量最高的点，依据该点所在频率，滤出一些关键的特征频率，并依此来判断按键的类别。</p>
+<p>具体的代码与实现你仍然可以在附件中找到，运行结果如下图所示（图h.1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-0bd687e2062a0957d2145b222ab301e5_720w.jpg" alt="img">图h.1</p>
+<h2 id="被泄漏的密码"><a href="#被泄漏的密码" class="headerlink" title="被泄漏的密码"></a>被泄漏的密码</h2><p>如果你有看过那些间谍大片也许你对下面这个镜头场景并不陌生,例如《谍影重重》中就有这样一个情节，特工想要进入目标的一个保险库，于是他录制了目标人物的声音然后伪造了他的语音密码，成功入侵了目标的保险库。</p>
+<p>另一个比较经典的镜头是语音的识别，特工录制了目标的语音，很快就有设备将语音识别成了文字和数字，假如目标在谈话中或者是电话的按键音中泄露了密码，那么他就要倒大霉了。</p>
+<p>不管情节如何或者这个到底具不具备可行性，上面两个场景都和声波的频域分析有关，那么从声音还原出密码具备多少的可行性呢。</p>
+<p>在很多的直播录制节目中，很多的主播在众多的观众面前输入自己的账号与密码，当然因为密码是*字遮盖的，观众无法直接看到密码，但是不少的主播的键盘敲起来是非常的响的（例如青轴的机械键盘），我们可以很清楚的听到敲击键盘噼噼啪啪的声音，有没有可能通过对键盘音的分析建模来还原出密码呢。</p>
+<p>笔者认为这绝对是有可能的，首先，回车键 上档键 空格键之类的键因为其模具的不同，其发出的敲击声音的频率肯定是不同的，另外键盘经过长时间的敲打，因为磨损与杂质的不同其击键音也有可能改变，最后一点是一个人长期的使用键盘，其对各个键的击键的力度也是不一样的，并且录音设备与键盘各键的距离不一样，很可能从声音的能量再做进一步的筛选。</p>
+<p>当然，也许完全识别出密码也许有困难，但是对主播击键音长期的采样分析建立模型，极大可能的缩小筛选范围是绝对可行的。</p>
+<p>当然，更好的声音采样器（采样精度，采样频率）对分析的成功率也有更多的帮助，以此看来劣质的麦克风反而还保护了主播们的密码隐私了。</p>
+<p>笔者还未做过相关的实验，读者有兴趣的话，不妨试试.</p>
+<h2 id="FFT2"><a href="#FFT2" class="headerlink" title="FFT2"></a>FFT2</h2><h3 id="二维冲击采样"><a href="#二维冲击采样" class="headerlink" title="二维冲击采样"></a>二维冲击采样</h3><p>还记得之前提到一维的采样函数么，我们对原函数进行了采样操作，那么拓展到二维方向，其冲击采样应该写成了这种格式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7Bx+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7B%5Cint_%7By+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bf%28x%2Cy%29%5Cdelta%5Cleft%28+x%2Cy+%5Cright%29%5Ctext%7Bdxdy%7D%7D%7D%3Df%280%2C0%29" alt="[公式]"></p>
+<p>如果对离散的函数进行采样，那么公式就由积分变为了累加</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Csum_%7Bx+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7B%5Csum_%7By+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bf%28x%2Cy%29%5Cdelta%5Cleft%28+x%2Cy+%5Cright%29%7D%7D+%3D+f%280%2C0%29+" alt="[公式]"></p>
+<p>如果对特定样本点进行采样例如 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%28x_%7B0%7D%2Cy_%7B0%7D%29" alt="[公式]"> 只需要对二维冲击函数进行移位就行了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Csum_%7Bx+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7B%5Csum_%7By+%3D+-+%5Cinfty%7D%5E%7B%2B+%5Cinfty%7D%7Bf%28x%2Cy%29%5Cdelta%5Cleft%28+x+-+x_%7B0%7D%2Cy+-+y_%7B0%7D+%5Cright%29%7D%7D+%3D+f%28x_%7B0%7D%2Cy_%7B0%7D%29+" alt="[公式]"></p>
+<h3 id="二维傅里叶变换对"><a href="#二维傅里叶变换对" class="headerlink" title="二维傅里叶变换对"></a>二维傅里叶变换对</h3><p>那么我们很容易也将傅里叶变换推到到二维的方面上来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+u%2Cv+%5Cright%29+%3D+%5Csum_%7Bx+%3D+0%7D%5E%7BM+-+1%7D%7B%5Csum_%7By+%3D+0%7D%5E%7BN+-+1%7D%7Bf%28x%2Cy%29%7D%7De%5E%7B%5Cfrac%7B-+2%5Ctext%7B%CF%80j%7D%7D%7BM%7Dux+%2B+%5Cfrac%7B-+2%5Ctext%7B%CF%80j%7D%7D%7BN%7D%5Ctext%7Bvy%7D%7D+" alt="[公式]"></p>
+<p>其中， <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=F%5Cleft%28+u%2Cv+%5Cright%29" alt="[公式]"> 是一个大小为M*N的矩阵，当然，逆变换同样有</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+x%2Cy+%5Cright%29+%3D+%5Cfrac%7B1%7D%7B%5Ctext%7BMN%7D%7D%5Csum_%7Bu+%3D+0%7D%5E%7BM+-+1%7D%7B%5Csum_%7Bv+%3D+0%7D%5E%7BN+-+1%7D%7BF%28u%2Cv%29%7D%7De%5E%7B%5Cfrac%7B2%5Ctext%7B%CF%80j%7D%7D%7BM%7Dux+%2B+%5Cfrac%7B2%5Ctext%7B%CF%80j%7D%7D%7BN%7D%5Ctext%7Bvy%7D%7D+" alt="[公式]"></p>
+<p>因此，二维的傅里叶变换过程的算法就能简单的概括为：</p>
+<p>首先依次对一个二维矩阵的每一行做傅里叶变换，得出变换的结果后，再对行变换结果的每一列做傅里叶变换。</p>
+<p>当然，为了方便计算机处理，其正变换伪代码如下</p>
+<p>1.设二维数组包含待变换的数据</p>
+<p>2.对二维数组的每一行做傅里叶变换，并将变换结果替换原数组。</p>
+<p>3.将二维数组的行与列元素互换。</p>
+<p>4.再对该二维数组的每一行做傅里叶变换，并将变换结果放回原数组。</p>
+<ol>
+<li>再将二维数组的行与列元素互换，其结果即为二维傅里叶变换结果。</li>
+</ol>
+<h3 id="用C语言实现二维傅里叶变换对"><a href="#用C语言实现二维傅里叶变换对" class="headerlink" title="用C语言实现二维傅里叶变换对"></a>用C语言实现二维傅里叶变换对</h3><p>二维傅里叶变换的C语言代码如下，当中引用了之前编写的一维傅里叶变换函数，当然有了之前的基础，二维傅里叶变换的代码简单的多，您可以在本文的附录中找到其完整的代码：</p>
+<pre class="line-numbers language-text"><code class="language-text">void FFT_2(_IN complex x[],_OUT complex X[],int N)
+{
+for (int i=0;i\<N;i++)
+{
+FFT(\&x[i*N],&X[i*N],N);
+}
+//Matrix transpose
+for (int cy=0;cy\<N;cy++)
+{
+for (int cx=cy+1;cx\<N;cx++)
+{
+complex _t=X[cy*N+cx];
+X[cy*N+cx]=X[cx*N+cy];
+X[cx*N+cy]=_t;
+}
+}
+for(int i=0;i\<N;i++)
+{
+FFT(\&X[i*N],&X[i*N],N);
+}
+//Matrix transpose again
+for (int cy=0;cy\<N;cy++)
+{
+for (int cx=cy+1;cx\<N;cx++)
+{
+complex _t=X[cy*N+cx];
+X[cy*N+cx]=X[cx*N+cy];
+X[cx*N+cy]=_t;
+}
+}
+}
+void IFFT_2(_IN complex X[],_OUT complex x[],int N)
+{
+//Matrix transpose
+for (int cy=0;cy\<N;cy++)
+{
+for (int cx=cy+1;cx\<N;cx++)
+{
+complex _t=X[cy*N+cx];
+X[cy*N+cx]=X[cx*N+cy];
+X[cx*N+cy]=_t;
+}
+}
+for(int i=0;i\<N;i++)
+{
+IFFT(\&x[i*N],&X[i*N],N);
+}
+//Matrix transpose again
+for (int cy=0;cy\<N;cy++)
+{
+for (int cx=cy+1;cx\<N;cx++)
+{
+complex _t=X[cy*N+cx];
+X[cy*N+cx]=X[cx*N+cy];
+X[cx*N+cy]=_t;
+}
+}
+for (int i=0;i\<N;i++)
+{
+IFFT(\&X[i*N],&X[i*N],N);
+}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="数字图像的相位与频谱"><a href="#数字图像的相位与频谱" class="headerlink" title="数字图像的相位与频谱"></a>数字图像的相位与频谱</h2><h3 id="频谱能量与相位"><a href="#频谱能量与相位" class="headerlink" title="频谱能量与相位"></a>频谱能量与相位</h3><p>相信读者从高中物理中经常看的到的能量公式，常常带有平方关系，例如，能量是质量与速度的平方关系，能量是电压的平方与电阻的关系。</p>
+<p>在图像中，我们常常也使用平方关系来表示“能量”这一关系，但这并不是说这张图确实带有物理上的多少能量，它更像一种比喻，就像古时群朝大臣跪地大喊吾皇万岁万岁万万岁一样，或者避讳称皇帝叫“万岁”，但至少到今天，也没有哪个皇帝有那能耐活得到一万岁的，这顶多只是口头上的一个溜屁拍马，或者说叫起来方便。</p>
+<p>图像上的能量也是类似这种关系，它更像是某种量化，并不是指它具体带有的能量，不然得话，如果你想炸掉某样东西，你只要往他们那寄一张白纸就可以了（毕竟白色所带的能量最高），更恐怖的是，要是你敢撕掉你的作业本，它甚至会引起一场爆炸。</p>
+<p>回到正题，在图像的频谱中，我们应该如何表示这种能量的关系呢，显然的，傅里叶变换的结果是一个复信号，如果求其能量，仅需要对其实部与虚部求平方相加，当然，在频谱图中我们更多的是取复数的模。也就是对其能量进行一次开平方。</p>
+<p>当然，仅仅有频谱是无法表示一个复信号的，因此我们还需要引入相位的概念</p>
+<p>其值是虚部除以实部的arctan值，当然，这也就表明它的范围是 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5B-+%5Cfrac%7B%5Cpi%7D%7B2%7D%2C%5Cfrac%7B%5Cpi%7D%7B2%7D%5D" alt="[公式]"> 。</p>
+<p>最后仍然值得提到的一个细节是，二维傅里叶变换的结果是呈现中心共轭对称的。（你仍然可以套用之前一维傅里叶变换的证明方法来证明二维的共轭对称性），证明过程在本文就不再复述了，但由共轭对称性我们就很容易推到出频域图的中心对称性（直流分量部分除外部分）。</p>
+<p>图像频域与相位有什么物理意义么？</p>
+<p>实际上《数字图像处理》中有章节专门讨论这个问题，总结为图像频域表现的是灰度信息，而相位则是位置信息，频域的低频表示图像基本的灰度变化，例如一个图像灰度变化平缓也就意味着其频率较低，而频域的高频则体现其灰度剧烈变化的部分例如物体的边缘，星空的繁星（或者叫噪声？）。</p>
+<p>因为本文讨论的并不是如何对图像进行哪些模糊锐化…之类的操作，因此更多的信息我们这里不再进行更多的讨论，我们仅仅需要知道，图像的能量主要分布在了低频当中，对频域不过分的操作并不会特别影响图像的视觉效果就可以了。</p>
+<h3 id="FFT2-DEMO程序演示"><a href="#FFT2-DEMO程序演示" class="headerlink" title="FFT2 DEMO程序演示"></a>FFT2 DEMO程序演示</h3><p>有了上述的理论基础，对图像进行二维离散傅里叶变换的过程也就水到渠成了，笔者编写了DEMO程序，你可以在本文的附录中找到这个DEMO程序和它的代码，在该程序中，首先打开的界面如图所示（i.1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-3fba46a9e2e57f04e68da3e2d4355757_720w.jpg" alt="img">图i.1</p>
+<p>选择File-Open来打开一个图片文件，如图i.2</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-772e01dbccce5d43f9e3cf19c4fc0f24_720w.jpg" alt="img">图i.2</p>
+<p>在这里，就以笔者参照动漫《龙与虎》逢坂大河所绘制的同人图为例（非专业画师，不喜勿喷），因为是彩色图片，因此，我们分别对其的RGB（Red Green blue）分量进行分离，分别对它们做二维傅里叶变换如图i.3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-5566790a6b1f267c65bd17c33c3dce64_720w.jpg" alt="img">图i.3</p>
+<p>其中，左边第一张图是原图，第二列是原图的RBG分量，第三列是其各分量的频谱图，第四列是其相位谱。</p>
+<h3 id="FFTShift"><a href="#FFTShift" class="headerlink" title="FFTShift"></a>FFTShift</h3><p>当然，在我们观察到的频谱图中，我们更希望将频谱显示的更易于观察，在上述的频谱中，其低频分量位于左上角，且因为傅里叶变换的共轭对称性，我们同样很容易推导出二维傅里叶变换是中心对称的，假设我们将低频分量移动到原点上向外为高频，那么图像就会更加的易于观察。</p>
+<p>FFTShift的算法并不复杂，它实际上仅仅是对矩阵进行分割后（分割为4部分），对对角线的两部分进行两两交换。如图i.4</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-f2c867522437c489e9298bb47ebb1892_720w.jpg" alt="img">图i.4</p>
+<p>例如如下矩阵</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cbegin%7Bbmatrix%7D+7+%26+5+%5C+2+%26+1+%5C+%5Cend%7Bbmatrix%7D+" alt="[公式]"></p>
+<p>经过FFTShift后就变为了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+%5Cbegin%7Bbmatrix%7D+1+%26+2+%5C+5+%26+7+%5C+%5Cend%7Bbmatrix%7D+" alt="[公式]"></p>
+<p>经过FFTShift后，DEMO的频谱与相位图亦发生相应的改变</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-789917ef08bd38b49f8cd2b873bc0b22_720w.jpg" alt="img">图i.5</p>
+<p>可以看到，原本分散于四个角的低频信号经过移位到中心后，变得更加的易于观察了。</p>
+<h3 id="对数变换"><a href="#对数变换" class="headerlink" title="对数变换"></a>对数变换</h3><p>有句话叫真理往往掌握在少数人的手中，在图像的二维傅里叶变换的频谱能量图中，从上个章节我们很容易观察到，频谱的能量往往在中心才较为的明显（低频域），显然的，图像的能量往往集中在低频当中。因为低频与高频的能量差距过大，为了便于频域图像的观察，我们对频域进行对数操作，并对操作的结果缩放到0-255的灰度级别中，假设</p>
+<p>F(x,y)</p>
+<p>表示图像频域复信号的模值（就是能量开根号），那么对数变换就是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=L%5Cleft%28+x%2Cy+%5Cright%29+%3D+%5Clg%5E%7B%281+%2B+3%2AF%28x%2Cy%29%29%7D+" alt="[公式]"></p>
+<p>下图是经过了对数变换的频域图像，可以看到，其频域灰度变化变得更加的平缓了（图i.6）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-37b514a442e6f0033bf6d07694b8f48e_720w.jpg" alt="img">图i.6</p>
+<h2 id="鲁棒盲水印"><a href="#鲁棒盲水印" class="headerlink" title="鲁棒盲水印"></a>鲁棒盲水印</h2><h3 id="盲水印与版权"><a href="#盲水印与版权" class="headerlink" title="盲水印与版权"></a>盲水印与版权</h3><p>图像水印被广泛运用在了防伪，签名，标识等版权保护方面，简单来说就是防止盗图狗窃取自己的劳动成果或者将他抓个现行。毕竟网络大了什么样的人都有，被人窃取成果反而署名上其他人的名字是一件极其令人愤慨的事情。</p>
+<p>目前的水印主要是明水印（可见水印）居多，例如下图（j.1）使用的就是明水印</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-e34560d4124bb05289d0422565b7f541_720w.jpg" alt="img">J.1</p>
+<p>明水印加起来简单方便并且快捷，使用Photoshop来处理应该是一件非常简单的事情，不需要太多的技术含量就可以给这张图“冠名”了</p>
+<p>当然，简单的事情往往攻击起来也很简单，稍微懂点的盗图者很容易就能把明水印删除并还原原图，实在嫌麻烦可以直接裁剪图片，很多时候裁去水印并不会对图像整体的视觉上造成多大影响（如图j.2）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-9827b3790794c2002bf2d9bc26e9d14a_720w.jpg" alt="img">图j.2</p>
+<p>当然，最烦人的是，水印常常破坏对原图的视觉享受，这在影像原画作品中，常常是不能被观众容忍的，一个作品突然冒冒失失的加上一个水印，常常导致观众看起来就像心理有个疙瘩。</p>
+<p>那么有没有水印技术，直接看不见，经过处理后就变得可见了呢。</p>
+<p>这实际就是本文另一个要讨论的技术细节，实际上这种盲水印技术在小学的动手实验上就有，最知名的应该是用米汤写字，写完后纸上是看不见的，如果要显示信息，那么就用点碘液一洗，字就变蓝色显示出来了。</p>
+<p>使用流程图来表示这一过程（如图j.3 j.4）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-87e8e25d66c146fff79596ff3ce2cb64_720w.jpg" alt="img">j.3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-f362f9ceb37b7a05a64f07d968dbf0b1_720w.jpg" alt="img">j.4</p>
+<p>在数字图像中，目前非常流行的一种盲水印隐写技术，是对图像像素操作的，其具体流程是，因为一个颜色具有RGB分量，一般来说，RGB三个颜色通道每个各占8位，也就是三字节，对8位的最低位做修改，对原图的影响是微乎其微的，那么，每个像素就能带有3位的信息，一张100*100的24位位图，就能够带有30000位3750字节的信息可插入，如果将水印数据插入到这里，就可以实现一个简单的盲水印了。</p>
+<p>这种盲水印技术具有一定的可行性，但是，它的缺点仍然也是非常致命的，对原图像的旋转，平移，缩放，改变色相都能非常轻易地摧毁水印。</p>
+<p>于是，具备抗攻击的盲水印技术，也就孕育而生了。</p>
+<h3 id="基于傅里叶变换的鲁棒频域水印"><a href="#基于傅里叶变换的鲁棒频域水印" class="headerlink" title="基于傅里叶变换的鲁棒频域水印"></a>基于傅里叶变换的鲁棒频域水印</h3><p>从之前的章节我们已经了解了如何利用二维傅里叶变换将图像变换为频域，并且我们也了解了图像的能量主要集中在低频当中，那么如果我们将水印叠加在频域的高频中，理论上对原图的视觉上并不会有过多的影响，同时，在频域中的水印散列分部在空域（也就是逆变换后的图像）的各个部分，对频域水印的破坏将会变得更加的困难，同时，频域水印对图像的裁切，旋转，平移，加噪都有一定的抗攻击能力（详细的推到可翻阅《数字图像处理》一书），因此，频域水印作为一种盲水印手段是拥有其理论依据的，对于这种具有一定抗攻击能力的水印技术，我们又称之为鲁棒水印。</p>
+<p>最后，作为讨论的细节，如何将水印叠加到频域也是应该讨论的范畴，在这里，长话短说地总结以下几点：</p>
+<ol>
+<li>对彩色图像加水印，首先对图像的RGB颜色通道分别分离，对R，G，B三个通道的颜色分别计算频域，就和前几个章节处理的那样。</li>
+<li>叠加混合的方式分为两种，称之为缩放叠加，一种为放大一种为缩小，因为二维傅里叶变换后的结果是一个复信号，因此，如果我们仅仅修改频谱能量而不影响其相位的话，应该将复信号的实部与虚部同比例放大或缩小就可以了。因此，水印也就是安装水印轮廓对对应复信号进行放大或缩小</li>
+<li>峰值信噪比（PSNR），归一化相关系数（NC值）可用于判定水印对原图的影响及水印的抗干扰能力，两者都是越高越好，当然，这常常是一个相互矛盾的度量，往往抗干扰能力强也意味着对原图的干扰大。</li>
+</ol>
+<h3 id="水印程序DEMO"><a href="#水印程序DEMO" class="headerlink" title="水印程序DEMO"></a>水印程序DEMO</h3><p>ImageSigner是一款由笔者开发的图像水印程序，作为一个演示的DEMO程序，它仅仅支持256*256大小的图片，你可以在本文的附录中找到它的完整源代码，您可以通过查阅源代码，来了解频域水印的具体算法及过程，它使用C++与Qt Framework 4.8.6编写完成，遵循GPLv3开源协议。下面介绍其水印签名及各种攻击效果。</p>
+<p>1.打开程序，界面如图（k.1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-9b7ed2d69c4f13ee0db07d6c37e2af8d_720w.jpg" alt="img">图k.1</p>
+<p>2.点击Open Source Image和Open Sign Image分别加载源图与签名图片（图k.2 k.3）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-0209cfd895a7f338be355b1b61cd60fd_720w.jpg" alt="img">图k.2</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-05437c9614c3029c96e282659c140dfd_720w.jpg" alt="img">K.3</p>
+<p>载入后界面如图所示（k.4）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-bdcdcc981edef29a75854f7993b6ebb0_720w.jpg" alt="img">图k.4</p>
+<p>在签名控制面板，设置签名的参数（图k.5）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-2ab219c0597cec50c5754a1421625948_720w.jpg" alt="img">图k.5</p>
+<p>其中，第一栏表示签名的通道，第二栏为签名水印的混合模式，一般来说，enlarge对签名图像的抗干扰能力更强，Reduce模式抗干扰模式较弱，但Enlarge模式对原图的影响较大。</p>
+<p>Power一栏表示对签名的混合能量（值越大表示水印越明显），一般来说，能量越大对原图的干扰也较大。</p>
+<p>选择完成后，点击Do Sign进行签名（图k.6）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-6ce7d012ee48441827f14cfb0c4830d3_720w.jpg" alt="img">图k.6</p>
+<p>在右侧你可以看到签名后的图片，点击Save to file可以将签名后的文件保存。 最后，我们选择签名的图像，并分别使用裁剪，平移，旋转，噪声，涂抹，改变色相，缩放攻击并查看攻击后水印的保留效果。</p>
+<p>下面图k.7为原图，k.8 k.9分别为缩小及放大混合签名后的图像，可以看到视觉区别不大。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-1669ece9fbb9339b83eaeff420543c4f_720w.jpg" alt="img">k.7</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-8399af1ab93e27d070353b5c2599e7f6_720w.jpg" alt="img">k.8</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-a1c1090afe8e8329d3390533d8e5fca3_720w.jpg" alt="img">K.9</p>
+<p>同时，签名后图像的频谱如k.10 K.11（放大水印只加在蓝色通道）所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-6ce7d012ee48441827f14cfb0c4830d3_720w.jpg" alt="img">K.10</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-c7918de6c6d0c1072556fcf1c28a3ceb_720w.jpg" alt="img">K.11（为方便观察依情况引用）</p>
+<p>使用PhotoShop对图像进行攻击</p>
+<p>裁剪攻击与其频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-3c7a8ee270894042906469df9c1964d0_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-4f68e26d735e0da606e030caf761ee33_720w.jpg" alt="img"></p>
+<p>平移攻击及其频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-0740870377fa0bff335c97ce7ecbe60c_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-e98f7a4d52fc3555ce238202ab874f25_720w.jpg" alt="img"></p>
+<p>旋转攻击及其频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-96bf1cad7f5cfaeb8710294b043496f9_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-b9849cc575db3e5581b978ec9e3fd796_720w.jpg" alt="img"></p>
+<p>高斯噪声与频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic4.zhimg.com/80/v2-434834e95caa4b14e5933ac69c5de167_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-8386d6d4476020db9c55e130eaa16fe2_720w.jpg" alt="img"></p>
+<p>涂抹攻击与频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/v2-ef09c8ae0620aae8a1e400a213581d85_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-06affec09dddd278fb984d400265bc7e_720w.jpg" alt="img"></p>
+<p>改变色相攻击与其频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-f28d918f2e0f0723d8e21fedc335dc16_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-420de859e843da557f9e1eb8ebbda7b6_720w.jpg" alt="img"></p>
+<p>缩放攻击（裁剪后放大至原尺寸）与频谱</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic1.zhimg.com/80/v2-33bf363f2c4847854ad83f275089a738_720w.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/80/v2-6f1877224bd9b76a65a7c2d2d88f8486_720w.jpg" alt="img"></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>文章到了这里也许你对当中的技术意犹未尽，也许你看的一脸云里雾里不知所云，但不管如何，《从三角函数到语音识别再到数字水印》到了这里也应该告一段落了。</p>
+<p>我一直有个愿望，把一个看上去复杂的东西，从它最原始的最简单的根基开始，抽丝剥茧，循序渐进，一步一步地深入直到它开花结果，这个过程，就犹如见证了一场破茧化蝶。因为我相信，那些深入宇宙奥妙与规律的知识，是足以让人震撼的，它并不输于任何不可估价的艺术品。</p>
+<p>遗憾的是，如今国内不论是学术还是技术都有一股浮躁之风，有人将其当做宣扬炫耀的筹码，有人甚至剽窃他人的成果与劳动，作为自己谋利的肮脏台阶，在我看来，他们都不是真正的“为学”者，我希望有更多的人，能够沉下耐心，将前辈的知识打碎发扬，将那些看起来遥不可及的智慧，分解成一步一阶的台阶，让更多的人更快更简单地得到智慧的福泽。而不是光顾着告诉大家我掌握了这个技术有多么“了不起”。</p>
+<p>我并不知道读者们阅读本文时，是否能收到我所传达的意思与愿望，本文行文时间将近三个月，当中每一个文字每一行标点每一句代码包括每一张例示图片都出自本人之手都凝聚着我的心血，但我并非圣贤，文章并不能做到句句严谨，行行精辟，相信有不少的缺漏错误还待读者们斧正，但知识理当能够有所发扬，如果您在我的字里行间最终有所感悟并了解了“她”是怎么一回事，那么，您的一句“写的不错”将是我最大的欣慰与鼓舞。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/Alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://zhangyihao.top" class="b-link-green">limbercode的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2020/03/23/fourier-fu-ben-fu-ben/" class="b-link-green">Fourier,laplace,z的理解（二）</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/03/23/fourier-fu-ben-fu-ben/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Fourier,laplace,z的理解（二）">
+                        
+                        <span class="card-title">Fourier,laplace,z的理解（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
+序言佛语中有箴言：坐亦禅,行亦禅,一花一世界,一叶一如来
+世间万物是复杂的，但是又是纯粹的简单
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/signals-and-systems/" target="_blank">
+                        <span class="chip bg-color">signals and systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/23/fourier-fu-ben/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Fourier,laplace,z的理解（二）">
+                        
+                        <span class="card-title">Fourier,laplace,z的理解（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
+既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我们
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/signals-and-systems/" target="_blank">
+                        <span class="chip bg-color">signals and systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: limbercode的博客<br />'
+            + '作者: 张益豪<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy; 2020 张益豪.
+
+            <br>
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">14.2k</span> 字
+            
+
+            
+            <br>
+
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/limbercode" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1486084828@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=1486084828&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/1486084828" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2020, 02, 20, 00, 00, 00); //北京时间2020-2-20 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="/libs/materialize/materialize.min.js"></script>
+        <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+        <script src="/libs/aos/aos.js"></script>
+        <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+        <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+        
+        <script type="text/javascript">
+         WIDGET = {FID: '1tFpFZ5Mtj'}
+         </script>
+         <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+
+
+        <!-- zyh 2020 add 2019.08.28 -->
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我🙈~看不见我🙈~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果  zyh 2020 add 2019.09.09 -->
+        
+            <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
+            <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+            <script type="text/javascript" src="/js/fireworks.js"></script>
+        
+
+        <!-- 背景雪花飘落特效zyh 2020 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 zyh 2020 add 2019.09.10-->
+        
+            <script src="/js/wenzi.js" type="text/javascript"></script>
+        
+
+        <!-- 背景雪花飘落特效 zyh 2020 add 2019.09.10 -->
+        
+            <script type="text/javascript">
+                var windowWidth = $(window).width();
+                if (windowWidth > 768) {
+                    document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
+                }
+            </script>
+        
+
+        <!-- 在线聊天工具  zyh 2020 add 2019.09.11 -->
+        
+            <script src="//code.tidio.co/xxxxxxxxxxxxxxxxxxxxxxxxxxx.js"></script>
+            <!--  在线聊天位置自定义  zyh 2020 add 2019.09.13  -->
+            <script>
+                $(document).ready(function () {
+
+                    setInterval(change_Tidio, 50);
+                    function change_Tidio() {
+
+                        var tidio=$("#tidio-chat iframe");
+                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";
+                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+
+                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                        }
+                    }
+                });
+            </script>
+        
+
+        <!-- 背景 canvas-nest    add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" color="0,0,255" pointColor="0,0,255" opacity= "0.8" zIndex="--1" count="150"src="/libs/background/canvas-nest.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 背景静止彩带    add 2019.09.15-->
+        
+
+        <!-- 背景动态彩带   add 2019.09.15-->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
