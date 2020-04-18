@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-04-07T01:03:31.274Z</updated>
+  <updated>2020-04-18T09:58:26.703Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PAT Notes</title>
+    <link href="https://zhangyihao.top/2020/04/16/pat-bi-ji/"/>
+    <id>https://zhangyihao.top/2020/04/16/pat-bi-ji/</id>
+    <published>2020-04-16T01:19:00.843Z</published>
+    <updated>2020-04-18T09:58:26.703Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.判断素数&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;bool isprime(int a){
+    if(a&lt;=1) return false;
+    int
+        
+      
+    
+    </summary>
+    
+    
+      <category term="algorithm note" scheme="https://zhangyihao.top/tags/algorithm-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://zhangyihao.top/2020/04/16/shua-ti-bi-ji-yi/"/>
+    <id>https://zhangyihao.top/2020/04/16/shua-ti-bi-ji-yi/</id>
+    <published>2020-04-16T00:48:16.810Z</published>
+    <updated>2020-04-16T01:16:34.480Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;p&gt;title:PAT刷题笔记&lt;br&gt;tag：algorithm&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1.判断素数&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;bool
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git最常用命令</title>
+    <link href="https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/"/>
+    <id>https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/</id>
+    <published>2020-03-31T06:44:30.240Z</published>
+    <updated>2020-04-18T09:57:15.158Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.生成sshkey&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &quot;youremail@youremail.com&quot;  &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.查看你的 public key&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat
+        
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://zhangyihao.top/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Fourier,laplace,z的理解（二）</title>

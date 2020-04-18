@@ -4,6 +4,57 @@
   
     
     <entry>
+      <title>PAT Notes</title>
+      <link href="/2020/04/16/pat-bi-ji/"/>
+      <url>/2020/04/16/pat-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<p>1.判断素数</p><pre class="line-numbers language-c++"><code class="language-c++">bool isprime(int a){    if(a<=1) return false;    int sqr=int(sqr(n*1.0));//注意n*1.0    for(int i=2;i<=sqr;i++){        if(a%i!==0)//注意==            return false;    }    return true;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li><p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器器⾥面  -std=C++11</p></li><li><p><code>INT_MAX</code>,<code>INT_MIN</code>, <code>LLONG_MAX</code> 在 <code>#include &lt;climits&gt;</code> 头⽂文件⾥面.int最大值为2147483647，共<br>10位数字； <code>LLONG_MAX</code> 最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用 <code>long long int</code> ，输出的时候使⽤用 <code>%013lld</code>.</p></li><li><p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p></li><li><pre><code>// 树的遍历-前序中序转后序：void post(int root, int start, int end) {    if (start &gt; end) return;    int i = start;    while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;    post(root + 1, start, i - 1);    post(root + 1 + i - start, i + 1, end);    printf("%d ", pre[root]);}// 树的遍历-后序中序转前序：void pre(int root, int start, int end) {    if (start &gt; end) return;    int i = start;    while (i &lt; end &amp;&amp; post[root] != in[i]) i++;    printf("%d ", post[root]);    pre(root - 1 - end + i, start, i - 1);    pre(root - 1, i + 1, end);}</code></pre><p>树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为<code>2 * index + 1</code>，将转的过程中产⽣的<code>post[root]</code>的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出</p></li></ol><p>   树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个<code>vector&lt;int&gt; v[10000]</code>，则每次将得到的前序的值放<code>v[level].push_back()</code>，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> algorithm note </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2020/04/16/shua-ti-bi-ji-yi/"/>
+      <url>/2020/04/16/shua-ti-bi-ji-yi/</url>
+      
+        <content type="html"><![CDATA[<hr><p>title:PAT刷题笔记<br>tag：algorithm</p><hr><p>1.判断素数</p><pre class="line-numbers language-c++"><code class="language-c++">bool isprime(int a){    if(a<=1) return false;    int sqr=int(sqr(n*1.0));//注意n*1.0    for(int i=2;i<=sqr;i++){        if(a%i!==0)//注意==            return false;    }    return true;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li><p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器器⾥面  -std=C++11</p></li><li><p><code>INT_MAX</code>,<code>INT_MIN</code>, <code>LLONG_MAX</code> 在 <code>#include &lt;climits&gt;</code> 头⽂文件⾥面.int最大值为2147483647，共<br>10位数字； <code>LLONG_MAX</code> 最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用 <code>long long int</code> ，输出的时候使⽤用 <code>%013lld</code>.</p></li><li><p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p></li><li><pre><code>// 树的遍历-前序中序转后序：void post(int root, int start, int end) {    if (start &gt; end) return;    int i = start;    while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;    post(root + 1, start, i - 1);    post(root + 1 + i - start, i + 1, end);    printf("%d ", pre[root]);}// 树的遍历-后序中序转前序：void pre(int root, int start, int end) {    if (start &gt; end) return;    int i = start;    while (i &lt; end &amp;&amp; post[root] != in[i]) i++;    printf("%d ", post[root]);    pre(root - 1 - end + i, start, i - 1);    pre(root - 1, i + 1, end);}</code></pre><p>树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为<code>2 * index + 1</code>，将转的过程中产⽣的<code>post[root]</code>的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出</p></li></ol><p>   树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个<code>vector&lt;int&gt; v[10000]</code>，则每次将得到的前序的值放⼊<code>v[level].push_back()</code>，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git最常用命令</title>
+      <link href="/2020/03/31/git-zui-chang-yong-ming-ling/"/>
+      <url>/2020/03/31/git-zui-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<p>1.生成sshkey</p><pre><code>ssh-keygen -t rsa -C "youremail@youremail.com"  </code></pre><p>2.查看你的 public key</p><pre><code>cat ~/.ssh/id_rsa.pub</code></pre><p>3.添加后，在终端中输入</p><pre><code>#Gitee$ ssh -T git@gitee.com#GitHub$ ssh -T git@github.com</code></pre><p>4.设置基本信息</p><pre><code>$ git config --global user.name "yourname"$ git config --global user.email "youremail@youremail.com"</code></pre><p>5.初始化</p><pre><code>#Gitee$ git clone https://gitee.com/yourname/repository#Github$ git clone https://github.com/yourname/repository.git#yourname  您在码云或github注册的用户名#repository  您创建的远程仓库名称</code></pre><p>6.本地初始化</p><pre><code>#Gitee$ cd d:/test //首先在文件系统中创建一个项目文件夹，然后在Git中 cd 到这个工程目录$ git init //初始化本地项目$ git remote add origin &lt;远程仓库地址&gt; //绑定远程仓库#注:地址形式为 https://gitee.com/yourname/test.git 或 git@gitee.com:yourname/test.git#Github$ cd d:/test$ git init$ git remote add origin &lt;远程仓库地址&gt;#注：地址形式为 https://github.com/yourname/test.git</code></pre><p>7.更新到远程仓库</p><pre><code>git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件git commit -m "一些注释说明"     //添加更新说明git push origin master            //执行更新操作</code></pre><p>8.从远程仓库同步最新版本到本地</p><pre><code>$ cd d:/test$ git pull origin master$ clear//清屏</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Fourier,laplace,z的理解（二）</title>
       <link href="/2020/03/23/fourier-fu-ben/"/>
       <url>/2020/03/23/fourier-fu-ben/</url>
