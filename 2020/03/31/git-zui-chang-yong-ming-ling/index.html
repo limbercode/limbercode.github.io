@@ -627,7 +627,7 @@ $ ">
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        张益豪
+                        zyh
                     
                 </div>
 
@@ -635,14 +635,14 @@ $ ">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        359
+                        555
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -694,7 +694,106 @@ git commit -m "一些注释说明"     //添加更新说明
 git push origin master            //执行更新操作</code></pre><p>8.从远程仓库同步最新版本到本地</p>
 <pre><code>$ cd d:/test
 $ git pull origin master
-$ clear//清屏</code></pre><script>
+$ clear//清屏</code></pre><p>9.</p>
+<p>Git bash快捷键</p>
+<p>编辑</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alt+.</td>
+<td>粘帖上一次命令最后的参数</td>
+</tr>
+<tr>
+<td>ctrl+h</td>
+<td>删除光标前一个字符（backspace）</td>
+</tr>
+<tr>
+<td>ctrl+d</td>
+<td>删除光标后一个字符（delete）</td>
+</tr>
+<tr>
+<td>ctrl+w</td>
+<td>删除光标左侧单词</td>
+</tr>
+<tr>
+<td>alt+d</td>
+<td>删除光标右侧单词</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>删除光标左侧所有字符</td>
+</tr>
+<tr>
+<td>ctrl+k</td>
+<td>删除光标右侧所有字符</td>
+</tr>
+<tr>
+<td>ctrl+l</td>
+<td>清屏</td>
+</tr>
+<tr>
+<td>ctrl+shift+c</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>ctrl+shift+v</td>
+<td>粘贴(shift+ins)</td>
+</tr>
+<tr>
+<td>ctrl+n</td>
+<td>下一条命令</td>
+</tr>
+<tr>
+<td>ctrl+p</td>
+<td>上一条命令</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>查找命令历史记录，输入keyword多次ctrl+r可返回下一个匹配项</td>
+</tr>
+<tr>
+<td>touch</td>
+<td>新建文件</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>新建目录</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>rm -r</td>
+<td>删除文件夹(recusive)</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>移动文件</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>列出文件</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>打印工作目录</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>改变目录</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>清屏</td>
+</tr>
+</tbody></table>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -888,26 +987,24 @@ $ clear//清屏</code></pre><script>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/16/shua-ti-bi-ji-yi/">
+                <a href="/2020/04/16/pat-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="PAT Notes">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">PAT Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-title:PAT刷题笔记tag：algorithm
-
-1.判断素数
+                            1.判断素数
 bool isprime(int a){
     if(a {
               img.remove();
-              el.style.c
+              el.style.color = 'inherit';
+           
                         
                     </div>
                     <div class="publish-info">
@@ -918,6 +1015,14 @@ bool isprime(int a){
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/algorithm-note/" target="_blank">
+                        <span class="chip bg-color">algorithm note</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -999,7 +1104,7 @@ bool isprime(int a){
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '来源: limbercode的博客<br />'
-            + '作者: 张益豪<br />'
+            + '作者: zyh<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 

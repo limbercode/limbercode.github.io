@@ -2,26 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>limbercode的博客</title>
   
-  <subtitle>脸皮很薄，轻点打</subtitle>
+  <subtitle>此心安处是吾乡</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-04-18T09:58:26.703Z</updated>
+  <updated>2020-04-22T13:45:42.755Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
-    <name>张益豪</name>
+    <name>zyh</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C++浅析new与delete</title>
+    <link href="https://zhangyihao.top/2020/04/22/c-qian-xi-new-yu-delete/"/>
+    <id>https://zhangyihao.top/2020/04/22/c-qian-xi-new-yu-delete/</id>
+    <published>2020-04-22T13:25:59.890Z</published>
+    <updated>2020-04-22T13:45:42.755Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;int *p = (int*) malloc(
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://zhangyihao.top/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PAT Notes</title>
     <link href="https://zhangyihao.top/2020/04/16/pat-bi-ji/"/>
     <id>https://zhangyihao.top/2020/04/16/pat-bi-ji/</id>
     <published>2020-04-16T01:19:00.843Z</published>
-    <updated>2020-04-18T09:58:26.703Z</updated>
+    <updated>2020-04-21T08:11:10.424Z</updated>
     
     <summary type="html">
     
@@ -44,37 +69,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://zhangyihao.top/2020/04/16/shua-ti-bi-ji-yi/"/>
-    <id>https://zhangyihao.top/2020/04/16/shua-ti-bi-ji-yi/</id>
-    <published>2020-04-16T00:48:16.810Z</published>
-    <updated>2020-04-16T01:16:34.480Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;p&gt;title:PAT刷题笔记&lt;br&gt;tag：algorithm&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;1.判断素数&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;bool
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>git最常用命令</title>
     <link href="https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/"/>
     <id>https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/</id>
     <published>2020-03-31T06:44:30.240Z</published>
-    <updated>2020-04-18T09:57:15.158Z</updated>
+    <updated>2020-04-22T14:50:52.645Z</updated>
     
     <summary type="html">
     
@@ -170,7 +169,7 @@
     <link href="https://zhangyihao.top/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/"/>
     <id>https://zhangyihao.top/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/</id>
     <published>2020-03-17T05:35:09.394Z</published>
-    <updated>2020-03-22T12:51:43.870Z</updated>
+    <updated>2020-04-18T11:39:17.920Z</updated>
     
     <summary type="html">
     
@@ -190,33 +189,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://zhangyihao.top/2020/03/14/tai-wan-deng-di-qu-gong-kai-ke-mu-lu/"/>
-    <id>https://zhangyihao.top/2020/03/14/tai-wan-deng-di-qu-gong-kai-ke-mu-lu/</id>
-    <published>2020-03-14T08:20:30.839Z</published>
-    <updated>2019-09-29T12:52:59.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;台湾等地区公开课目录&quot;&gt;&lt;a href=&quot;#台湾等地区公开课目录&quot; class=&quot;headerlink&quot; title=&quot;台湾等地区公开课目录&quot;&gt;&lt;/a&gt;台湾等地区公开课目录&lt;/h1&gt;&lt;p&gt;这个目录包括所有 Bilibili
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="https://zhangyihao.top/2020/02/24/hello-world/"/>
     <id>https://zhangyihao.top/2020/02/24/hello-world/</id>
     <published>2020-02-24T07:58:22.561Z</published>
-    <updated>2020-03-11T09:28:40.725Z</updated>
+    <updated>2020-04-20T13:31:52.407Z</updated>
     
     <summary type="html">
     
@@ -224,7 +201,11 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
         
       
     
@@ -238,7 +219,7 @@
     <link href="https://zhangyihao.top/2020/02/24/fan-cui-ruo-antifragile-du-shu-bi-ji/"/>
     <id>https://zhangyihao.top/2020/02/24/fan-cui-ruo-antifragile-du-shu-bi-ji/</id>
     <published>2020-02-24T03:09:39.902Z</published>
-    <updated>2020-04-10T08:01:41.470Z</updated>
+    <updated>2020-04-18T11:40:19.808Z</updated>
     
     <summary type="html">
     
@@ -246,8 +227,8 @@
       
         
         
-          &lt;pre&gt;&lt;code&gt;title：反脆弱
-tags： reading&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;关于《反脆弱Antifragile》&quot;&gt;&lt;a href=&quot;#关于《反脆弱Antifragile》&quot; class=&quot;headerlink&quot;
+          &lt;pre&gt;&lt;code&gt;title: 反脆弱
+tags:  reading&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;关于《反脆弱Antifragile》&quot;&gt;&lt;a href=&quot;#关于《反脆弱Antifragile》&quot; class=&quot;headerlink&quot;
         
       
     

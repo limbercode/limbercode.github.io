@@ -628,7 +628,7 @@ bool isprime(int a){
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        张益豪
+                        zyh
                     
                 </div>
 
@@ -670,34 +670,41 @@ bool isprime(int a){
     }
     return true;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li><p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器器⾥面  -std=C++11</p>
-</li>
-<li><p><code>INT_MAX</code>,<code>INT_MIN</code>, <code>LLONG_MAX</code> 在 <code>#include &lt;climits&gt;</code> 头⽂文件⾥面.int最大值为2147483647，共<br>10位数字； <code>LLONG_MAX</code> 最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用 <code>long long int</code> ，输出的时候使⽤用 <code>%013lld</code>.</p>
-</li>
-<li><p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
-</li>
-<li><pre><code>// 树的遍历-前序中序转后序：
-void post(int root, int start, int end) {
-    if (start &gt; end) return;
-    int i = start;
-    while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
-    post(root + 1, start, i - 1);
-    post(root + 1 + i - start, i + 1, end);
-    printf("%d ", pre[root]);
-}
-// 树的遍历-后序中序转前序：
-void pre(int root, int start, int end) {
-    if (start &gt; end) return;
-    int i = start;
-    while (i &lt; end &amp;&amp; post[root] != in[i]) i++;
-    printf("%d ", post[root]);
-    pre(root - 1 - end + i, start, i - 1);
-    pre(root - 1, i + 1, end);
-}</code></pre><p>树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为<code>2 * index + 1</code>，将转的过程中产⽣的<code>post[root]</code>的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出</p>
-</li>
-</ol>
-<p>   树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个<code>vector&lt;int&gt; v[10000]</code>，则每次将得到的前序的值放<code>v[level].push_back()</code>，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出</p>
+<p>2.</p>
+<p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器⾥面  <code>-std=C++11</code></p>
+<p>3.</p>
+<p>INT_MAX<code>,</code>INT_MIN<code>,</code>LLONG_MAX<code>在</code>#include <climits><code>头⽂文件⾥面.int最大值为2147483647，共
+10位数字；</code>LLONG_MAX<code>最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用</code>long long int<code>，输出的时候使⽤用</code>%013lld`.</climits></p>
+<p>4.</p>
+<p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
+<p>5.</p>
+<pre><code>   // 树的遍历-前序中序转后序：
+   void post(int root, int start, int end) {
+       if (start &gt; end) return;
+       int i = start;
+       while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
+       post(root + 1, start, i - 1);
+       post(root + 1 + i - start, i + 1, end);
+       printf("%d ", pre[root]);
+   }
+   // 树的遍历-后序中序转前序：
+   void pre(int root, int start, int end) {
+       if (start &gt; end) return;
+       int i = start;
+       while (i &lt; end &amp;&amp; post[root] != in[i]) i++;
+       printf("%d ", post[root]);
+       pre(root - 1 - end + i, start, i - 1);
+       pre(root - 1, i + 1, end);
+   }
+   //树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为`2 * index + 1`，将转的过程中产⽣的`post[root]`的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出
+
+树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个`vector&lt;int&gt; v[10000]`，则每次将得到的前序的值放`v[level].push_back()`，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出。
+
+</code></pre><p>6.</p>
+<pre><code>typedef existing_type new_name;//the later is new name</code></pre><p>7.注意其中delete（非Delete）也是关键字，不可用于变量名。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.runoob.com/wp-content/uploads/2018/06/20130806104900234.jpg" alt="c++关键字"></p>
+<p>8.</p>
+<p>c=++a：先运算后赋值；c=a++先赋值后运算。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -888,46 +895,41 @@ void pre(int root, int start, int end) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/16/pat-bi-ji/">
+                <a href="/2020/04/22/c-qian-xi-new-yu-delete/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="PAT Notes">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++浅析new与delete">
                         
-                        <span class="card-title">PAT Notes</span>
+                        <span class="card-title">C++浅析new与delete</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.判断素数
-bool isprime(int a){
-    if(a {
-              img.remove();
-              el.style.color = 'inherit';
-           
+                            在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-22
+                        </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/algorithm-note/" target="_blank">
-                        <span class="chip bg-color">algorithm note</span>
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -941,36 +943,41 @@ bool isprime(int a){
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/16/shua-ti-bi-ji-yi/">
+                <a href="/2020/03/31/git-zui-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="git最常用命令">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">git最常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-title:PAT刷题笔记tag：algorithm
-
-1.判断素数
-bool isprime(int a){
-    if(a {
-              img.remove();
-              el.style.c
+                            1.生成sshkey
+ssh-keygen -t rsa -C "youremail@youremail.com"  2.查看你的 public key
+cat ~/.ssh/id_rsa.pub3.添加后，在终端中输入
+#Gitee
+$ 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
                             </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/" target="_blank">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1009,7 +1016,7 @@ bool isprime(int a){
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '来源: limbercode的博客<br />'
-            + '作者: 张益豪<br />'
+            + '作者: zyh<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 

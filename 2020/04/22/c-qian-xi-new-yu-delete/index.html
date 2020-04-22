@@ -6,17 +6,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="专业电烙铁驱蚊">
+    <meta name="keywords" content="C++浅析new与delete, 专业电烙铁驱蚊">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="
-title:PAT刷题笔记tag：algorithm
-
-1.判断素数
-bool isprime(int a){
-    if(a {
-              img.remove();
-              el.style.c">
+    <meta name="description" content="在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +19,7 @@ bool isprime(int a){
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>limbercode的博客</title>
+    <title>C++浅析new与delete | limbercode的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -491,13 +486,13 @@ bool isprime(int a){
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        C++浅析new与delete
                     </div>
                 </div>
             </div>
@@ -607,9 +602,13 @@ bool isprime(int a){
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/" target="_blank">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -620,13 +619,13 @@ bool isprime(int a){
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-16
+                    2020-04-22
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        张益豪
+                        zyh
                     
                 </div>
 
@@ -634,7 +633,7 @@ bool isprime(int a){
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        41
+                        334
                     </div>
                     
 
@@ -658,47 +657,19 @@ bool isprime(int a){
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<p>title:PAT刷题笔记<br>tag：algorithm</p>
-<hr>
-<p>1.判断素数</p>
-<pre class="line-numbers language-c++"><code class="language-c++">bool isprime(int a){
-    if(a<=1) return false;
-    int sqr=int(sqr(n*1.0));//注意n*1.0
-    for(int i=2;i<=sqr;i++){
-        if(a%i!==0)//注意==
-            return false;
-    }
-    return true;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li><p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器器⾥面  -std=C++11</p>
-</li>
-<li><p><code>INT_MAX</code>,<code>INT_MIN</code>, <code>LLONG_MAX</code> 在 <code>#include &lt;climits&gt;</code> 头⽂文件⾥面.int最大值为2147483647，共<br>10位数字； <code>LLONG_MAX</code> 最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用 <code>long long int</code> ，输出的时候使⽤用 <code>%013lld</code>.</p>
-</li>
-<li><p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
-</li>
-<li><pre><code>// 树的遍历-前序中序转后序：
-void post(int root, int start, int end) {
-    if (start &gt; end) return;
-    int i = start;
-    while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
-    post(root + 1, start, i - 1);
-    post(root + 1 + i - start, i + 1, end);
-    printf("%d ", pre[root]);
-}
-// 树的遍历-后序中序转前序：
-void pre(int root, int start, int end) {
-    if (start &gt; end) return;
-    int i = start;
-    while (i &lt; end &amp;&amp; post[root] != in[i]) i++;
-    printf("%d ", post[root]);
-    pre(root - 1 - end + i, start, i - 1);
-    pre(root - 1, i + 1, end);
-}</code></pre><p>树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为<code>2 * index + 1</code>，将转的过程中产⽣的<code>post[root]</code>的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出</p>
-</li>
-</ol>
-<p>   树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个<code>vector&lt;int&gt; v[10000]</code>，则每次将得到的前序的值放⼊<code>v[level].push_back()</code>，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出</p>
+                <p>在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a>中，这两个函数仍然可以使用，但是C++又新增了两个关键字，new 和 delete：new 用来动态分配内存，delete 用来释放内存。</p>
+<p>用 new 和 delete 分配内存更加简单：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = new int;  //分配1个int型的内存空间
+delete p;  //释放内存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>new 操作符会根据后面的数据类型来推断所需空间的大小。</p>
+<p>如果希望分配一组连续的数据，可以使用 new[]：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = new int[10];  //分配10个int型的内存空间
+delete[] p;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>用 new[] 分配的内存需要用 delete[] 释放，它们是一一对应的。</p>
+<p>和 malloc() 一样，new 也是在堆区分配内存，必须手动释放，否则只能等到程序运行结束由操作系统回收。为了避免内存泄露，通常 new 和 delete、new[] 和 delete[] 操作符应该成对出现，并且不要和C语言中 malloc()、free() 一起混用。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -867,7 +838,7 @@ void pre(int root, int start, int end) {
                     </span>
                     <a href="https://zhangyihao.top" class="b-link-green">limbercode的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/16/shua-ti-bi-ji-yi/" class="b-link-green"></a>
+                    <a href="/2020/04/22/c-qian-xi-new-yu-delete/" class="b-link-green">C++浅析new与delete</a>
                 </p>
             </div>
 
@@ -889,9 +860,55 @@ void pre(int root, int start, int end) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/04/22/c-qian-xi-new-yu-delete/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++浅析new与delete">
+                        
+                        <span class="card-title">C++浅析new与delete</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-22
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/16/pat-bi-ji/">
                     <div class="card-image">
@@ -914,9 +931,9 @@ bool isprime(int a){
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
+                            </span>
                         <span class="publish-author">
                             
                         </span>
@@ -927,52 +944,6 @@ bool isprime(int a){
                     
                     <a href="/tags/algorithm-note/" target="_blank">
                         <span class="chip bg-color">algorithm note</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/31/git-zui-chang-yong-ming-ling/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="git最常用命令">
-                        
-                        <span class="card-title">git最常用命令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            1.生成sshkey
-ssh-keygen -t rsa -C "youremail@youremail.com"  2.查看你的 public key
-cat ~/.ssh/id_rsa.pub3.添加后，在终端中输入
-#Gitee
-$ 
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
@@ -1013,7 +984,7 @@ $
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '来源: limbercode的博客<br />'
-            + '作者: 张益豪<br />'
+            + '作者: zyh<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 
