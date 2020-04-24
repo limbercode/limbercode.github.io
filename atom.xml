@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>limbercode的博客</title>
   
-  <subtitle>此心安处是吾乡</subtitle>
+  <subtitle>有些人心如花木，皆向阳而生</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
@@ -10,7 +10,7 @@
   <id>https://zhangyihao.top/</id>
   
   <author>
-    <name>zyh</name>
+    <name>limber-z</name>
     
   </author>
   
@@ -69,7 +69,7 @@
   </entry>
   
   <entry>
-    <title>git最常用命令</title>
+    <title>Git最常用命令</title>
     <link href="https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/"/>
     <id>https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/</id>
     <published>2020-03-31T06:44:30.240Z</published>
@@ -143,7 +143,7 @@
   </entry>
   
   <entry>
-    <title>lemon-like feeling and pear-shaped study career</title>
+    <title>Lemon-Like Feeling and Pear-Shaped Study Career</title>
     <link href="https://zhangyihao.top/2020/03/21/lemon-collection/"/>
     <id>https://zhangyihao.top/2020/03/21/lemon-collection/</id>
     <published>2020-03-21T01:11:13.003Z</published>
