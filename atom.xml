@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-04-22T13:45:42.755Z</updated>
+  <updated>2020-05-06T03:53:50.936Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reverse Linked List[PAT甲级1074]</title>
+    <link href="https://zhangyihao.top/2020/05/06/pat1074reverselist/"/>
+    <id>https://zhangyihao.top/2020/05/06/pat1074reverselist/</id>
+    <published>2020-05-06T03:14:40.994Z</published>
+    <updated>2020-05-06T03:53:50.936Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Given a constant &lt;em&gt;K&lt;/em&gt; and a singly linked list &lt;em&gt;L&lt;/em&gt;, you are supposed to reverse the links of every &lt;em&gt;K&lt;/em&gt; elements on
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Pat" scheme="https://zhangyihao.top/tags/Pat/"/>
+    
+  </entry>
   
   <entry>
     <title>C++浅析new与delete</title>
@@ -73,7 +97,7 @@
     <link href="https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/"/>
     <id>https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/</id>
     <published>2020-03-31T06:44:30.240Z</published>
-    <updated>2020-04-22T14:50:52.645Z</updated>
+    <updated>2020-04-30T12:26:53.775Z</updated>
     
     <summary type="html">
     
@@ -206,29 +230,6 @@
           .forEach(el =&gt; {
             if (!el.dataset.src) { return; }
        
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://zhangyihao.top/2020/02/24/fan-cui-ruo-antifragile-du-shu-bi-ji/"/>
-    <id>https://zhangyihao.top/2020/02/24/fan-cui-ruo-antifragile-du-shu-bi-ji/</id>
-    <published>2020-02-24T03:09:39.902Z</published>
-    <updated>2020-04-18T11:40:19.808Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre&gt;&lt;code&gt;title: 反脆弱
-tags:  reading&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;关于《反脆弱Antifragile》&quot;&gt;&lt;a href=&quot;#关于《反脆弱Antifragile》&quot; class=&quot;headerlink&quot;
         
       
     

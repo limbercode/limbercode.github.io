@@ -6,15 +6,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="PAT Notes, 女装|菜鸡|技术">
+    <meta name="keywords" content="Reverse Linked List[PAT甲级1074], 女装|菜鸡|技术">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="1.判断素数
-bool isprime(int a){
-    if(a {
-              img.remove();
-              el.style.color = &#39;inherit&#39;;
-           ">
+    <meta name="description" content="Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For examp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +17,7 @@ bool isprime(int a){
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PAT Notes | limbercode的博客</title>
+    <title>Reverse Linked List[PAT甲级1074] | limbercode的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -495,7 +490,7 @@ bool isprime(int a){
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        PAT Notes
+                        Reverse Linked List[PAT甲级1074]
                     </div>
                 </div>
             </div>
@@ -607,8 +602,8 @@ bool isprime(int a){
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/algorithm-note/" target="_blank">
-                                <span class="chip bg-color">algorithm note</span>
+                            <a href="/tags/Pat/" target="_blank">
+                                <span class="chip bg-color">Pat</span>
                             </a>
                         
                     </div>
@@ -622,7 +617,7 @@ bool isprime(int a){
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-16
+                    2020-05-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -636,14 +631,14 @@ bool isprime(int a){
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        34
+                        625
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -660,52 +655,82 @@ bool isprime(int a){
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1.判断素数</p>
-<pre class="line-numbers language-c++"><code class="language-c++">bool isprime(int a){
-    if(a<=1) return false;
-    int sqr=int(sqr(n*1.0));//注意n*1.0
-    for(int i=2;i<=sqr;i++){
-        if(a%i!==0)//注意==
-            return false;
+                <p>Given a constant <em>K</em> and a singly linked list <em>L</em>, you are supposed to reverse the links of every <em>K</em> elements on <em>L</em>. For example, given <em>L</em> being 1→2→3→4→5→6, if <em>K</em>=3, then you must output 3→2→1→6→5→4; if <em>K</em>=4, you must output 4→3→2→1→5→6.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive <em>N</em> (≤105) which is the total number of nodes, and a positive <em>K</em> (≤<em>N</em>) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.</p>
+<p>Then <em>N</em> lines follow, each describes a node in the format:</p>
+<pre><code>Address Data Next </code></pre><p>where <code>Address</code> is the position of the node, <code>Data</code> is an integer, and <code>Next</code> is the position of the next node.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each case, output the resulting ordered linked list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre class="line-numbers language-in"><code class="language-in">00100 6 4
+00000 4 99999
+00100 1 12309
+68237 6 -1
+33218 3 00000
+99999 5 68237
+12309 2 33218  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre class="line-numbers language-out"><code class="language-out">00000 4 33218
+33218 3 12309
+12309 2 00100
+00100 1 99999
+99999 5 68237
+68237 6 -1    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用数组进行存储：</p>
+<p>a.</p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+#define MaxSize 100005
+using namespace std;
+int main(){
+    int Data[MaxSize];
+    int Next[MaxSize];
+    int list[MaxSize];
+    int FirstAdd,N,K;
+    scanf("%d %d %d",&amp;FirstAdd,&amp;N,&amp;K);
+    for(int i=0;i&lt;N;i++){
+        int tmpAdd,tmpData,tmpNext;
+        scanf("%d %d %d",&amp;tmpAdd,&amp;tmpData,&amp;tmpNext);
+        Data[tmpAdd] = tmpData;
+        Next[tmpAdd] = tmpNext;
     }
-    return true;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>2.</p>
-<p>Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器⾥面  <code>-std=C++11</code></p>
-<p>3.</p>
-<p>INT_MAX<code>,</code>INT_MIN<code>,</code>LLONG_MAX<code>在</code>#include <climits><code>头⽂文件⾥面.int最大值为2147483647，共
-10位数字；</code>LLONG_MAX<code>最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用</code>long long int<code>，输出的时候使⽤用</code>%013lld`.</climits></p>
-<p>4.</p>
-<p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
-<p>5.</p>
-<pre><code>   // 树的遍历-前序中序转后序：
-   void post(int root, int start, int end) {
-       if (start &gt; end) return;
-       int i = start;
-       while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
-       post(root + 1, start, i - 1);
-       post(root + 1 + i - start, i + 1, end);
-       printf("%d ", pre[root]);
-   }
-   // 树的遍历-后序中序转前序：
-   void pre(int root, int start, int end) {
-       if (start &gt; end) return;
-       int i = start;
-       while (i &lt; end &amp;&amp; post[root] != in[i]) i++;
-       printf("%d ", post[root]);
-       pre(root - 1 - end + i, start, i - 1);
-       pre(root - 1, i + 1, end);
-   }
-   //树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为`2 * index + 1`，将转的过程中产⽣的`post[root]`的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出
-
-树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个`vector&lt;int&gt; v[10000]`，则每次将得到的前序的值放`v[level].push_back()`，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出。
-
-</code></pre><p>6.</p>
-<pre><code>typedef existing_type new_name;//the later is new name</code></pre><p>7.注意其中delete（非Delete）也是关键字，不可用于变量名。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.runoob.com/wp-content/uploads/2018/06/20130806104900234.jpg" alt="c++关键字"></p>
-<p>8.</p>
-<p>c=++a：先运算后赋值；c=a++先赋值后运算。</p>
-<script>
+    int sum=0;   // 累计有效结点数 
+    while(FirstAdd!=-1){   // 当尾结点为 -1 时结束 
+        list[sum++] = FirstAdd;   // 记录所有Address
+        FirstAdd = Next[FirstAdd];  // 找下一个结点 
+    }
+    for(int i=0;i&lt;sum-sum%K;i+=K){  // 每 K 个结点一个区间 
+        for(int j=0;j&lt;K/2;j++){  // 反转链表
+            int t = list[i+j];
+            list[i+j] = list[i+K-j-1];
+            list[i+K-j-1] = t; 
+        }
+    }
+    for(int i=0;i&lt;sum-1;i++)
+        printf("%05d %d %05d\n",list[i],Data[list[i]],list[i+1]);
+    printf("%05d %d -1\n",list[sum-1],Data[list[sum-1]]);
+    return 0;
+}</code></pre><p>b.柳神（简洁版本）</p>
+<pre><code>{% codeblock lang:objc %}[
+#include <iostream>
+using namespace std;
+int main() {
+    int first, k, n, sum = 0;
+    cin &gt;&gt; first &gt;&gt; n &gt;&gt; k;
+    int temp, data[100005], next[100005], list[100005], result[100005];
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; temp;
+        cin &gt;&gt; data[temp] &gt;&gt; next[temp];
+    }
+    while (first != -1) {
+        list[sum++] = first;
+        first = next[first];
+    }
+    for (int i = 0; i &lt; sum; i++) result[i] = list[i];
+    for (int i = 0; i &lt; (sum - sum % k); i++)
+        result[i] = list[i / k * k + k - 1 - i % k];
+    for (int i = 0; i &lt; sum - 1; i++)
+        printf("%05d %d %05d\n", result[i], data[result[i]], result[i + 1]);
+    printf("%05d %d -1", result[sum - 1], data[result[sum - 1]]);
+    return 0;
+}]{% endcodeblock %}</iostream></code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -873,7 +898,7 @@ bool isprime(int a){
                     </span>
                     <a href="https://zhangyihao.top" class="b-link-green">limbercode的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/16/pat-bi-ji/" class="b-link-green">PAT Notes</a>
+                    <a href="/2020/05/06/pat1074reverselist/" class="b-link-green">Reverse Linked List[PAT甲级1074]</a>
                 </p>
             </div>
 
@@ -895,9 +920,53 @@ bool isprime(int a){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/05/06/pat1074reverselist/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Reverse Linked List[PAT甲级1074]">
+                        
+                        <span class="card-title">Reverse Linked List[PAT甲级1074]</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For examp
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-06
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Pat/" target="_blank">
+                        <span class="chip bg-color">Pat</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/22/c-qian-xi-new-yu-delete/">
                     <div class="card-image">
@@ -917,9 +986,9 @@ free(p);  //释放内
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-22
+                            </span>
                         <span class="publish-author">
                             
                         </span>
@@ -930,52 +999,6 @@ free(p);  //释放内
                     
                     <a href="/tags/C/" target="_blank">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/31/git-zui-chang-yong-ming-ling/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Git最常用命令">
-                        
-                        <span class="card-title">Git最常用命令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            1.生成sshkey
-ssh-keygen -t rsa -C "youremail@youremail.com"  2.查看你的 public key
-cat ~/.ssh/id_rsa.pub3.添加后，在终端中输入
-#Gitee
-$ 
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
