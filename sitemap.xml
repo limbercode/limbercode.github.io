@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangyihao.top/2020/05/06/hello-world-fu-ben/</loc>
+    
+    <lastmod>2020-05-09T12:26:33.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangyihao.top/2020/05/09/shu-de-tong-gou/</loc>
+    
+    <lastmod>2020-05-09T07:14:19.900Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangyihao.top/2020/05/06/pat1074reverselist/</loc>
     
-    <lastmod>2020-05-06T03:53:50.936Z</lastmod>
+    <lastmod>2020-05-09T07:09:08.070Z</lastmod>
     
   </url>
   
@@ -107,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://zhangyihao.top/galleries/index.html</loc>
-    
-    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhangyihao.top/friends/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
@@ -122,6 +129,13 @@
   
   <url>
     <loc>https://zhangyihao.top/tags/index.html</loc>
+    
+    <lastmod>2019-10-04T03:57:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangyihao.top/galleries/index.html</loc>
     
     <lastmod>2019-10-04T03:57:55.000Z</lastmod>
     

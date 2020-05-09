@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-05-06T03:53:50.936Z</updated>
+  <updated>2020-05-09T07:14:19.900Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>树的同构</title>
+    <link href="https://zhangyihao.top/2020/05/09/shu-de-tong-gou/"/>
+    <id>https://zhangyihao.top/2020/05/09/shu-de-tong-gou/</id>
+    <published>2020-05-09T07:10:25.985Z</published>
+    <updated>2020-05-09T07:14:19.900Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://zhangyihao.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trick</title>
+    <link href="https://zhangyihao.top/2020/05/06/hello-world-fu-ben/"/>
+    <id>https://zhangyihao.top/2020/05/06/hello-world-fu-ben/</id>
+    <published>2020-05-06T04:51:22.297Z</published>
+    <updated>2020-05-09T12:26:33.048Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (declaration : expression)
+     
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Reverse Linked List[PAT甲级1074]</title>
     <link href="https://zhangyihao.top/2020/05/06/pat1074reverselist/"/>
     <id>https://zhangyihao.top/2020/05/06/pat1074reverselist/</id>
     <published>2020-05-06T03:14:40.994Z</published>
-    <updated>2020-05-06T03:53:50.936Z</updated>
+    <updated>2020-05-09T07:09:08.070Z</updated>
     
     <summary type="html">
     
