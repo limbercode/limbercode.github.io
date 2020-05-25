@@ -6,11 +6,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Fourier,laplace,z的理解（二）, 女装|菜鸡|技术">
+    <meta name="keywords" content="C++primer Notes, 女装|菜鸡|技术">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
-既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我们">
+    <meta name="description" content="
+浅析new和delete
+在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+f">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Fourier,laplace,z的理解（二） | limbercode的博客</title>
+    <title>C++primer Notes | limbercode的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -64,7 +67,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
     <body>
@@ -485,13 +488,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Fourier,laplace,z的理解（二）
+                        C++primer Notes
                     </div>
                 </div>
             </div>
@@ -603,8 +606,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/signals-and-systems/" target="_blank">
-                                <span class="chip bg-color">signals and systems</span>
+                            <a href="/tags/C-language/" target="_blank">
+                                <span class="chip bg-color">C++ language</span>
                             </a>
                         
                     </div>
@@ -618,13 +621,13 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-23
+                    2020-05-24
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        limber-z
+                        limbercode
                     
                 </div>
 
@@ -632,14 +635,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4k
+                        824
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        13 分
+                        3 分
                     </div>
                     
                 
@@ -656,121 +659,342 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>转自：链接：<a href="https://www.zhihu.com/question/22085329/answer/774074211" target="_blank" rel="noopener">https://www.zhihu.com/question/22085329/answer/774074211</a><br>作者：DBinary</p>
-<p>既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我们首先要来说说弧度,什么是弧度呢,你可以在纸上画一个圆,选取圆的一段边,边长和这个圆半径的比值,就是该边与圆心对应夹角的弧度,不好理解是不是,没关系,看个图你就懂了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/50/v2-3f115013d83be51c9a9ad1c4006609c6_hd.jpg" alt="img"></p>
-<p>  弧度的单位是rad,你会发现,所有的圆边长和半径的比值都是2πRad,而π是一个无限不循环的常数,它约等于3.1415926,可以发现弧度和角度是一个对应的关系,如果按角度制而言绕圆一周是360°,弧度制而言,就是2π了</p>
-<p> 现在,我们引入另一个在信号处理中极为极为极为重要的一个函数,三角函数,之所以叫做三角函数,是因为它的计算方式和直角三角密切相关</p>
-<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/50/v2-71c4df5642e4123c6a024cb4ae0f21ee_hd.jpg" data-caption="" data-size="normal" data-rawwidth="200" data-rawheight="170" data-default-watermark-src="https://pic2.zhimg.com/50/v2-c3d3bbfadc4d4197f9b5aadc2daf32fc_hd.jpg" class="content_image" width="200">
-
-<p>三角函数又常常叫正弦函数常用的主要有sin和cos两种,在高中的书本上,常常叫它们正弦函数和余弦函数,但实际在使用中,不管是sin还是cos都常常被统称为正弦函数,看上面的直角三角形, 以sin函数为例,关于这个函数的求法,可以用下面的公式来表述</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28%5Cangle+A%29%3D%5Cfrac%7Ba%7D%7Bc%7D" alt="[公式]"></p>
-<p>也就是说sin角a的值,等于其对应直角三角形的对边比斜边,实际上我们常常用 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28x%29" alt="[公式]"> 来表示这个正弦函数,而 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 则表示某一弧度,如果你把这个三角形画在一个二维坐标系的圆上面,比如下面的这种形式</p>
-<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/50/v2-4de7aeea265dfeb1b10597005e3802a7_hd.jpg" data-caption="" data-size="normal" data-rawwidth="420" data-rawheight="452" data-default-watermark-src="https://pic2.zhimg.com/50/v2-b0737fe4e8174f5f84d10443205568c1_hd.jpg" class="content_image" width="420">
-
-<p>那么 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28%5Ctheta%29%3D%5Cfrac%7By%7D%7Br%7D" alt="[公式]"> ,当然,这个时候,正弦值还仅仅是一个”正弦值”,现在你可以开始想象假如圆上的这个点现在开始动了起来,并开始绕圆逆时针旋转, <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28%5Ctheta%29" alt="[公式]"> 的值会如何变化呢?下面的图会告诉你答案</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/50/v2-bad99139a4a97a51fcb01ad36e9fa5c4_hd.jpg" alt="img"></p>
-<p>图像来自Imgur</p>
-<p>显然的,当我们引入动态的概念后,正弦函数随之而动,从一个定值变成了一个波,在信号处理中,我们称之为正弦波,高中的课本会告诉你正弦函数的性质和和差化积积化和差之类的公式,而我会告诉你正弦函数和其所对应的正弦波估计是信号处理中最重要最常用没有之一的重要工具</p>
-<p>到这里既然我们说到波了,那么就不得不提几个问题和其对应的概念,现在你再看看上图,如果我们需要描述一个正弦波是不是需要下面几个问题,而这个问题的答案,对应了几个概念</p>
-<ol>
-<li>这个点围绕的圆到底有多大—-&gt;波幅</li>
-<li>这个点旋转的速度有多快—-&gt;角速度—&gt;频率</li>
-<li>这个点最初的位置在哪里—-&gt;相位</li>
+                <ol>
+<li><p>浅析new和delete</p>
+<p>在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a>中，这两个函数仍然可以使用，但是C++又新增了两个关键字，new 和 delete：new 用来动态分配内存，delete 用来释放内存。用 new 和 delete 分配内存更加简单：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = new int;  //分配1个int型的内存空间
+delete p;  //释放内存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>new 操作符会根据后面的数据类型来推断所需空间的大小。</p>
+<p>如果希望分配一组连续的数据，可以使用 new[]：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int *p = new int[10];  //分配10个int型的内存空间
+delete[] p;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>用 new[] 分配的内存需要用 delete[] 释放，它们是一一对应的。</p>
+<p>和 malloc() 一样，new 也是在堆区分配内存，必须手动释放，否则只能等到程序运行结束由操作系统回收。为了避免内存泄露，通常 new 和 delete、new[] 和 delete[] 操作符应该成对出现，并且不要和C语言中 malloc()、free() 一起混用。</p>
+</li>
+<li><h2 id="关键字-（-注意delete（not-Delete））​"><a href="#关键字-（-注意delete（not-Delete））​" class="headerlink" title="关键字 （ 注意delete（not Delete））​"></a>关键字 （ 注意delete（not Delete））​<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.runoob.com/wp-content/uploads/2018/06/20130806104900234.jpg" alt="c++关键字"></h2></li>
+<li><p>C++之STL –string类的使用</p>
+<p>仅可用cin,cout操作，此处printf,scanf失效</p>
+<pre class="line-numbers language-C++"><code class="language-C++">#include <string>
+using std::string;//declaration
+string s1 //默认初始化，s1是一个空串
+string s2(s1)//s2是s1副本
+string s3("value")//赋值
+string s3="value"//同上
+string s4(n,'c')//把s4初始化为由n个字符c组成
+getline(cin,s)//从输入读入内容到换行符为止（换行符也被读进）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-C++"><code class="language-C++">s.empty()//为空返回true，否则false
+s.size()//等于s.length,返回字符个数，这个数是size_type类型，为无符号整型
+//size_type为无符号类型，int为有符号类型，如果int为负数时，假设为-5，他会先转换成无符号整形再与size_type变量进行比较，此时可能会出现-5>正数的情况
+//sizeof（a）返回的是对象占用内存的字节数，而a.size()是string类定义的一个返回字符串大小的函数,不一样
+s1+s2//连接
+s[n]//返回从0计起的第n个字符的引用
+s1=s2//赋值
+s1==s2,s1!=s2//对大小写敏感
+<,<=,>,>=//利用字符在字典顺序比较，大小写敏感<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>string 中还有个很常用的函数叫做 substr ，作用是截取某个字符串中的⼦串，用法有两种形式：  </p>
+<pre class="line-numbers language-C++"><code class="language-C++">string s2 = s.substr(4); // 表示从下标4开始⼀一直到结束
+string s3 = s.substr(5, 3); // 表示从下标5开始， 3个字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<p>当然,如果我们描述正弦波只能用上面的文字来说,未免显得不够专业,于是乎,我们用一个更加通用的公式来描述正弦波</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%28t%29%3DAsin%28%5Comega+t%2B%5Cvarphi%29%2Bk" alt="[公式]"></p>
-<p>其中,A表示振福,A越大,振福越大.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=w" alt="[公式]"> 表示角速度,当然,角速度和频率 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f" alt="[公式]"> 是对应关系,所以信号处理中常常也用角频率这种俗语来描述</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cvarphi" alt="[公式]"> 表示相位,sin和cos两个正弦函数的差别其实也仅仅是相位不同</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=k" alt="[公式]"> 是这个正弦波的偏移,你可以理解为这个波在y轴上如何的上下移动,在信号处理中,这个会被统一到直流分量中(频率为0的波的波幅)</p>
-<p>科普完上面的概念之后,要说傅里叶变换是怎么回事其实已经很容易了,现在我们来看傅里叶说过的一句话</p>
-<p><strong><em>“任何”周期信号都可以用一系列成谐波关系的正弦曲线来表示。\</em></strong></p>
-<p>我们先不讨论这句话的适用条件(狄里赫利条件),这句话简直牛逼大了,这表示下面这些信号</p>
-<img src="https://pic2.zhimg.com/50/v2-e42e6174a024074fe086d57cb2c6e42e_hd.jpg" data-caption="" data-size="normal" data-rawwidth="1070" data-rawheight="461" data-default-watermark-src="https://pic4.zhimg.com/50/v2-62900bd11db80bcc73316382e081b034_hd.jpg" class="origin_image zh-lightbox-thumb" width="1070" data-original="https://pic2.zhimg.com/v2-e42e6174a024074fe086d57cb2c6e42e_r.jpg">
-
-<p>全部可以用下面这个式子来表示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7Bc_%7Bn%7D%5Ccos%7D%28n%5Comega+t+%2B+%5Cvarphi%29+" alt="[公式]">      (式1.0)</p>
-<p>如果看不明白没关系,下面这张图能让你看个清楚,如何用正弦波组成一个近似的方波</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic3.zhimg.com/50/v2-bb1427097bb4a91d4a78e384641ab8fa_hd.jpg" alt="img"></p>
-<p>图像来自wiki百科</p>
-<p><strong><em>那么,有什么意义呢,要知道,如果可以将信号分解为正弦函数的累加和,不就等于知道了这个信号是由哪些频率的正弦波构成了的么,同时,我们还能知道对应频率的波在信号中的能量和相位信息.\</em></strong></p>
-<p>举个很简单的声学例子,如果我们直接看一段声音信号的波形图,我们很难看出他是男声还是女声(别说男声的嗓门比较大波幅宽,河东狮吼了解下)但是从频域中我们就能够很容易分辨出来,毕竟女声的频域中,高频的能量占比会比较高</p>
-<p>再举个很简单的图形学例子,如果把一张图像做频域分析,图像的低频代表着轮廓信息,高频代表着细节信息,相位代表位置信息,你要是想让图像变模糊,简单,把高频的能量压下来就行了,想让图像变尖锐,高频能量加上去就行了.</p>
-<p>那么问题又来了,已知 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%28t%29" alt="[公式]"> ,我们如何把它分解为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%7Bc_%7B1%7D%5Ccos%7D%28%5Comega+t+%2B+%5Cvarphi%29%2B%7Bc_%7B2%7D%5Ccos%7D%282%5Comega+t+%2B+%5Cvarphi%29%2B%7Bc_%7B3%7D%5Ccos%7D%283%5Comega+t+%2B+%5Cvarphi%29....." alt="[公式]"></p>
-<p>的形式呢,实际上傅里叶变换需要解决的就是这一点,它的最终目的就是要将信号分解为上面这样的形式,好让我们把别通频率的正弦波信息给剥离出来</p>
-<p>要说这个,我们就不得不谈谈三角函数的正交性了,</p>
-<p><strong><em>首先我们知道,对正弦波正无穷到负无穷内进行积分,其结果必定是0(主值积分，取周期)\</em></strong></p>
-<p>所以根据三角函数的积化和差公式,下面的推论都是成立的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Ccos%28+%5Ctext%7Bmx%7D+%29%5Ccos%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%7B+%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack+%2B+%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%3D+0+" alt="[公式]"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Csin%28+%5Ctext%7Bmx%7D+%29%5Csin%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%7B+%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack+-+%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D%3D%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Ccos%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+-+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Ccos%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%3D+0" alt="[公式]"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Csin%28+%5Ctext%7Bmx%7D+%29%5Ccos%28+%5Ctext%7Bnx%7D+%29%7Ddx+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%7B+%5Csin%5Clbrack+%28+m+-+n+%29x+%5Crbrack+%2B+%5Csin%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack+%7D%5Ctext%7Bdx%7D%7D+%3D+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Csin%5Clbrack+%28+m+-+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+%2B+%5Cfrac%7B1%7D%7B2%7D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7B%5Csin%5Clbrack+%28+m+%2B+n+%29x+%5Crbrack%5Ctext%7Bdx%7D%7D+" alt="[公式]"></p>
-<p>这导致了一个很重要的概念</p>
-<p><strong><em>不同频率的正弦波相乘,对其周期积分后,其结果是0!\</em></strong></p>
-<p>=======================================================</p>
-<p><em>(我知道有人肯定会说,作者你胡说八道,</em> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7Dsin%28nx%29dx" alt="[公式]"> <em>怎么会是0,老师告诉我它明明是发散的,你又忽悠我,关于这点我要说明一下,首先你的老师没说错,不过我也没有忽悠你,首先在大学高数求极限那些知识中,这个函数确实积分后是发散的,这个发散的具体原因是建立在</em> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Clim_%7BM+%5Crightarrow+%5Cinfty+%2C+N+%5Crightarrow+-%5Cinfty+%7D%7B%5Cint_%7BN%7D%5E%7BM%7Dsin%28nx%29dx%7D+" alt="[公式]"> <em>这种情况下的,也就是我们正常说的无穷积分,但是如果按这种玩法,基本上大半的信号处理函数都没法玩了,因此在信号处理的公式中比如傅里叶变换,默认都以柯西主值积分作为钦定的积分方式,打个比方定义</em> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Clim_%7BM+%5Crightarrow+%5Cinfty+%7D%7B%5Cint_%7B-M%7D%5E%7BM%7Dsin%28nx%29dx%7D+" alt="[公式]"><em>,</em> <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28nx%29" alt="[公式]">)<em>这种情况下,负无穷到正无穷的积分不就是0了么,所以这里我说明一下,傅里叶变换中使用的是柯西主值积分,整个无穷区间取周期倍)</em></p>
-<p><em>=======================================================</em></p>
-<p>这个概念我们又叫做波的相干性,比如给你一段信号,问你信号里有没有100HZ频率的正弦波信号,怎么办?简单,把这个信号和100hz的正弦波信号相乘（准确说是一组正交的基底，傅里叶变换中就是一个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin" alt="[公式]"> 一个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=cos" alt="[公式]"> ）,然后对其周期内积分,如果结果不是0,那么这个信号就含有100HZ的信号</p>
-<p>那么剩下的问题就是如何求得该频率正弦波对应的幅度和相位了,实际上就是求式1.0的 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=c_%7Bn%7D" alt="[公式]"> 和 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cvarphi" alt="[公式]"> 下面我要甩点公式了,如果感到不适,可以选择跳过</p>
-<p>利用三角函数的变换公式，(式1.0)可变形为</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+c_%7Bn%7Dcos%5Cvarphi+cos%28n%5Comega+t%29+-+c_%7Bn%7Dsin%5Cvarphi+sin%28n%5Comega+t%29%5Crbrack%7D+" alt="[公式]"></p>
-<p>设<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+a_%7Bn%7D+%3D+c_%7Bn%7D%5Ctext%7Bcos%CF%86%7D+" alt="[公式]"> ,<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+b_%7Bn%7D+%3D+-+c_%7Bn%7D%5Ctext%7Bsin%CF%86%7D+" alt="[公式]"> 那么，上式变为</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%5Cleft%28+t+%5Cright%29+%3D+c_%7B0%7D+%2B+%5Csum_%7Bn+%3D+1%7D%5E%7B%5Cinfty%7D%7B%5Clbrack+a_%7Bn%7D%5Ccos%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29+%2B+b_%7Bn%7D%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Crbrack%7D+" alt="[公式]"></p>
-<p>现在，让我们正式的引入正交性的性质，还记得检波手段么，这里，我们假设对 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%28t%29" alt="[公式]"> 用<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=sin%28k%5Ctext%7B%CF%89t%7D%29" alt="[公式]"> 进行检波(说人话就是乘起来,然后为了方便计算对其在一个周期内积分)，那么就有</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B0%7D%5E%7BT%7D%7Bf%5Cleft%28+t+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bk%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
-<p>假设f(x)中含有 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Ctext%7Bn%CF%89%7D" alt="[公式]"> 角频率的正弦波系数为 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=b_%7Bn%7D" alt="[公式]"> ，那么根据三角函数的正交性，上式就有<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B0%7D%5E%7BT%7D%7Bf%5Cleft%28+t+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cint_%7B0%7D%5E%7BT%7D%7B%5Csin%7B%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Csin%5Cleft%28+k%5Ctext%7B%CF%89t%7D+%5Cright%29%7D%5Ctext%7Bdt%7D%7D" alt="[公式]"></p>
-<p>为什么会这样?你想啊,别的频率的波积分后全变0了,不就是剩下( <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=k%3Dn" alt="[公式]">) )频率一样的情况了么.因此</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B0%7D%5E%7BT%7D%7Bf%5Cleft%28+t+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cint_%7B0%7D%5E%7BT%7D%7B%5Csin%7B%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Csin%5Cleft%28+k%5Ctext%7B%CF%89t%7D+%5Cright%29%7D%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cint_%7B0%7D%5E%7BT%7Dsin%28nwt%29%5E%7B2%7Ddt" alt="[公式]"></p>
-<p>进一步计算，可得</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cint_%7B0%7D%5E%7BT%7D%7Bf%5Cleft%28+t+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D%3Db_%7Bn%7D%5Cfrac%7BT%7D%7B2%7D" alt="[公式]"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+b_%7Bn%7D+%3D+%5Cfrac%7B2%7D%7BT%7D%5Cint_%7B0%7D%5E%7BT%7D%7Bf%5Cleft%28+t+%5Cright%29%5Csin%5Cleft%28+%5Ctext%7Bn%CF%89t%7D+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
-<p>同样，<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bn%7D" alt="[公式]"> 也可以使用相同的方式进行推导</p>
-<p>因此，通过 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=a_%7Bn%7Db_%7Bn%7D" alt="[公式]"> 我们可以知道这个波的波幅与相位：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+c_%7Bn%7D+%3D+%5Csqrt%7B%7Ba_%7Bn%7D%7D%5E%7B2%7D+%2B+%7Bb_%7Bn%7D%7D%5E%7B2%7D%7D+" alt="[公式]"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cvarphi+%3D+arctan%28+-+%5Cfrac%7Bb_%7Bn%7D%7D%7Ba_%7Bn%7D%7D%29" alt="[公式]"></p>
-<p>好了,这个基本就是傅里叶变换中最核心的傅里叶级数了</p>
-<p>不是很复杂吧,你是不是很疑惑,为什么长得和傅里叶变换的标准公式差的有点多呢,标准公式不是长得是这样么:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%28t%29e%5E%7B-+iwt%7D%5Ctext%7Bdt%7D%7D" alt="[公式]"></p>
-<p>没关系,看看我们的欧拉公式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+e%5E%7B%5Ctext%7Bi%CE%B8%7D%7D+%3D+cos%5Ctheta+%2B+isin%5Ctheta+" alt="[公式]"></p>
-<p>然后把欧拉公式代入傅里叶变换</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Clbrack%5Ccos%5Cleft%28+wt+%5Cright%29+-+isin%28wt%29%5Crbrack%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%5Cleft%28+f%5Cleft%28+t+%5Cright%29+%5Cright%29+%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Ccos%5Cleft%28%5Comega+t+%5Cright%29%5Ctext%7Bdt%7D%7D+-+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%5Cleft%28+t+%5Cright%29%5Coperatorname%7Bisin%7D%5Cleft%28+%5Comega+t+%5Cright%29%5Ctext%7Bdt%7D%7D+" alt="[公式]"></p>
-<p>你看,最终还不是换汤不换药,无非就是多了个复数,这个复数其实没有别的其它意义,作用就是在计算中和cos区分开来,扯到复平面上绕圈圈?没必要!</p>
-<p>现在傅里叶变换讲完了,我们来看看拉普拉斯变换</p>
-<p>真的,傅里叶搞懂了拉普拉斯变换基本上一句话就能讲完,如果不扯点傅里叶变换的东西,我估计会因为回答问题过于简短待会答案都被折叠了</p>
-<p>先看看拉普拉斯变换公式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=+F%28s%29+%3D%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%28t%29e%5E%7B-+st%7D%5Ctext%7Bdt%7D%7D%3D+%5Cint_%7B-+%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bf%28t%29e%5E%7B-+%28%5Csigma+%2Biw%29t%7D%5Ctext%7Bdt%7D%7D" alt="[公式]"></p>
-<p>这搞毛呢,不就是傅里叶变换的公式乘以一个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-%5Csigma%7D" alt="[公式]"> 么,只要搞懂为什么要这么干,我们就能理解拉普拉斯变换了</p>
-<p>我们来看看下面这个信号图</p>
-<img src="https://pic1.zhimg.com/50/v2-853336361ecc499d208fd815b9cad2a3_hd.jpg" data-caption="" data-size="normal" data-rawwidth="529" data-rawheight="355" data-default-watermark-src="https://pic1.zhimg.com/50/v2-6c289a896be5d4ace0966c1e0bb6c11d_hd.jpg" class="origin_image zh-lightbox-thumb" width="529" data-original="https://pic1.zhimg.com/v2-853336361ecc499d208fd815b9cad2a3_r.jpg">
-
-<p>是的,这个信号的毛病在于,他已经上天了,是的,它增长的速度太快了,而我们却要使用不能够”上天”的正弦函数去拟合它,这不是为难我胖虎么,这个时候,我们就得想起一句名言,要么解决问题,要么解决制造问题的人(信号),既然傅里叶变换无法制造一个同样上天的正弦信号来拟合,我们就把它原本的信号”掰弯”,那么如何”掰弯”呢,简单,乘以一个 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-%5Csigma%7D" alt="[公式]"> 就行了</p>
-<p>然后图像就变成了这样</p>
-<img src="https://pic4.zhimg.com/50/v2-e99d5a465d0c8d5045cf767c359305a0_hd.jpg" data-caption="" data-size="normal" data-rawwidth="995" data-rawheight="410" data-default-watermark-src="https://pic3.zhimg.com/50/v2-04a1ae80c3415f39ae7bb1f2d447ebad_hd.jpg" class="origin_image zh-lightbox-thumb" width="995" data-original="https://pic4.zhimg.com/v2-e99d5a465d0c8d5045cf767c359305a0_r.jpg">
-
-<p>你看,这不就皆大欢喜了么,搞来搞去,拉普拉斯变换的意义无非就是把那些想要上天的函数掰弯,好最终变成那种适合做变换的函数,但是掰弯听起来不太专业,所以我们又管<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-%5Csigma%7D" alt="[公式]">叫衰减因子</p>
-<p>好了,现在能解决 的信号我们有傅里叶变换解决了,不能解决的信号有拉普拉斯变换解决了,感觉上是不是皆大欢喜,写个软件跑跑看呗</p>
-<p>这时你一拍脑袋!不好,信号是连续的,而计算机上存储的数据是离散的,这可咋办好,没关系,我们可以这样,每隔一小段距离,取一个点,最后用的时候把这些点连起来,不就能变成原来的的信号了么,当然我们还得研究研究,这个一小段距离究竟得多小,才不至于让原信号失真,这个就得参考参考香农采样定律了</p>
-<p>好的,现在我们把连续的信号换一下,换成离散的”点”,首先积分是不能用了,既然换成离散的了,积分对应的就应该变成累加符号 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5CSigma" alt="[公式]"> ,当然,<img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=f%28t%29" alt="[公式]"> 也是不能用了,这是一个连续信号的写法,而离散的一个一个的点得换成 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=x%5Bn%5D" alt="[公式]"> ,其中的n表示第n个点,实际上就是时间变来的,当然 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=e%5E%7B-j%5Comega+t%7D" alt="[公式]"> 也不能用了,你想啊,我们要具体到某个点,这个点怎么表示,当然了,首先把 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=t" alt="[公式]"> 时间换成 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=n" alt="[公式]"> 索引号,然后 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=w" alt="[公式]"> 这个动态的角速度值换成具体的角度 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=%5Cphi" alt="[公式]"></p>
-<p>好了,我们终于把连续信号的傅里叶变换变成了离散信号的傅里叶变换,写写看</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=A%5Csum_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bx%5Bn%5De%5E%7B-j%5Cphi+n%7D%7D" alt="[公式]"></p>
-<p>令 <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=z%3DAe%5E%7Bj%5Cphi%7D" alt="[公式]"> 得到</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.zhihu.com/equation?tex=X%28z%29%3D%5Csum_%7B-%5Cinfty%7D%5E%7B%5Cinfty%7D%7Bx%5Bn%5Dz%5E%7B-n%7D%7D+" alt="[公式]"></p>
-<p>哎呀,一不小心把Z变换的公式也写出来了,原来搞了半天,不就是傅里叶变换的离散形式么.</p>
-<p>最后总结一下</p>
-<img src="https://pic3.zhimg.com/50/v2-3d77916a96663ed60abe33ceabed16f1_hd.jpg" data-caption="" data-size="normal" data-rawwidth="1125" data-rawheight="688" data-default-watermark-src="https://pic1.zhimg.com/50/v2-283e970b72cc2bb2378277e098ef98c9_hd.jpg" class="origin_image zh-lightbox-thumb" width="1125" data-original="https://pic3.zhimg.com/v2-3d77916a96663ed60abe33ceabed16f1_r.jpg">
-
-<p>数学分析工具就是这样,当出现解决不了的问题之后,随之就会出现改进的方案,我们可以说,拉普拉斯变换是为了解决一些”太飘了”或者专业说法叫不收敛的信号,而z变换则用于解决了信号的存储和编码问题,那么,那么还有没有别的问题?</p>
-<p>有的,从时域到频域,频域的时间信息消失了,你有没觉得之前我们分析的信号都太理想化了,现实中的信号往往随着时间而变化并非一成不变的,比如一辆车向你开来然后远去,你会听到声音从尖锐逐渐变得浑浊,这是多普勒效应造成的,而你收到的声音信号也由高频逐渐变为低频,而傅里叶变换只能告诉你信号中存在某种频率的信号,但却不能告诉你这个频率的信号是在什么时候出现的.它可能一直存在,或者只存在前半段信号里,可能存在后半段信号里.或者别的区间.</p>
-<p>这个时候,又出现了傅里叶变换的改进版本,叫短时傅里叶变换.简单来说就是一段信号,假如这个信号长度是1秒,那么就每隔0.1秒就做一次傅里叶变换,总共做10次,这样,第一个变换的结果对应0-0.1s的信号频谱,第二个变换结果对应0.1-0.2s的信号频谱</p>
-<p>虽然短时傅里叶提供了一个粗糙版本的方案把时间的概念引入频域,但无法解决信号拟合的问题,我们使用正弦波去拟合方波,我们就需要用无穷多个不同频率的正弦波去拟合以抵消时频间的能量差异,简单来说,一个方波我们用正弦波去拟合,最终会拟合成这个样子</p>
-<img src="https://pic4.zhimg.com/50/v2-ee38d87de684b7108a0c8a107c4a0514_hd.jpg" data-caption="" data-size="normal" data-rawwidth="850" data-rawheight="225" data-default-watermark-src="https://pic4.zhimg.com/50/v2-a5f9a41439e264fb2b526471afb351cd_hd.jpg" class="origin_image zh-lightbox-thumb" width="850" data-original="https://pic4.zhimg.com/v2-ee38d87de684b7108a0c8a107c4a0514_r.jpg">
-
-
-
-<p>为了解决上面两个问题,小波变换诞生了,要使用小波变换,在进行变换前首先需要挑选合适的母小波(也常常叫基波函数,以前实验室里经常被用来调侃:喲,你搞个基波啊),然后通过对母小波的平移和缩放,最终去拟合原信号,在平移的过程中,最终也把时间信息带入了频域(小波域)中,同时不同的母小波也更好解决了信号的拟合问题,当然,大多小波变换的核心原理,最终和傅里叶变换一样,利用了正交性来检波(有的基波没有正交性,例如morlet和mexican hat,这类小波在用于离散小波变换时有限制性)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://pic2.zhimg.com/80/40cf849e55ed95732a60b52d4019d609_720w.jpg" alt="img"></p>
+<ol start="4">
+<li><p>C++之STL –vector类的使用</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <vector>
+using std::vector;
+vector<int> v1//元素为int型
+vector<vector<string>> v2//vector生成了一个类型叫vector<string>(还有诸如vector<int>等类型)，v2元素以此为类型
+vector<int> v(10); // 直接定义⻓长度为10的int数组，默认这10个元素值都为0
+// 或者
+vector<int> v1;
+v1.resize(8); //先定义⼀一个vector变量量v1，然后将⻓长度resize为8，默认这8个元素都是0
+// 在定义的时候就可以对vector变量量进⾏行行初始化
+vector<int> v3(100, 9);// 把100⻓长度的数组中所有的值都初始化为9
+// 访问的时候像数组⼀一样直接⽤用[]下标访问即可～(也可以⽤用迭代器器访问，下⾯面会讲～)
+v[1] = 2;
+cout << v[0];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">vector<T> v1{a,b,c...}//赋值，采用花括号
+vector<T> v2={a,b,c,...}//同上
+vector<T> v3(n，val)//初始化为n个val
+vector<T> v4(n)//初始化为n个0
+v.empty()
+v.size()
+v.push_back(t)//将t插入尾端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+   vector<int> a; // 定义的时候不指定vector的⼤小
+   cout << a.size() << endl; // 这个时候size是0
+   for (int i = 0; i < 10; i++) {
+   a.push_back(i); // 在vector a的末尾添加⼀一个元素i
+}
+cout << a.size() << endl; // 此时会发现a的size变成了了10
+vector<int> b(15); // 定义的时候指定vector的⼤小，默认b⾥里面元素都是0
+cout << b.size() << endl;
+for (int i = 0; i < b.size(); i++) {
+b[i] = 15;
+}
+for (int i = 0; i < b.size(); i++) {
+   cout << b[i] << " ";
+}
+cout << endl;
+vector<int> c(20, 2); // 定义的时候指定vector的⼤大⼩小并把所有的元素赋⼀一个指定的值2
+for (int i = 0; i < c.size(); i++) {
+   cout << c[i] << " ";
+}
+cout << endl;
+for (auto it = c.begin(); it != c.end(); it++) { // 使⽤迭代器的⽅方式访问vector
+   cout << *it << " ";
+}
+return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>容器器 vector 、 set 、 map 这些遍历的时候都是使用迭代器访问的， c.begin() 是⼀一个指针，指向容器的第⼀一个元素， c.end() 指向容器器的<strong>最后⼀一个元素的后⼀一个位置</strong>，所以迭代器器指针 it 的for循环判断条件是 it != c.end()  。</p>
+</li>
+<li><p>在 for 循环里面定义的局部变量，在循环外面就失效啦，所以⼀一个 main 函数里面可以定义好多次局部变量 i ，再也不用担心写的循环太多变量名 i 、 j 、 k 不够用啦～  </p>
+</li>
+<li><p>引用与传值</p>
+<pre class="line-numbers language-c++"><code class="language-c++">void func(int &a) { // 传⼊入的是n的引⽤用，相当于直接对n进⾏行行了了操作，只不不过在func函数中换了了个名
+字叫a
+    a = 99;
+}
+int main() {
+    int n = 0;
+    func(n); // n由0变成了了99
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">void func(int a) {// 传入的是0这个值，并不会改变main函数中n的值
+    a = 99;
+}
+int main() {
+    int n = 0;
+    func(n);// 并不不会改变n的值， n还是0
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="7">
+<li><p>C++ STL之集合set的使用<br>set 是集合，⼀一个 set ⾥面的各元素是各不相同的，⽽而且 set 会按照元素进⾏行行从⼩小到⼤大排序～以下<br>是 set 的常⽤用⽤用法：  </p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <set>
+using namespace std;
+int main() {
+    set<int> s; // 定义⼀一个空集合s
+    s.insert(1); // 向集合s里面插⼊一个1
+    cout << *(s.begin()) << endl; // 输出集合s的第⼀一个元素 (前⾯面的星号表示要对指针取值)
+    for (int i = 0; i < 6; i++) {
+    s.insert(i); // 向集合s⾥里里⾯面插⼊入i
+    }
+    for (auto it = s.begin(); it != s.end(); it++) { // ⽤用迭代器遍历集合s⾥面的每⼀个元素
+    cout << *it << " ";
+    }
+    cout << endl << (s.find(2) != s.end()) << endl; // 查找集合s中的值，如果结果等于
+    s.end()表示未找到 (因为s.end()表示s的最后⼀一个元素的下⼀一个元素所在的位置)
+    cout << (s.find(10) != s.end()) << endl; // s.find(10) != s.end()表示能找到10
+    这个元素
+    s.erase(1); // 删除集合s中的1这个元素
+    cout << (s.find(1) != s.end()) << endl; // 这时候元素1就应该找不不到啦～
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="8">
+<li><p>C++ STL之stack的使用</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <stack>
+using namespace std;
+int main{
+    stack<int> s;//定义空栈
+    for(i=0;i<6;i++){
+        s.push(i);//将元素压入栈中
+    }
+    cout<<s.top()<<endl;//栈顶元素
+    cout<<s.size()<<endl;//栈的大小
+    s.pop();//移除栈顶元素
+    return 0
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="9">
+<li><p>C++ STL之map的使用</p>
+<p>map 是键值对，⽐比如⼀个人名对应一个学号，就可以定义一个字符串 string 类型的人名为“键”，学号 int 类型为“值”，如 map&lt;string, int&gt; m; 当然键、值也可以是其它变量量类型～ map 会自动将所有键值对按照键从小到大排序， map 使⽤用时的头文件 #include <map> 以下是 map 中常用的方法：  </map></p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+int main() {
+    map<string, int> m; // 定义⼀一个空的map m，键是string类型的，值是int类型的
+    m["hello"] = 2; // 将key为"hello", value为2的键值对(key-value)存⼊入map中
+    cout << m["hello"] << endl; // 访问map中key为"hello"的value, 如果key不不存在，则返回0
+    cout << m["world"] << endl;
+    m["world"] = 3; // 将"world"键对应的值修改为3
+    m[","] = 1; // 设⽴立⼀一组键值对，键为"," 值为1
+    // ⽤用迭代器器遍历，输出map中所有的元素，键⽤用it->first获取，值⽤用it->second获取
+    for (auto it = m.begin(); it != m.end(); it++) {
+    cout << it->first << " " << it->second << endl;
+    }
+    // 访问map的第⼀一个元素，输出它的键和值
+    cout << m.begin()->first << " " << m.begin()->second << endl;
+    // 访问map的最后⼀一个元素，输出它的键和值
+    cout << m.rbegin()->first << " " << m.rbegin()->second << endl;
+    // 输出map的元素个数
+    cout << m.size() << endl;
+    return 0;
+}    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="10">
+<li><p>C++ STL之queue的使用</p>
+<p>队列 queue 在头文件 #include <queue> 中，是数据结构里面的队列～以下是常用用法：  </queue></p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <queue>
+using namespace std;
+int main() {
+    queue<int> q; // 定义⼀一个空队列列q
+    for (int i = 0; i < 6; i++) {
+    q.push(i); // 将i的值依次压⼊入队列列q中
+    }
+    cout << q.front() << " " << q.back() << endl; // 访问队列的队首元素和队尾元素
+    cout << q.size() << endl; // 输出队列列的元素个数
+    q.pop(); // 移除队列列的队⾸首元素
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="11">
+<li><p>cctype头文件里的一些函数  :</p>
+<pre class="line-numbers language-c++"><code class="language-c++">isupper(c)//判断大小写
+islower(c)//
+toupper(c)//转换相大小写，若无需转换则原样输出
+tolower(c)//
+isalpha(c)//是否为字母
+isalnum（c） //（字母大小写+数字）
+isblank（c） //（space和 \t ）
+isspace（c） //（ space 、 \t 、 \r 、 \n ）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="12">
+<li><p>C++的位运算bitset  </p>
+<p>bitset 用来处理理⼆进制位非常方便。头文件是 #include <bitset> 。知道 bitset 能够简化⼀一些操作，可能⼀一些复杂的问题能够直接⽤用 bitset 就很轻易易地解决～以下是⼀一些常⽤用法：  </bitset></p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <bitset>
+using namespace std;
+int main() {
+bitset<5> b("11"); //5表示5个⼆二进位
+   // 初始化⽅方式：
+   // bitset<5> b; 都为0
+   // bitset<5> b(u); u为unsigned int，如果u = 1，则输出b的结果为00001
+   // bitset<8> b(s); s为字符串串，如"1101"，则输出b的结果为00001101，在前⾯面补0
+   // bitset<5> b(s, pos, n); 从字符串串的s[pos]开始， n位⻓长度
+   // 注意， bitset相当于⼀一个数组，但是它是从⼆二进制的低位到⾼高位分别为b[0]、 b[1]……的
+   // 所以按照b[i]⽅方式逐位输出和直接输出b结果是相反的
+   cout << b << endl; // 如果bitset<5> b("11"); 则此处输出00011(即正常⼆二进制顺序)
+   for(int i = 0; i < 5; i++)
+   cout << b[i]; // 如果bitset<5> b("11"); 则此处输出11000(即正常二进制顺序的倒
+   序)
+   cout << endl << b.any(); //b中是否存在1的二进制位
+   cout << endl << b.none(); //b中不不存在1吗？
+   cout << endl << b.count(); //b中1的⼆二进制位的个数
+   cout << endl << b.size(); //b中⼆二进制位的个数
+   cout << endl << b.test(2); //测试下标为2处是否⼆二进制位为1
+   b.set(4); //把b的下标为4处置1
+   b.reset(); //所有位归零
+   b.reset(3); //b的下标3处归零
+   b.flip(); //b的所有⼆二进制位逐位取反
+   unsigned long a = b.to_ulong(); //b转换为unsigned long类型
+   return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="13">
+<li><p>C++中的sort函数和cmp</p>
+<p>sort 函数在头文件 #include <algorithm> ⾥面，主要是对一个数组进行排序（ int arr[] 数组或者 vector 数组都行），vector 是容器，要⽤用 v.begin() 和 v.end() 表示头尾；⽽而 int arr[] ⽤用 arr 表示数组的首地址， arr+n 表示尾部  ，sort函数的模板有三个参数：</algorithm></p>
+<pre class="line-numbers language-c++"><code class="language-c++">void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（1）第一个参数first：是要排序的数组的起始地址。</p>
+<p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p>
+<p>（3）第三个参数comp是排序的方法，如果第三个参数不写，则默认的排序方法是从小到大排序。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+bool cmp(int a, int b) { // cmp函数返回的值是bool类型
+return a > b; // 从⼤大到⼩小排列列
+}
+int main() {
+    vector<int> v(10)；
+    for (int i = 0; i < 10; i++) {
+    cin >> v[i];
+    }
+    sort(v.begin(), v.end());// 因为这⾥里里没有传⼊入参数cmp，所以按照默认， v从⼩小到⼤大排列列
+    int arr[10];
+    for (int i = 0; i < 10; i++) {
+    cin >> arr[i];
+    }
+    sort(arr, arr + 10, cmp); // arr从⼤大到⼩小排列列，因为cmp函数排序规则设置了了从⼤大到⼩小
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>cmp 最好⽤用的还是在结构体中，尤其是很多排序的题⽬目～⽐比如⼀一个学⽣生结构体 stu 有学<br>号和成绩两个变量量，要求如果成绩不不同就按照成绩从⼤大到⼩小排列列，如果成绩相同就按照学号从⼩小到⼤大<br>排列列，那么就可以写⼀一个 cmp 数组实现这个看上去有点复杂的排序过程：  </p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+struct stu { // 定义⼀一个结构体stu， number表示学号， score表示分数
+    int number;
+    int score;
+}
+bool cmp(stu a, stu b) { // cmp函数，返回值是bool，传⼊入的参数类型应该是结构体stu类型
+if (a.score != b.score) // 如果学⽣生分数不不同，就按照分数从⼤大到⼩小排列列
+    return a.score > b.score;
+else // 如果学⽣生分数相同，就按照学号从⼩小到⼤大排列列
+    c++return a.number < b.number;
+}
+// 有时候这种简单的if-else语句句我喜欢直接⽤用⼀一个C语⾔言⾥里里⾯面的三⽬目运算符表示～
+bool cmp(stu a, stu b) {
+return a.score != b.score ? a.score > b.score : a.number < b.number;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意： sort 函数的 cmp 必须按照规定来写，即必须只是 &gt; 或者 &lt; ，比如： return a &gt; b; 或者 return a &lt; b; ⽽而不不能是 &lt;= 或者 &gt;= ，因为快速排序的思想中， cmp 函数是当结果为 false 的时候迭代器器指针暂停开始交换两个元素的位置，当 cmp 函数 return a &lt;= b 时，若中间元素前⾯面的元素都⽐比它⼩小，⽽而后⾯面的元素都跟它相等或者⽐比它⼩小，那么 cmp 恒返回 true ，迭代器器指针会不不断右移导致程序越界，发⽣生段错误  。</p>
+</li>
+<li><p>C++11特性中的to_string  ，stoi，stod</p>
+<p>to_string 最常用的就是把一个 int 型变量或者一个数字转化为 string 类型的变量，当然也可以转 double 、 float 等类型的变量</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string s1= to_string(123);将123转化为字符串“123”，也可以是4.5等浮点数
+    printf("%s\n",s1.c_str());若想用printf输出string，要加上c.str()
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使⽤用 stoi 、 stod 可以将字符串串 string 转化为对应的 int 型、 double 型变量，这在字符串处理理的很多问题中很有帮助～以下是示例例代码和非法输⼊入的处理方法：  </p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string str = "123";
+    int a = stoi(str);
+    cout << a;
+    str = "123.44";
+    double b = stod(str);
+    cout << b;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>stoi如果遇到的是⾮非法输⼊入（比如stoi(“123.4”)， 123.4不不是⼀一个int型变量量）：<br>1.会⾃自动截取最前⾯面的数字，直到遇到不不是数字为⽌(所以说如果是浮点型，会截取前⾯面的整数部分)<br>2.如果最前面不是数字，会运行时发生错误  </p>
+<p>stod如果是非法输入：<br>1.会自动截取最前面的浮点数，直到遇到不满⾜浮点数为止<br>2.如果最前面不是数字或者小数点，会运行时发生错误<br>3.如果最前面是小数点，会自动转化后在前面补0  </p>
+</li>
+<li><p>范围For语句</p>
+<p>除了了像C语⾔言的for语句句 for (i = 0; i &lt; arr.size(); i++) 这样， C++11标准还为C++添加了了⼀一种新的 for 循环⽅方式，叫做基于范围（range-based）的for循环，这在遍历数组中的每⼀一个元素时使⽤用会⽐比较简便便～比如想要输出数组 arr 中的每⼀一个值，可以使⽤用如下的方式输出：  </p>
+<pre class="line-numbers language-c++"><code class="language-c++">int arr[4] = {0, 1, 2, 3};
+for (int i : arr)
+cout << i << endl; // 输出数组中的每⼀一个元素的值，每个元素占据⼀行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>i 变量量从数组的第一个元素开始，不不断执⾏行行循环， i 依次表示数组中的每⼀一个元素～注意，使⽤用 inti 的⽅方式定义时，该语句句只能⽤用来输出数组中元素的值，⽽而不不能修改数组中的元素，如果想要修改，必须使⽤用 int &amp;i 这种定义引⽤用变量量的方式～比如想给数组中的每⼀一个元素都乘以 2 ，可以使⽤用如下⽅式  ：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int arr[4] = {0, 1, 2, 3};
+for (int &i : arr) // i为引⽤用变量量
+i = i * 2; // 将数组中的每⼀一个元素都乘以2， arr[4]的内容变为了{0, 2, 4, 6}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这种基于范围的 for 循环适⽤用于各种类型的数组，将上述两段代码中的 int 改成其他变量类型如double 、 char 都是可以的～另外，这种 for 循环方式不仅可以适用于数组，还适用于各种STL容器，⽐比如 vector 、 set 等～</p>
+<pre class="line-numbers language-c++"><code class="language-c++">// v是⼀一个int类型的vector容器器
+for (auto i : v)
+cout << i << " ";
+// 上⾯面的写法等价于
+for (int i = 0; i < v.size(); i++)
+cout << v[i] << " ";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -939,7 +1163,7 @@
                     </span>
                     <a href="https://zhangyihao.top" class="b-link-green">limbercode的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/03/23/fourier-fu-ben/" class="b-link-green">Fourier,laplace,z的理解（二）</a>
+                    <a href="/2020/05/24/c-primer-notes/" class="b-link-green">C++primer Notes</a>
                 </p>
             </div>
 
@@ -961,43 +1185,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/31/git-zui-chang-yong-ming-ling/">
+                <a href="/2020/05/24/c-primer-notes/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Git最常用命令">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++primer Notes">
                         
-                        <span class="card-title">Git最常用命令</span>
+                        <span class="card-title">C++primer Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.生成sshkey
-ssh-keygen -t rsa -C "youremail@youremail.com"  2.查看你的 public key
-cat ~/.ssh/id_rsa.pub3.添加后，在终端中输入
-#Gitee
-$ 
+                            
+浅析new和delete
+在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+f
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-24
+                            </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/C-language/" target="_blank">
+                        <span class="chip bg-color">C++ language</span>
                     </a>
                     
                 </div>
@@ -1011,25 +1237,30 @@ $
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/23/fourier/">
+                <a href="/2020/05/09/shu-de-tong-gou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Fourier,lapalace,z的理解（一）">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="树的同构">
                         
-                        <span class="card-title">Fourier,lapalace,z的理解（一）</span>
+                        <span class="card-title">树的同构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
-傅里叶级数推导\法国数学家傅里叶在提出傅里叶级数时认为，任何一个周期信号都可以展开成傅里叶级数
+                            
+#include&lt;iostream&gt;
+#include&lt;malloc.h&gt;
+#define null -1
+using namespace std;
+struct TreeNode{
+    char data; 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-09
                             </span>
                         <span class="publish-author">
                             
@@ -1039,8 +1270,8 @@ $
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/signals-and-systems/" target="_blank">
-                        <span class="chip bg-color">signals and systems</span>
+                    <a href="/tags/数据结构/" target="_blank">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1215,7 +1446,7 @@ $
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">8.8k</span> 字
+                <span class="white-color">8.9k</span> 字
             
 
             
@@ -1456,5 +1687,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-chitose"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

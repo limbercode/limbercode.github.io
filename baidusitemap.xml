@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangyihao.top/2020/05/06/hello-world-fu-ben/</loc>
-    <lastmod>2020-05-09</lastmod>
+    <loc>https://zhangyihao.top/2020/05/24/c-primer-notes/</loc>
+    <lastmod>2020-05-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangyihao.top/2020/04/16/pat-bi-ji/</loc>
+    <lastmod>2020-05-24</lastmod>
   </url>  <url>
     <loc>https://zhangyihao.top/2020/05/09/shu-de-tong-gou/</loc>
     <lastmod>2020-05-09</lastmod>
@@ -13,19 +16,10 @@
     <loc>https://zhangyihao.top/2020/03/31/git-zui-chang-yong-ming-ling/</loc>
     <lastmod>2020-04-30</lastmod>
   </url>  <url>
-    <loc>https://zhangyihao.top/2020/04/22/c-qian-xi-new-yu-delete/</loc>
-    <lastmod>2020-04-22</lastmod>
-  </url>  <url>
-    <loc>https://zhangyihao.top/2020/04/16/pat-bi-ji/</loc>
-    <lastmod>2020-04-21</lastmod>
-  </url>  <url>
-    <loc>https://zhangyihao.top/2020/02/24/hello-world/</loc>
-    <lastmod>2020-04-20</lastmod>
-  </url>  <url>
     <loc>https://zhangyihao.top/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/</loc>
     <lastmod>2020-04-18</lastmod>
   </url>  <url>
-    <loc>https://zhangyihao.top/2020/03/23/fourier-fu-ben/</loc>
+    <loc>https://zhangyihao.top/2020/03/23/fourier-2/</loc>
     <lastmod>2020-04-07</lastmod>
   </url>  <url>
     <loc>https://zhangyihao.top/2020/03/23/fourier/</loc>
