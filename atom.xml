@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-05-25T02:49:30.557Z</updated>
+  <updated>2020-06-30T03:04:27.325Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>C++primer Notes</title>
-    <link href="https://zhangyihao.top/2020/05/24/c-primer-notes/"/>
-    <id>https://zhangyihao.top/2020/05/24/c-primer-notes/</id>
-    <published>2020-05-24T10:43:51.000Z</published>
-    <updated>2020-05-25T02:49:30.557Z</updated>
+    <title>树的遍历</title>
+    <link href="https://zhangyihao.top/2020/06/27/bttree-order/"/>
+    <id>https://zhangyihao.top/2020/06/27/bttree-order/</id>
+    <published>2020-06-27T09:20:13.000Z</published>
+    <updated>2020-06-30T03:04:27.325Z</updated>
     
     <summary type="html">
     
@@ -29,73 +29,24 @@
       
         
         
-          &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;浅析new和delete&lt;/p&gt;
-&lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code
+          &lt;p&gt;1.二叉树的链式存储结构：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&lt;cstdio&gt;
+typedef struct BTNode
+{
+    char
         
       
     
     </summary>
     
-    
-      <category term="C++ language" scheme="https://zhangyihao.top/tags/C-language/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树的同构</title>
-    <link href="https://zhangyihao.top/2020/05/09/shu-de-tong-gou/"/>
-    <id>https://zhangyihao.top/2020/05/09/shu-de-tong-gou/</id>
-    <published>2020-05-09T07:10:25.985Z</published>
-    <updated>2020-05-09T07:14:19.900Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://zhangyihao.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reverse Linked List[PAT甲级1074]</title>
-    <link href="https://zhangyihao.top/2020/05/06/pat1074reverselist/"/>
-    <id>https://zhangyihao.top/2020/05/06/pat1074reverselist/</id>
-    <published>2020-05-06T03:14:40.994Z</published>
-    <updated>2020-05-09T07:09:08.070Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Given a constant &lt;em&gt;K&lt;/em&gt; and a singly linked list &lt;em&gt;L&lt;/em&gt;, you are supposed to reverse the links of every &lt;em&gt;K&lt;/em&gt; elements on
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Pat" scheme="https://zhangyihao.top/tags/Pat/"/>
     
   </entry>
   
   <entry>
     <title>Notes</title>
-    <link href="https://zhangyihao.top/2020/04/16/pat-bi-ji/"/>
-    <id>https://zhangyihao.top/2020/04/16/pat-bi-ji/</id>
-    <published>2020-04-16T01:19:00.843Z</published>
+    <link href="https://zhangyihao.top/2020/06/27/pat-bi-ji/"/>
+    <id>https://zhangyihao.top/2020/06/27/pat-bi-ji/</id>
+    <published>2020-06-27T09:18:56.373Z</published>
     <updated>2020-05-24T11:21:12.480Z</updated>
     
     <summary type="html">
@@ -115,6 +66,34 @@
     
     
       <category term="algorithm note" scheme="https://zhangyihao.top/tags/algorithm-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++primer Notes</title>
+    <link href="https://zhangyihao.top/2020/05/24/c-primer-notes/"/>
+    <id>https://zhangyihao.top/2020/05/24/c-primer-notes/</id>
+    <published>2020-05-24T10:43:51.000Z</published>
+    <updated>2020-05-26T09:05:38.255Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文是我参考多种材料总结的成果，刷题大致够用，呈现如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;浅析new和delete&lt;/p&gt;
+&lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C++ language" scheme="https://zhangyihao.top/tags/C-language/"/>
     
   </entry>
   
@@ -189,52 +168,6 @@
     
     
       <category term="signals and systems" scheme="https://zhangyihao.top/tags/signals-and-systems/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lemon-Like Feeling and Pear-Shaped Study Career</title>
-    <link href="https://zhangyihao.top/2020/03/21/lemon-collection/"/>
-    <id>https://zhangyihao.top/2020/03/21/lemon-collection/</id>
-    <published>2020-03-21T01:11:13.003Z</published>
-    <updated>2020-03-23T00:19:22.252Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Born with jeopardy , grow with mental disease  and  other strange disease(neither danger nor mild),now I have  go through  20 years.
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>打印沙漏【PAT乙级1027】</title>
-    <link href="https://zhangyihao.top/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/"/>
-    <id>https://zhangyihao.top/2020/03/17/da-yin-sha-lou-pat-yi-ji-1027/</id>
-    <published>2020-03-17T05:35:09.394Z</published>
-    <updated>2020-04-18T11:39:17.920Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PAT" scheme="https://zhangyihao.top/tags/PAT/"/>
     
   </entry>
   
