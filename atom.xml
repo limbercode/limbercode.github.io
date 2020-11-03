@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-07-17T15:04:22.700Z</updated>
+  <updated>2020-11-03T15:32:17.644Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dying Love</title>
+    <link href="https://zhangyihao.top/2020/11/03/love/"/>
+    <id>https://zhangyihao.top/2020/11/03/love/</id>
+    <published>2020-11-03T15:25:44.000Z</published>
+    <updated>2020-11-03T15:32:17.644Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;其一：【琴曲出自王实甫《西厢记》】&lt;br&gt;有一美人兮，见之不忘。&lt;br&gt;一日不见兮，思之如狂。&lt;br&gt;凤飞翱翔兮，四海求凰。&lt;br&gt;无奈佳人兮，不在东墙。&lt;br&gt;将琴代语兮，聊写衷肠。&lt;br&gt;何时见许兮，慰我彷徨。&lt;br&gt;愿言配德兮，携手相将。&lt;br&gt;不得於飞兮，使我沦亡。
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>递归</title>
@@ -161,7 +183,7 @@ typedef struct BTNode
     <link href="https://zhangyihao.top/2020/06/27/pat-bi-ji/"/>
     <id>https://zhangyihao.top/2020/06/27/pat-bi-ji/</id>
     <published>2020-06-27T09:18:56.373Z</published>
-    <updated>2020-05-24T11:21:12.480Z</updated>
+    <updated>2020-09-19T03:09:57.672Z</updated>
     
     <summary type="html">
     
@@ -188,7 +210,7 @@ typedef struct BTNode
     <link href="https://zhangyihao.top/2020/05/24/c-primer-notes/"/>
     <id>https://zhangyihao.top/2020/05/24/c-primer-notes/</id>
     <published>2020-05-24T10:43:51.000Z</published>
-    <updated>2020-08-31T13:31:25.753Z</updated>
+    <updated>2020-09-21T05:37:23.696Z</updated>
     
     <summary type="html">
     
@@ -196,11 +218,10 @@ typedef struct BTNode
       
         
         
-          &lt;p&gt;本文是我参考多种材料总结的成果，刷题大致够用，呈现如下：&lt;/p&gt;
-&lt;ol&gt;
+          &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;浅析new和delete&lt;/p&gt;
 &lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers
+&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code
         
       
     
