@@ -11,10 +11,9 @@
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="description" content="1.判断素数
 bool isprime(int a){
-    if(a {
-              img.remove();
-              el.style.color = &#39;inherit&#39;;
-           ">
+    if(a&amp;lt;=1) return false;
+    int sqr=int(sqr(n*1.0));//注意n*1.0
+    for(int i=2;i&amp;lt;=sq">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -68,8 +67,7 @@ bool isprime(int a){
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
     <body>
 
@@ -636,14 +634,14 @@ bool isprime(int a){
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        34
+                        700
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -661,51 +659,82 @@ bool isprime(int a){
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1.判断素数</p>
-<pre class="line-numbers language-c++"><code class="language-c++">bool isprime(int a){
-    if(a<=1) return false;
-    int sqr=int(sqr(n*1.0));//注意n*1.0
-    for(int i=2;i<=sqr;i++){
-        if(a%i!==0)//注意==
-            return false;
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isprime</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span></span>{
+    <span class="hljs-keyword">if</span>(a&lt;=<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">int</span> sqr=<span class="hljs-keyword">int</span>(sqr(n*<span class="hljs-number">1.0</span>));<span class="hljs-comment">//注意n*1.0</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i&lt;=sqr;i++){
+        <span class="hljs-keyword">if</span>(a%i!==<span class="hljs-number">0</span>)<span class="hljs-comment">//注意==</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    return true;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>2.Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器⾥面  <code>-std=C++11</code></p>
-<p>3.</p>
-<p>INT_MAX<code>,</code>INT_MIN<code>,</code>LLONG_MAX<code>在</code>#include <climits><code>头⽂文件⾥面.int最大值为2147483647，共
-10位数字；</code>LLONG_MAX<code>最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用</code>long long int<code>，输出的时候使⽤用</code>%013lld`.</climits></p>
-<p>4.</p>
-<p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
-<p>5.</p>
-<pre><code>   // 树的遍历-前序中序转后序：
-   void post(int root, int start, int end) {
-       if (start &gt; end) return;
-       int i = start;
-       while (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
-       post(root + 1, start, i - 1);
-       post(root + 1 + i - start, i + 1, end);
-       printf("%d ", pre[root]);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre>
+<p>2.Dev中查看 vector 的值： <code>*(&amp;v[0])@3</code> ——必须对 v[0] 变换，先取地址再取值， @ 后⾯面的数字 3 能让<br>
+Dev显示数组前3个的值，在用这个之前要先在 编译选项-编译器⾥面  <code>-std=C++11</code></p>
+<ol start="3">
+<li></li>
+</ol>
+<p>INT_MAX<code>,</code>INT_MIN<code>,</code>LLONG_MAX<code>在</code>#include <climits><code>头⽂文件⾥面.int最大值为2147483647，共 10位数字；</code>LLONG_MAX<code>最⼤大值有19位数字，以9开头。所以说储存13位的学号可以⽤用</code>long long int<code>，输出的时候使⽤用</code>%013lld`.</climits></p>
+<ol start="4">
+<li></li>
+</ol>
+<p>将十进制 a 转换为 b 进制数，当 a 不等于 0 时，将 a%b 从后往前倒序保存下来，每次保存后<br>
+将 a/b 。这样倒序保存的数就是十进制 a 在 b 进制下的结果。</p>
+<ol start="5">
+<li></li>
+</ol>
+<pre class="highlight"><code class="c++">   <span class="hljs-comment">// 树的遍历-前序中序转后序：</span>
+   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">post</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span> </span>{
+   	<span class="hljs-keyword">if</span> (start &gt; end) <span class="hljs-keyword">return</span>;
+   	<span class="hljs-keyword">int</span> i = start;
+   	<span class="hljs-keyword">while</span> (i &lt; end &amp;&amp; pre[root] != in[i]) i++;
+   	post(root + <span class="hljs-number">1</span>, start, i - <span class="hljs-number">1</span>);
+   	post(root + <span class="hljs-number">1</span> + i - start, i + <span class="hljs-number">1</span>, end);
+   	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, pre[root]);
    }
-   // 树的遍历-后序中序转前序：
-   void pre(int root, int start, int end) {
-       if (start &gt; end) return;
-       int i = start;
-       while (i &lt; end &amp;&amp; post[root] != in[i]) i++;
-       printf("%d ", post[root]);
-       pre(root - 1 - end + i, start, i - 1);
-       pre(root - 1, i + 1, end);
+   <span class="hljs-comment">// 树的遍历-后序中序转前序：</span>
+   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pre</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span> </span>{
+   	<span class="hljs-keyword">if</span> (start &gt; end) <span class="hljs-keyword">return</span>;
+   	<span class="hljs-keyword">int</span> i = start;
+   	<span class="hljs-keyword">while</span> (i &lt; end &amp;&amp; post[root] != in[i]) i++;
+   	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, post[root]);
+   	pre(root - <span class="hljs-number">1</span> - end + i, start, i - <span class="hljs-number">1</span>);
+   	pre(root - <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>, end);
    }
-   //树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为`2 * index + 1`，将转的过程中产⽣的`post[root]`的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出
+   <span class="hljs-comment">//树的遍历-后序中序转层序，只需在转前序的时候，加⼀个变量index，表示当前的根结点在⼆叉树中所对应的下标，根结点为0，左⼦树根结点为2 * index，右⼦树根结点为`2 * index + 1`，将转的过程中产⽣的`post[root]`的值存储在level[index]中，level数组⼀开始都为-1，这样将所有不是-1的点输出即为层序的输出</span>
 
-树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个`vector&lt;int&gt; v[10000]`，则每次将得到的前序的值放`v[level].push_back()`，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出。
+<span class="hljs-comment">//树的遍历-后序中序转之字形，⽤level上⾯那个⽅法就⽐较不⽅便，可以在转前序的时候，加⼀个变量level，⼀开始为0，每⼀次level+1，建⽴⼀个`vector&lt;int&gt; v[10000]`，则每次将得到的前序的值放`v[level].push_back()`，得到的就是⼀个每⼀⾏代表树的⼀层的⼆维数组，然后对每⼀⾏之字形输出。</span>
 
-</code></pre><p>6.</p>
-<pre><code>typedef existing_type new_name;//the later is new name</code></pre><p>7.注意其中delete（非Delete）也是关键字，不可用于变量名。</p>
+   
+</code></pre>
+<ol start="6">
+<li></li>
+</ol>
+<pre class="highlight"><code class="">typedef existing_type new_name;//the later is new name
+</code></pre>
+<p>7.注意其中delete（非Delete）也是关键字，不可用于变量名。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://www.runoob.com/wp-content/uploads/2018/06/20130806104900234.jpg" alt="c++关键字"></p>
-<p>8.</p>
-<p>c=++a：先运算后赋值；c=a++先赋值后运算。</p>
-<p>9.</p>
+<ol start="8">
+<li></li>
+</ol>
+<p>c=<ins>a：先运算后赋值；c=a</ins>先赋值后运算。</p>
+<ol start="9">
+<li></li>
+</ol>
 <p>double类型scanf输入必用%lf，输出printf可以用%f或%lf。</p>
+<ol start="10">
+<li></li>
+</ol>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//由中序遍历序列number[]得二叉树T（数组存储）</span>
+<span class="hljs-comment">//n为节点数，number从0开始存储。</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inorder</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root)</span></span>{
+	<span class="hljs-keyword">if</span>(root&gt;n)
+		<span class="hljs-keyword">return</span>;
+	inorder(root*<span class="hljs-number">2</span>);
+	T[root]=A[index++];
+	inorder(root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>);
+} 
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -913,13 +942,12 @@ bool isprime(int a){
                     <div class="summary block-with-text">
                         
                             1.二叉树的链式存储结构：
-#include
+#include&lt;cstdio&gt;
 typedef struct BTNode
 {
-    char data;
-    struct BTNode *lchild;
-    struct BTNode *lchild;
-}BTN
+	char data;
+	struct BTNode *lchild;
+	struct BTNode *lchild;
                         
                     </div>
                     <div class="publish-info">
@@ -954,10 +982,11 @@ typedef struct BTNode
                     <div class="summary block-with-text">
                         
                             
+
+
 浅析new和delete
 在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
 int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
-f
                         
                     </div>
                     <div class="publish-info">
@@ -1148,7 +1177,7 @@ f
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">25.2k</span> 字
+                <span class="white-color">30.1k</span> 字
             
 
             
@@ -1389,5 +1418,5 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-chitose"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-chitose"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

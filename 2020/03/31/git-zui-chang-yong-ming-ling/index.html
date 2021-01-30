@@ -10,10 +10,13 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="description" content="1.生成sshkey
-ssh-keygen -t rsa -C &#34;youremail@youremail.com&#34;  2.查看你的 public key
-cat ~/.ssh/id_rsa.pub3.添加后，在终端中输入
-#Gitee
-$ ">
+ssh-keygen -t rsa -C &#34;youremail@youremail.com&#34;  
+
+2.查看你的 public key
+cat ~/.ssh/id_rsa.pub
+
+3.添加后，在终端中输入
+#Gite">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -67,8 +70,7 @@ $ ">
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-coy.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
     <body>
 
@@ -660,24 +662,34 @@ $ ">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1.生成sshkey</p>
-<pre><code>ssh-keygen -t rsa -C "youremail@youremail.com"  </code></pre><p>2.查看你的 public key</p>
-<pre><code>cat ~/.ssh/id_rsa.pub</code></pre><p>3.添加后，在终端中输入</p>
-<pre><code>#Gitee
+<pre class="highlight"><code class="">ssh-keygen -t rsa -C "youremail@youremail.com"  
+</code></pre>
+<p>2.查看你的 public key</p>
+<pre class="highlight"><code class="">cat ~/.ssh/id_rsa.pub
+</code></pre>
+<p>3.添加后，在终端中输入</p>
+<pre class="highlight"><code class="">#Gitee
 $ ssh -T git@gitee.com
 
 #GitHub
-$ ssh -T git@github.com</code></pre><p>4.设置基本信息</p>
-<pre><code>$ git config --global user.name "yourname"
-$ git config --global user.email "youremail@youremail.com"</code></pre><p>5.初始化</p>
-<pre><code>#Gitee
+$ ssh -T git@github.com
+</code></pre>
+<p>4.设置基本信息</p>
+<pre class="highlight"><code class="">$ git config --global user.name "yourname"
+$ git config --global user.email "youremail@youremail.com"
+</code></pre>
+<p>5.初始化</p>
+<pre class="highlight"><code class="">#Gitee
 $ git clone https://gitee.com/yourname/repository
 
 #Github
 $ git clone https://github.com/yourname/repository.git
 
 #yourname  您在码云或github注册的用户名
-#repository  您创建的远程仓库名称</code></pre><p>6.本地初始化</p>
-<pre><code>#Gitee
+#repository  您创建的远程仓库名称
+</code></pre>
+<p>6.本地初始化</p>
+<pre class="highlight"><code class="">#Gitee
 $ cd d:/test //首先在文件系统中创建一个项目文件夹，然后在Git中 cd 到这个工程目录
 $ git init //初始化本地项目
 $ git remote add origin &lt;远程仓库地址&gt; //绑定远程仓库
@@ -688,13 +700,21 @@ $ cd d:/test
 $ git init
 $ git remote add origin &lt;远程仓库地址&gt;
 #注：地址形式为 https://github.com/yourname/test.git
-</code></pre><p>7.更新到远程仓库</p>
-<pre><code>git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件
+
+</code></pre>
+<p>7.更新到远程仓库</p>
+<pre class="highlight"><code class="">git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件
 git commit -m "一些注释说明"     //添加更新说明
-git push origin master            //执行更新操作</code></pre><p>8.从远程仓库同步最新版本到本地</p>
-<pre><code>$ cd d:/test
+git push origin master            //执行更新操作
+</code></pre>
+<p>8.从远程仓库同步最新版本到本地</p>
+<pre class="highlight"><code class="">$ cd d:/test
 $ git pull origin master
-$ clear//清屏</code></pre><p>9.</p>
+$ clear//清屏
+</code></pre>
+<ol start="9">
+<li></li>
+</ol>
 <p>Git bash快捷键</p>
 <p>编辑</p>
 <table>
@@ -704,7 +724,8 @@ $ clear//清屏</code></pre><p>9.</p>
 <th>操作</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>alt+.</td>
 <td>粘帖上一次命令最后的参数</td>
 </tr>
@@ -792,8 +813,11 @@ $ clear//清屏</code></pre><p>9.</p>
 <td>reset</td>
 <td>清屏</td>
 </tr>
-</tbody></table>
-<p>10.</p>
+</tbody>
+</table>
+<ol start="10">
+<li></li>
+</ol>
 <p>若出现该错误则</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5Casus%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200430202634381.png" alt="image-20200430202634381"></p>
 <script>
@@ -1003,10 +1027,11 @@ $ clear//清屏</code></pre><p>9.</p>
                     <div class="summary block-with-text">
                         
                             
+
+
 浅析new和delete
 在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
 int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
-f
                         
                     </div>
                     <div class="publish-info">
@@ -1048,8 +1073,9 @@ f
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
-既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我们
+                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211
+作者：DBinary
+既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我
                         
                     </div>
                     <div class="publish-info">
@@ -1240,7 +1266,7 @@ f
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">25.2k</span> 字
+                <span class="white-color">30.1k</span> 字
             
 
             
@@ -1481,5 +1507,5 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-chitose"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-chitose"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

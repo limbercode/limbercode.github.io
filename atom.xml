@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2020-07-17T15:04:22.700Z</updated>
+  <updated>2021-01-30T12:51:47.978Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhangyihao.top/2020/07/17/di-gui/"/>
     <id>https://zhangyihao.top/2020/07/17/di-gui/</id>
     <published>2020-07-17T15:02:24.000Z</published>
-    <updated>2020-07-17T15:04:22.700Z</updated>
+    <updated>2021-01-30T12:51:47.978Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,8 @@
       
         
         
-          &lt;h2 id=&quot;递归入门&quot;&gt;&lt;a href=&quot;#递归入门&quot; class=&quot;headerlink&quot; title=&quot;递归入门&quot;&gt;&lt;/a&gt;递归入门&lt;/h2&gt;&lt;h3 id=&quot;编写一个递归函数&quot;&gt;&lt;a href=&quot;#编写一个递归函数&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;递归入门&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#递归入门&quot;&gt;&lt;/a&gt; 递归入门&lt;/h2&gt;
+&lt;h3 id=&quot;编写一个递归函数&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#编写一个递归函数&quot;&gt;&lt;/a&gt;
         
       
     
@@ -48,39 +49,45 @@
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#函数式编程&quot;&gt;函数式编程&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#面向对象&quot;&gt;面向对象&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#变量&quot;&gt;变量&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#方法存储在内存中&quot;&gt;方法(存储在内存中)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#属性property-def-funcself&quot;&gt;属性（@property def func(self)）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#创建类的两种方法&quot;&gt;创建类的两种方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#使用枚举类枚举类不可比较大小但是同一枚举类的成员可以做等值is--not-is判断&quot;&gt;使用枚举类(枚举类不可比较大小，但是同一枚举类的成员可以做等值is / not is判断)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#定义枚举类&quot;&gt;定义枚举类&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B&quot;&gt;函数式编程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;面向对象&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%8F%98%E9%87%8F&quot;&gt;变量&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%96%B9%E6%B3%95%E5%AD%98%E5%82%A8%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD&quot;&gt;方法(存储在内存中)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%B1%9E%E6%80%A7property-def-funcself&quot;&gt;属性（@property def func(self)）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95&quot;&gt;创建类的两种方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE%E7%B1%BB%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8D%E5%8F%AF%E6%AF%94%E8%BE%83%E5%A4%A7%E5%B0%8F%E4%BD%86%E6%98%AF%E5%90%8C%E4%B8%80%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%AD%89%E5%80%BCis--not-is%E5%88%A4%E6%96%AD&quot;&gt;使用枚举类(枚举类不可比较大小，但是同一枚举类的成员可以做等值is / not is判断)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB&quot;&gt;定义枚举类&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#高级面向对象&quot;&gt;高级面向对象&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#元类types&quot;&gt;元类types&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#元类type构造对象&quot;&gt;元类type构造对象&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#使用slot限制添加属性&quot;&gt;使用Slot限制添加属性&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#装饰器&quot;&gt;装饰器&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#python垃圾回收机制&quot;&gt;python垃圾回收机制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E9%AB%98%E7%BA%A7%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;高级面向对象&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%83%E7%B1%BBtypes&quot;&gt;元类types&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%83%E7%B1%BBtype%E6%9E%84%E9%80%A0%E5%AF%B9%E8%B1%A1&quot;&gt;元类type构造对象&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BD%BF%E7%94%A8slot%E9%99%90%E5%88%B6%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7&quot;&gt;使用Slot限制添加属性&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E8%A3%85%E9%A5%B0%E5%99%A8&quot;&gt;装饰器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6&quot;&gt;python垃圾回收机制&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#python-异常exception调试debug回溯traceback&quot;&gt;python 异常（Exception）、调试（Debug）、回溯（Traceback)&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#异常exception&quot;&gt;异常（Exception）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#调试debug&quot;&gt;调试（Debug）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#回溯traceback&quot;&gt;回溯（Traceback)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#python-%E5%BC%82%E5%B8%B8exception%E8%B0%83%E8%AF%95debug%E5%9B%9E%E6%BA%AFtraceback&quot;&gt;python 异常（Exception）、调试（Debug）、回溯（Traceback)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%BC%82%E5%B8%B8exception&quot;&gt;异常（Exception）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E8%B0%83%E8%AF%95debug&quot;&gt;调试（Debug）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%9B%9E%E6%BA%AFtraceback&quot;&gt;回溯（Traceback)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#with-用法&quot;&gt;with 用法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#f_string-处理&quot;&gt;f_string 处理&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#数组复制的5种方法&quot;&gt;数组复制的5种方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#with-%E7%94%A8%E6%B3%95&quot;&gt;with 用法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#f_string-%E5%A4%84%E7%90%86&quot;&gt;f_string 处理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%95%B0%E7%BB%84%E5%A4%8D%E5%88%B6%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95&quot;&gt;数组复制的5种方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;函数式编程&quot;&gt;&lt;a href=&quot;#函数式编程&quot; class=&quot;headerlink&quot; title=&quot;函数式编程&quot;&gt;&lt;/a&gt;函数式编程&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;函数式编程&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#函数式编程&quot;&gt;&lt;/a&gt; 函数式编程&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;高阶函数(参数里有函数类型)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;map/reduce(functools.reduce())&lt;br&gt;filter&lt;br&gt;sorted&lt;/p&gt;
+&lt;p&gt;map/reduce(functools.reduce())&lt;br&gt;
+filter&lt;br&gt;
+sorted&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;返回函数（返回函数类型）&lt;/li&gt;
@@ -105,19 +112,25 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Python-科学计算&quot;&gt;&lt;a href=&quot;#Python-科学计算&quot; class=&quot;headerlink&quot; title=&quot;Python 科学计算&quot;&gt;&lt;/a&gt;Python 科学计算&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;TOC&quot;&gt;&lt;a href=&quot;#TOC&quot; class=&quot;headerlink&quot; title=&quot;[TOC]&quot;&gt;&lt;/a&gt;[TOC]&lt;/h2&gt;&lt;h2 id=&quot;NumPy-MatLab-替代品之一&quot;&gt;&lt;a href=&quot;#NumPy-MatLab-替代品之一&quot; class=&quot;headerlink&quot; title=&quot;NumPy(MatLab 替代品之一)&quot;&gt;&lt;/a&gt;NumPy(MatLab 替代品之一)&lt;/h2&gt;&lt;blockquote&gt;
+      &lt;h1 id=&quot;python-科学计算&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#python-科学计算&quot;&gt;&lt;/a&gt; Python 科学计算&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;toc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#toc&quot;&gt;&lt;/a&gt; [TOC]&lt;/h2&gt;
+&lt;h2 id=&quot;numpymatlab-替代品之一&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#numpymatlab-替代品之一&quot;&gt;&lt;/a&gt; NumPy(MatLab 替代品之一)&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;数组的算数和逻辑运算&lt;/li&gt;
 &lt;li&gt;傅立叶变换和用于图形操作的例程&lt;/li&gt;
-&lt;li&gt;与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数&lt;br&gt;frmemeta&lt;/li&gt;
+&lt;li&gt;与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数&lt;br&gt;
+frmemeta&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;SciPy（科学计算）&quot;&gt;&lt;a href=&quot;#SciPy（科学计算）&quot; class=&quot;headerlink&quot; title=&quot;SciPy（科学计算）&quot;&gt;&lt;/a&gt;SciPy（科学计算）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;scipy科学计算&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#scipy科学计算&quot;&gt;&lt;/a&gt; SciPy（科学计算）&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;p&gt;SciPy是一个开源的算法库和数学工具包。&lt;/p&gt;
 &lt;p&gt;其包含最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程常用的计算。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;Matplotlib（科学绘图）&quot;&gt;&lt;a href=&quot;#Matplotlib（科学绘图）&quot; class=&quot;headerlink&quot; title=&quot;Matplotlib（科学绘图）&quot;&gt;&lt;/a&gt;Matplotlib（科学绘图）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;matplotlib科学绘图&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#matplotlib科学绘图&quot;&gt;&lt;/a&gt; Matplotlib（科学绘图）&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;p&gt;Matplotlib是Numpy的数值可视化包，它利用通用的图形用户界面工具包向应用程序嵌入式绘图提供接口。&lt;/p&gt;
 &lt;/blockquote&gt;
     
@@ -144,10 +157,7 @@
         
         
           &lt;p&gt;1.二叉树的链式存储结构：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&lt;cstdio&gt;
-typedef struct BTNode
-{
-    char
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;hljs-meta&quot;&gt;#&lt;span class=&quot;hljs-meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span
         
       
     
@@ -161,7 +171,7 @@ typedef struct BTNode
     <link href="https://zhangyihao.top/2020/06/27/pat-bi-ji/"/>
     <id>https://zhangyihao.top/2020/06/27/pat-bi-ji/</id>
     <published>2020-06-27T09:18:56.373Z</published>
-    <updated>2020-09-19T03:09:57.672Z</updated>
+    <updated>2020-11-12T11:37:53.477Z</updated>
     
     <summary type="html">
     
@@ -170,9 +180,7 @@ typedef struct BTNode
         
         
           &lt;p&gt;1.判断素数&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;bool isprime(int a){
-    if(a&lt;=1) return false;
-    int
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;bool&lt;/span&gt; &lt;span
         
       
     
@@ -188,7 +196,7 @@ typedef struct BTNode
     <link href="https://zhangyihao.top/2020/05/24/c-primer-notes/"/>
     <id>https://zhangyihao.top/2020/05/24/c-primer-notes/</id>
     <published>2020-05-24T10:43:51.000Z</published>
-    <updated>2020-09-21T05:37:23.696Z</updated>
+    <updated>2020-11-25T11:30:14.229Z</updated>
     
     <summary type="html">
     
@@ -197,9 +205,11 @@ typedef struct BTNode
         
         
           &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;浅析new和delete&lt;/p&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;浅析new和delete&lt;/p&gt;
 &lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;c++&quot;&gt;&lt;span
         
       
     
@@ -224,8 +234,9 @@ typedef struct BTNode
         
         
           &lt;p&gt;1.生成sshkey&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &quot;youremail@youremail.com&quot;  &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.查看你的 public key&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cat
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;&quot;&gt;ssh-keygen -t rsa -C &quot;youremail@youremail.com&quot;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2.查看你的 public
         
       
     
