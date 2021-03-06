@@ -4,11 +4,11 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="Git最常用命令, 考研er|cs|AI">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
     <meta name="description" content="1.生成sshkey
 ssh-keygen -t rsa -C &#34;youremail@youremail.com&#34;  
 
@@ -70,12 +70,12 @@ cat ~/.ssh/id_rsa.pub
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
     <body>
 
-        <header class="navbar-fixed">
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -596,7 +596,7 @@ cat ~/.ssh/id_rsa.pub
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        563
+                        565
                     </div>
                     
 
@@ -621,24 +621,24 @@ cat ~/.ssh/id_rsa.pub
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1.生成sshkey</p>
-<pre class="highlight"><code class="">ssh-keygen -t rsa -C "youremail@youremail.com"  
+<pre><code>ssh-keygen -t rsa -C "youremail@youremail.com"  
 </code></pre>
 <p>2.查看你的 public key</p>
-<pre class="highlight"><code class="">cat ~/.ssh/id_rsa.pub
+<pre><code>cat ~/.ssh/id_rsa.pub
 </code></pre>
 <p>3.添加后，在终端中输入</p>
-<pre class="highlight"><code class="">#Gitee
+<pre><code>#Gitee
 $ ssh -T git@gitee.com
 
 #GitHub
 $ ssh -T git@github.com
 </code></pre>
 <p>4.设置基本信息</p>
-<pre class="highlight"><code class="">$ git config --global user.name "yourname"
+<pre><code>$ git config --global user.name "yourname"
 $ git config --global user.email "youremail@youremail.com"
 </code></pre>
 <p>5.初始化</p>
-<pre class="highlight"><code class="">#Gitee
+<pre><code>#Gitee
 $ git clone https://gitee.com/yourname/repository
 
 #Github
@@ -648,7 +648,7 @@ $ git clone https://github.com/yourname/repository.git
 #repository  您创建的远程仓库名称
 </code></pre>
 <p>6.本地初始化</p>
-<pre class="highlight"><code class="">#Gitee
+<pre><code>#Gitee
 $ cd d:/test //首先在文件系统中创建一个项目文件夹，然后在Git中 cd 到这个工程目录
 $ git init //初始化本地项目
 $ git remote add origin &lt;远程仓库地址&gt; //绑定远程仓库
@@ -659,21 +659,18 @@ $ cd d:/test
 $ git init
 $ git remote add origin &lt;远程仓库地址&gt;
 #注：地址形式为 https://github.com/yourname/test.git
-
 </code></pre>
 <p>7.更新到远程仓库</p>
-<pre class="highlight"><code class="">git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件
+<pre><code>git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件
 git commit -m "一些注释说明"     //添加更新说明
 git push origin master            //执行更新操作
 </code></pre>
 <p>8.从远程仓库同步最新版本到本地</p>
-<pre class="highlight"><code class="">$ cd d:/test
+<pre><code>$ cd d:/test
 $ git pull origin master
 $ clear//清屏
 </code></pre>
-<ol start="9">
-<li></li>
-</ol>
+<p>9.</p>
 <p>Git bash快捷键</p>
 <p>编辑</p>
 <table>
@@ -683,8 +680,7 @@ $ clear//清屏
 <th>操作</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>alt+.</td>
 <td>粘帖上一次命令最后的参数</td>
 </tr>
@@ -772,13 +768,10 @@ $ clear//清屏
 <td>reset</td>
 <td>清屏</td>
 </tr>
-</tbody>
-</table>
-<ol start="10">
-<li></li>
-</ol>
+</tbody></table>
+<p>10.</p>
 <p>若出现该错误则</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:%5CUsers%5Casus%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200430202634381.png" alt="image-20200430202634381"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\asus\AppData\Roaming\Typora\typora-user-images\image-20200430202634381.png" alt="image-20200430202634381"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -985,11 +978,10 @@ $ clear//清屏
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            .
-浅析new和delete
-在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
-int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
-
+                            . 
+   浅析new和delete
+   在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。
+int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int
                         
                     </div>
                     <div class="publish-info">
@@ -1031,9 +1023,8 @@ int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211
-作者：DBinary
-既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我
+                            转自：链接：https://www.zhihu.com/question/22085329/answer/774074211作者：DBinary
+既然要讲,我就从最基础的东西开始说一说,首先我们先来认识下三角函数,要说三角函数这个东西,我们
                         
                     </div>
                     <div class="publish-info">
@@ -1224,7 +1215,7 @@ int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">30.1k</span> 字
+                <span class="white-color">25.7k</span> 字
             
 
             
@@ -1465,5 +1456,11 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

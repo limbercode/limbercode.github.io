@@ -4,18 +4,19 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="树的遍历, 考研er|cs|AI">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
     <meta name="description" content="1.二叉树的链式存储结构：
-#include&amp;lt;cstdio&amp;gt;
+#include
 typedef struct BTNode
 {
-	char data;
-	struct BTNode *lchild;
-	struct BTNode *lchild;">
+    char data;
+    struct BTNode *lchild;
+    struct BTNode *lchild;
+}BTN">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -69,12 +70,12 @@ typedef struct BTNode
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
     <body>
 
-        <header class="navbar-fixed">
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -591,7 +592,7 @@ typedef struct BTNode
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        421
+                        398
                     </div>
                     
 
@@ -616,148 +617,148 @@ typedef struct BTNode
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1.二叉树的链式存储结构：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span>
-<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BTNode</span>
-{</span>
-	<span class="hljs-keyword">char</span> data;
-	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BTNode</span> *<span class="hljs-title">lchild</span>;</span>
-	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BTNode</span> *<span class="hljs-title">lchild</span>;</span>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<cstdio>
+typedef struct BTNode
+{
+    char data;
+    struct BTNode *lchild;
+    struct BTNode *lchild;
 }BTNode;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2.前序遍历的递归实现：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">preorder</span><span class="hljs-params">(BTNode *p)</span>
-</span>{
-	<span class="hljs-keyword">if</span>(p!=<span class="hljs-literal">NULL</span>)
-	{
-		Visit(p);<span class="hljs-comment">//对p访问操作 </span>
-		
-		preorder(p-&gt;lchild);
-		preorder(p-&gt;rchild);
-	}
+<pre class="line-numbers language-c++"><code class="language-c++">void preorder(BTNode *p)
+{
+    if(p!=NULL)
+    {
+        Visit(p);//对p访问操作 
+        
+        preorder(p->lchild);
+        preorder(p->rchild);
+    }
  }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3.中序遍历的递归实现：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inorder</span><span class="hljs-params">(BTNode *p)</span>
- </span>{
- 	<span class="hljs-keyword">if</span>(p!=<span class="hljs-literal">NULL</span>)
- 	{
- 		inorder(p-&gt;lchild);
- 		Visit(p);
- 		inorder(p-&gt;rchild);
-	 }
+<pre class="line-numbers language-c++"><code class="language-c++">void inorder(BTNode *p)
+ {
+     if(p!=NULL)
+     {
+         inorder(p->lchild);
+         Visit(p);
+         inorder(p->rchild);
+     }
  } 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>4.后序遍历的递归实现：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">postorder</span><span class="hljs-params">(BTNode *p)</span>
- </span>{
- 	<span class="hljs-keyword">if</span>(p!=<span class="hljs-literal">NULL</span>){
- 		postorder(p-&gt;lchild);
- 		postorder(p-&gt;rchild);
- 		Visit(p);
-	 }
+<pre class="line-numbers language-c++"><code class="language-c++">void postorder(BTNode *p)
+ {
+     if(p!=NULL){
+         postorder(p->lchild);
+         postorder(p->rchild);
+         Visit(p);
+     }
  }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5.层次遍历：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">level</span><span class="hljs-params">(BTNode *p)</span>
- </span>{
- 	<span class="hljs-keyword">int</span> front,rear;
- 	BTNode *que[maxSize];
- 	front=rear=<span class="hljs-number">0</span>;
- 	BTNode *q;
- 	<span class="hljs-keyword">if</span>(p!=<span class="hljs-literal">NULL</span>)
- 	{
- 		rear=(rear+<span class="hljs-number">1</span>)%maxsize;
- 		que[rear]=p;
- 		<span class="hljs-keyword">while</span>(front!=rear)
-		 {
- 			front=(front+<span class="hljs-number">1</span>)%maxsize;
- 			q=que[front];
- 			Visit(q);
- 			<span class="hljs-keyword">if</span>(q-&gt;lchild!=<span class="hljs-literal">NULL</span>)
- 			{
- 				rear=(rear+<span class="hljs-number">1</span>)%maxsize;
- 				que[rear]=q-&gt;lchild;
-			 }
- 			<span class="hljs-keyword">if</span>(q-&gt;rchild!=<span class="hljs-literal">NULL</span>)
- 			{
- 				rear=(rear+<span class="hljs-number">1</span>)%maxsize;
- 				que[rear]=q-&gt;rchild;
-			 }
-		 }
-	 }
+<pre class="line-numbers language-c++"><code class="language-c++">void level(BTNode *p)
+ {
+     int front,rear;
+     BTNode *que[maxSize];
+     front=rear=0;
+     BTNode *q;
+     if(p!=NULL)
+     {
+         rear=(rear+1)%maxsize;
+         que[rear]=p;
+         while(front!=rear)
+         {
+             front=(front+1)%maxsize;
+             q=que[front];
+             Visit(q);
+             if(q->lchild!=NULL)
+             {
+                 rear=(rear+1)%maxsize;
+                 que[rear]=q->lchild;
+             }
+             if(q->rchild!=NULL)
+             {
+                 rear=(rear+1)%maxsize;
+                 que[rear]=q->rchild;
+             }
+         }
+     }
  }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>6.先序遍历的非递归实现：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">preordernonrecursion</span><span class="hljs-params">(BTNode *bt)</span>
- </span>{
- 	<span class="hljs-keyword">if</span>(bt!=<span class="hljs-literal">NULL</span>)
- 	{
- 		BTNode *<span class="hljs-built_in">stack</span>[maxsize];
- 		<span class="hljs-keyword">int</span> top=<span class="hljs-number">-1</span>;
- 		BTNode *p;
- 		<span class="hljs-built_in">stack</span>[++top]=bt;
- 		<span class="hljs-keyword">while</span>(top!=<span class="hljs-number">-1</span>)
- 		{
- 			p=<span class="hljs-built_in">stack</span>[top--];
- 			Visit(p);
- 			<span class="hljs-keyword">if</span>(p-&gt;rchild!=<span class="hljs-literal">NULL</span>) <span class="hljs-built_in">stack</span>[++top]=p-&gt;rchild;
- 			<span class="hljs-keyword">if</span>(p-&gt;lchild!=<span class="hljs-literal">NULL</span>) <span class="hljs-built_in">stack</span>[++top]=p-&gt;lchild;
-		 }
-	 }
+<pre class="line-numbers language-c++"><code class="language-c++">void preordernonrecursion(BTNode *bt)
+ {
+     if(bt!=NULL)
+     {
+         BTNode *stack[maxsize];
+         int top=-1;
+         BTNode *p;
+         stack[++top]=bt;
+         while(top!=-1)
+         {
+             p=stack[top--];
+             Visit(p);
+             if(p->rchild!=NULL) stack[++top]=p->rchild;
+             if(p->lchild!=NULL) stack[++top]=p->lchild;
+         }
+     }
   } 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>7.中序遍历的非递归实现：</p>
-<pre class="highlight"><code class="c++"> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inordernonrecursion</span><span class="hljs-params">(BTNode *p)</span>
-</span>{
-	<span class="hljs-keyword">if</span>(bt!=<span class="hljs-literal">NULL</span>)
-	{
-		BTNode *<span class="hljs-built_in">stack</span>[maxsize];
-		<span class="hljs-keyword">int</span> top=<span class="hljs-number">-1</span>;
-		BTNode *p;
-		p=bt;
-		<span class="hljs-keyword">while</span>(top!=<span class="hljs-number">-1</span>||p!=<span class="hljs-literal">NULL</span>)
-		{
-			<span class="hljs-keyword">while</span>(p!=<span class="hljs-literal">NULL</span>)
-			{
-				<span class="hljs-built_in">stack</span>[++top]=p;
-				p=p-&gt;lchild;
-			}
-			<span class="hljs-keyword">if</span>(top!=<span class="hljs-number">-1</span>)
-			{
-				p=<span class="hljs-built_in">stack</span>[top--];
-				Visit(p);
-				p=p-&gt;rchild;
-			}
-		}
-	}
+<pre class="line-numbers language-c++"><code class="language-c++"> void inordernonrecursion(BTNode *p)
+{
+    if(bt!=NULL)
+    {
+        BTNode *stack[maxsize];
+        int top=-1;
+        BTNode *p;
+        p=bt;
+        while(top!=-1||p!=NULL)
+        {
+            while(p!=NULL)
+            {
+                stack[++top]=p;
+                p=p->lchild;
+            }
+            if(top!=-1)
+            {
+                p=stack[top--];
+                Visit(p);
+                p=p->rchild;
+            }
+        }
+    }
 }
  
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>8.后序遍历的非递归实现：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">postorderNonrecursion</span><span class="hljs-params">(BTNode *bt)</span>
-</span>{
-	<span class="hljs-keyword">if</span>(bt!=<span class="hljs-literal">NULL</span>)
-	{
-		BTNode *stack1[maxsize]; <span class="hljs-keyword">int</span> top1=<span class="hljs-number">-1</span>;
-		BTNode *stack2[maxsize]; <span class="hljs-keyword">int</span> top2=<span class="hljs-number">-1</span>;
-		BTNode *p=<span class="hljs-literal">NULL</span>;
-		stack1[++top1]=bt;
-		<span class="hljs-keyword">while</span>(top!=<span class="hljs-number">-1</span>)
-		{
-			p=stack1[top1--];
-			stack2[++top2]=p;
-			<span class="hljs-keyword">if</span>(p-&gt;lchild!=<span class="hljs-literal">NULL</span>) stack1[++top1]=p-&gt;lchild;
-			<span class="hljs-keyword">if</span>(p-&gt;rchild!=<span class="hljs-literal">NULL</span>) stack1[++top1]=p-&gt;rchild;
-		}
-		<span class="hljs-keyword">while</span>(top2!=<span class="hljs-number">-1</span>)
-		{
-			p=stack2[top2--];
-			Visit(p);
-		}
-	}
+<pre class="line-numbers language-c++"><code class="language-c++">void postorderNonrecursion(BTNode *bt)
+{
+    if(bt!=NULL)
+    {
+        BTNode *stack1[maxsize]; int top1=-1;
+        BTNode *stack2[maxsize]; int top2=-1;
+        BTNode *p=NULL;
+        stack1[++top1]=bt;
+        while(top!=-1)
+        {
+            p=stack1[top1--];
+            stack2[++top2]=p;
+            if(p->lchild!=NULL) stack1[++top1]=p->lchild;
+            if(p->rchild!=NULL) stack1[++top1]=p->rchild;
+        }
+        while(top2!=-1)
+        {
+            p=stack2[top2--];
+            Visit(p);
+        }
+    }
  } 
  
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -964,19 +965,15 @@ typedef struct BTNode
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             Python 科学计算
-
- [TOC]
- NumPy(MatLab 替代品之一)
-
+                            Python 科学计算
+[TOC]NumPy(MatLab 替代品之一)
 
 数组的算数和逻辑运算
 傅立叶变换和用于图形操作的例程
-与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数
-frmemeta
+  与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数frmemeta
 
 
- S
+SciPy（科
                         
                     </div>
                     <div class="publish-info">
@@ -1024,9 +1021,9 @@ frmemeta
                         
                             1.判断素数
 bool isprime(int a){
-    if(a&lt;=1) return false;
-    int sqr=int(sqr(n*1.0));//注意n*1.0
-    for(int i=2;i&lt;=sq
+    if(a {
+            if (!el.dataset.src) { return; }
+            const img = document.cre
                         
                     </div>
                     <div class="publish-info">
@@ -1217,7 +1214,7 @@ bool isprime(int a){
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">30.1k</span> 字
+                <span class="white-color">25.7k</span> 字
             
 
             
@@ -1458,5 +1455,11 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

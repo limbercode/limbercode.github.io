@@ -4,15 +4,14 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="Python笔记, 考研er|cs|AI">
-    <meta name="baidu-site-verification" content="fmlEuI34ir">
-    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="baidu-site-verification" content="fmlEuI34ir" />
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY" />
     <meta name="description" content="
 函数式编程
 面向对象
-
 变量
 方法(存储在内存中)
 属性（@property def func(self)）
@@ -21,7 +20,7 @@
 定义枚举类
 
 
-高">
+高级">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -75,12 +74,12 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
     <body>
 
-        <header class="navbar-fixed">
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -627,8 +626,7 @@
             <div id="articleContent">
                 <ul>
 <li><a href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B">函数式编程</a></li>
-<li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a>
-<ul>
+<li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a><ul>
 <li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
 <li><a href="#%E6%96%B9%E6%B3%95%E5%AD%98%E5%82%A8%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD">方法(存储在内存中)</a></li>
 <li><a href="#%E5%B1%9E%E6%80%A7property-def-funcself">属性（@property def func(self)）</a></li>
@@ -637,8 +635,7 @@
 <li><a href="#%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB">定义枚举类</a></li>
 </ul>
 </li>
-<li><a href="#%E9%AB%98%E7%BA%A7%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">高级面向对象</a>
-<ul>
+<li><a href="#%E9%AB%98%E7%BA%A7%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">高级面向对象</a><ul>
 <li><a href="#%E5%85%83%E7%B1%BBtypes">元类types</a></li>
 <li><a href="#%E5%85%83%E7%B1%BBtype%E6%9E%84%E9%80%A0%E5%AF%B9%E8%B1%A1">元类type构造对象</a></li>
 <li><a href="#%E4%BD%BF%E7%94%A8slot%E9%99%90%E5%88%B6%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7">使用Slot限制添加属性</a></li>
@@ -646,8 +643,7 @@
 <li><a href="#python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6">python垃圾回收机制</a></li>
 </ul>
 </li>
-<li><a href="#python-%E5%BC%82%E5%B8%B8exception%E8%B0%83%E8%AF%95debug%E5%9B%9E%E6%BA%AFtraceback">python 异常（Exception）、调试（Debug）、回溯（Traceback)</a>
-<ul>
+<li><a href="#python-%E5%BC%82%E5%B8%B8exception%E8%B0%83%E8%AF%95debug%E5%9B%9E%E6%BA%AFtraceback">python 异常（Exception）、调试（Debug）、回溯（Traceback)</a><ul>
 <li><a href="#%E5%BC%82%E5%B8%B8exception">异常（Exception）</a></li>
 <li><a href="#%E8%B0%83%E8%AF%95debug">调试（Debug）</a></li>
 <li><a href="#%E5%9B%9E%E6%BA%AFtraceback">回溯（Traceback)</a></li>
@@ -657,14 +653,11 @@
 <li><a href="#f_string-%E5%A4%84%E7%90%86">f_string 处理</a></li>
 <li><a href="#%E6%95%B0%E7%BB%84%E5%A4%8D%E5%88%B6%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95">数组复制的5种方法</a></li>
 </ul>
-<h2 id="函数式编程"><a class="markdownIt-Anchor" href="#函数式编程"></a> 函数式编程</h2>
-<ul>
+<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><ul>
 <li>高阶函数(参数里有函数类型)</li>
 </ul>
 <blockquote>
-<p>map/reduce(functools.reduce())<br>
-filter<br>
-sorted</p>
+<p>map/reduce(functools.reduce())<br>filter<br>sorted</p>
 </blockquote>
 <ul>
 <li>返回函数（返回函数类型）</li>
@@ -673,238 +666,198 @@ sorted</p>
 <li>偏函数（<code>functools.partor(function[,args,**kwords]</code>)</li>
 </ul>
 <a id="more"></a>
-<h2 id="面向对象"><a class="markdownIt-Anchor" href="#面向对象"></a> 面向对象</h2>
-<h3 id="变量"><a class="markdownIt-Anchor" href="#变量"></a> 变量</h3>
-<blockquote>
-<p>1.静态字段<br>
-2.普通字段(self.value)</p>
+
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><blockquote>
+<p>1.静态字段<br>2.普通字段(self.value)</p>
 </blockquote>
-<h3 id="方法存储在内存中"><a class="markdownIt-Anchor" href="#方法存储在内存中"></a> 方法(存储在内存中)</h3>
-<blockquote>
-<p>1.普通方法def func(self[,args])<br>
-2.类方法(@classmethod def func(cls[,args]))<br>
-3.静态方法(@staticmethod def func())</p>
+<h3 id="方法-存储在内存中"><a href="#方法-存储在内存中" class="headerlink" title="方法(存储在内存中)"></a>方法(存储在内存中)</h3><blockquote>
+<p>1.普通方法def func(self[,args])<br>2.类方法(@classmethod def func(cls[,args]))<br>3.静态方法(@staticmethod def func())</p>
 </blockquote>
-<h3 id="属性property-def-funcself"><a class="markdownIt-Anchor" href="#属性property-def-funcself"></a> 属性（@property def func(self)）</h3>
+<h3 id="属性（-property-def-func-self-）"><a href="#属性（-property-def-func-self-）" class="headerlink" title="属性（@property def func(self)）"></a>属性（@property def func(self)）</h3><blockquote>
+<p>1.静态字段<br>2.装饰类</p>
 <blockquote>
-<p>1.静态字段<br>
-2.装饰类</p>
-<blockquote>
-<p>经典装饰器<br>
-新装饰器(使用方法模拟成员变量以及对成员变量的操作)</p>
-<p>方法一<br>
-继承object</p>
-<pre class="highlight"><code class="python"><span class="hljs-meta">@property 			object.funcName //user funcName to get the function return value like member value</span>
-<span class="hljs-meta">@funcName.setter 	object.func = value</span>
-<span class="hljs-meta">@funcName.deleter 	del object.funcName</span>
-</code></pre>
-<p>方法二<br>
-创建property对象的静态字段</p>
-<pre class="highlight"><code class="python">pro = property(get_value(),set_value(),del_value(),__doc__)
-obj = Object()
-ov = obj.pro
-obj.pro = value
-<span class="hljs-keyword">del</span> obj.pro
-obj.pro.__doc__
-</code></pre>
+<p>经典装饰器<br>新装饰器(使用方法模拟成员变量以及对成员变量的操作)</p>
+<p>方法一<br>继承object</p>
+<pre class="line-numbers language-python"><code class="language-python">@property             object<span class="token punctuation">.</span>funcName <span class="token operator">//</span>user funcName to get the function <span class="token keyword">return</span> value like member value
+@funcName<span class="token punctuation">.</span>setter     object<span class="token punctuation">.</span>func <span class="token operator">=</span> value
+@funcName<span class="token punctuation">.</span>deleter     <span class="token keyword">del</span> object<span class="token punctuation">.</span>funcName
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>方法二<br>创建property对象的静态字段</p>
+<pre class="line-numbers language-python"><code class="language-python">pro <span class="token operator">=</span> property<span class="token punctuation">(</span>get_value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>set_value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>del_value<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>__doc__<span class="token punctuation">)</span>
+obj <span class="token operator">=</span> Object<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ov <span class="token operator">=</span> obj<span class="token punctuation">.</span>pro
+obj<span class="token punctuation">.</span>pro <span class="token operator">=</span> value
+<span class="token keyword">del</span> obj<span class="token punctuation">.</span>pro
+obj<span class="token punctuation">.</span>pro<span class="token punctuation">.</span>__doc__
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 </blockquote>
 <blockquote>
 <p>类的特殊成员</p>
 <ul>
-<li>
-<p><code>__doc__</code> 表示类的描述信息</p>
+<li><p><code>__doc__</code> 表示类的描述信息</p>
 </li>
-<li>
-<p><code>__name__</code>类名</p>
+<li><p><code>__name__</code>类名</p>
 </li>
-<li>
-<p><code>__bases__</code>类的所有父类构成的元组:tuple,不包含该类的type (类名即type类型使用<code>(my_class,)</code>可获得该类名的元组）</p>
+<li><p><code>__bases__</code>类的所有父类构成的元组:tuple,不包含该类的type (类名即type类型使用<code>(my_class,)</code>可获得该类名的元组）</p>
 </li>
-<li>
-<p><code>__mro__</code>类的继承顺序包含类本身&lt;class ‘<strong>main</strong>.My_class’&gt;,</p>
+<li><p><code>__mro__</code>类的继承顺序包含类本身&lt;class ‘__main__.My_class’&gt;, </p>
 </li>
-<li>
-<p><code>__module__</code> 表示当前操作的对象在那个模块 packages.module</p>
+<li><p><code>__module__</code> 表示当前操作的对象在那个模块 packages.module</p>
 </li>
-<li>
-<p><code>__class__</code> 表示当前操作的对象的类 packages.module.class</p>
+<li><p><code>__class__</code> 表示当前操作的对象的类 packages.module.class</p>
 </li>
-<li>
-<p><code>__init__()</code> 类的构造方法</p>
+<li><p><code>__init__()</code> 类的构造方法</p>
 </li>
-<li>
-<p><code>__del__()</code> 类的析构方法</p>
+<li><p><code>__del__()</code> 类的析构方法</p>
 </li>
-<li>
-<p><code>__call__()</code> 对象的方法 obj() self()</p>
+<li><p><code>__call__()</code> 对象的方法 obj() self()</p>
 </li>
-<li>
-<p><code>__getattr__()</code>当访问obj不存在的属性时会调用该方法</p>
+<li><p><code>__getattr__()</code>当访问obj不存在的属性时会调用该方法  </p>
 </li>
 </ul>
-<p>getattr(obj, name, value)  ==&gt; <a href="http://obj.name" target="_blank" rel="noopener">obj.name</a> 不存在该属性返回value</p>
-<p>name是函数name()需要添加@property 描述符</p>
+<p> getattr(obj, name, value)  ==&gt; obj.name 不存在该属性返回value</p>
+<p> name是函数name()需要添加@property 描述符</p>
 <ul>
-<li>
-<p><code>__dict__</code> 类或对象中的所有成员</p>
+<li><p><code>__dict__</code> 类或对象中的所有成员</p>
 </li>
-<li>
-<p><code>__str__</code> 将类格式化成字符串 print(obj) 时调用,即toString()方法</p>
+<li><p><code>__str__</code> 将类格式化成字符串 print(obj) 时调用,即toString()方法</p>
 </li>
-<li>
-<p><code>__repr__</code> 将类格式化成字符串 print(obj) 时调用,和 <code>__str__</code> 的区别：更适合从编程语言上理解</p>
+<li><p><code>__repr__</code> 将类格式化成字符串 print(obj) 时调用,和 <code>__str__</code> 的区别：更适合从编程语言上理解 </p>
 </li>
 </ul>
 <blockquote>
-<pre class="highlight"><code class="python">print(obj) 
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> 
 
-[output:] class_name.method(self, arg1, arg2, ...)
-</code></pre>
+<span class="token punctuation">[</span>output<span class="token punctuation">:</span><span class="token punctuation">]</span> class_name<span class="token punctuation">.</span>method<span class="token punctuation">(</span>self<span class="token punctuation">,</span> arg1<span class="token punctuation">,</span> arg2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <ul>
-<li>
-<p><code>__getitem__</code> 用于索引操作[num]，获取数据</p>
+<li><p><code>__getitem__</code> 用于索引操作[num]，获取数据</p>
 </li>
-<li>
-<p><code>__setitem__</code> 用于索引操作[num]，设置数据</p>
+<li><p><code>__setitem__</code> 用于索引操作[num]，设置数据</p>
 </li>
-<li>
-<p><code>__delitem__</code> 用于索引操作[num]，删除数据</p>
+<li><p><code>__delitem__</code> 用于索引操作[num]，删除数据</p>
 </li>
 </ul>
 <blockquote>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">mydict</span><span class="hljs-params">(object)</span>:</span>
-	<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, key)</span>:</span>
-		<span class="hljs-keyword">return</span> self.key
-	<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setitem__</span><span class="hljs-params">(self, key, value)</span>:</span>
-		self.key = value
-	<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__delitem__</span><span class="hljs-params">(self, key)</span>:</span>
-		<span class="hljs-keyword">del</span> self.key
-		obj = mydict()
-result = obj[key]
-obj[<span class="hljs-string">'key'</span>] = value
-<span class="hljs-keyword">del</span> obj[<span class="hljs-string">'key'</span>]
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">mydict</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+       <span class="token keyword">return</span> self<span class="token punctuation">.</span>key
+   <span class="token keyword">def</span> <span class="token function">__setitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+       self<span class="token punctuation">.</span>key <span class="token operator">=</span> value
+   <span class="token keyword">def</span> <span class="token function">__delitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+       <span class="token keyword">del</span> self<span class="token punctuation">.</span>key
+       obj <span class="token operator">=</span> mydict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+obj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token operator">=</span> value
+<span class="token keyword">del</span> obj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 </blockquote>
 <blockquote>
 <p><strong>实现切片操作</strong></p>
 <blockquote>
 <p><code>__getitem__(self, n)</code>传入的参数n 可能是int也可能是slice</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fib</span><span class="hljs-params">(object)</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getiter__</span><span class="hljs-params">(self, n)</span>:</span>
-<span class="hljs-keyword">if</span> isinstance(n, int):
-  a, b = <span class="hljs-number">1</span>, <span class="hljs-number">1</span>
-  <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(n):
-      a, b = b, a + b
-<span class="hljs-keyword">return</span> a
-<span class="hljs-keyword">if</span> isinstanece(n, slice):
-  l = []
-  slice.start = <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> (slice.start <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>)
-  a, b = <span class="hljs-number">1</span>, <span class="hljs-number">1</span>
-  <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(n.stop):
-    <span class="hljs-keyword">if</span> (x &gt;= n.start <span class="hljs-keyword">and</span> (x - n.start)%n.step == <span class="hljs-number">0</span>):
-        l.append(a)
-      a, b = b, a+b
-  <span class="hljs-keyword">return</span> l
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Fib</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__getiter__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>n<span class="token punctuation">,</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a <span class="token operator">+</span> b
+<span class="token keyword">return</span> a
+<span class="token keyword">if</span> isinstanece<span class="token punctuation">(</span>n<span class="token punctuation">,</span> slice<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  slice<span class="token punctuation">.</span>start <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>slice<span class="token punctuation">.</span>start <span class="token keyword">is</span> None<span class="token punctuation">)</span>
+  a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span>
+  <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">.</span>stop<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">>=</span> n<span class="token punctuation">.</span>start <span class="token operator">and</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> n<span class="token punctuation">.</span>start<span class="token punctuation">)</span><span class="token operator">%</span>n<span class="token punctuation">.</span>step <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        l<span class="token punctuation">.</span>append<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+      a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a<span class="token operator">+</span>b
+  <span class="token keyword">return</span> l
   
-
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <ul>
-<li>
-<p><code>__getslice__</code> (self, i, j) obj[-1:1]</p>
+<li><p><code>__getslice__</code> (self, i, j) obj[-1:1]</p>
 </li>
-<li>
-<p><code>__setslice__</code> (self, i, j, sequence) obj[0:1] = [11,22,33,44]</p>
+<li><p><code>__setslice__</code> (self, i, j, sequence) obj[0:1] = [11,22,33,44]</p>
 </li>
-<li>
-<p><code>__delslice__</code> (self, i, j) del obj[0:2]</p>
+<li><p><code>__delslice__</code> (self, i, j) del obj[0:2]</p>
 </li>
-<li>
-<p><code>__iter__</code> 迭代器</p>
+<li><p><code>__iter__</code> 迭代器</p>
 </li>
-<li>
-<p><code>__next__</code> 配合<code>__iter__</code>实现类的interable属性</p>
+<li><p><code>__next__</code> 配合<code>__iter__</code>实现类的interable属性</p>
 </li>
-<li>
-<p><code>__new__</code>方法<code>__new__(cls, name, bases, attrs)</code> 类准备将自身实例化时调用，在<code>__init__()</code>调用之前调用<code>__new__（）</code>，该方法是一个类方法@classmethod</p>
+<li><p><code>__new__</code>方法<code>__new__(cls, name, bases, attrs)</code> 类准备将自身实例化时调用，在<code>__init__()</code>调用之前调用<code>__new__（）</code>，该方法是一个类方法@classmethod</p>
 <p>cls：当前准备创建的类的对象:type</p>
 <p>name：类的名字:str</p>
 <p>bases：类继承的父类集合:class</p>
 <p>attrs：类的方法集合:dict</p>
 </li>
-<li>
-<p><code>__metaclass__</code> 该属性定义一个类的元类，即表示类该有哪个类（元类）来实例化</p>
+<li><p><code>__metaclass__</code> 该属性定义一个类的元类，即表示类该有哪个类（元类）来实例化</p>
 </li>
 </ul>
 </blockquote>
-<h3 id="创建类的两种方法"><a class="markdownIt-Anchor" href="#创建类的两种方法"></a> 创建类的两种方法</h3>
-<blockquote>
+<h3 id="创建类的两种方法"><a href="#创建类的两种方法" class="headerlink" title="创建类的两种方法"></a>创建类的两种方法</h3><blockquote>
 <p>1.普通方法</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Object</span><span class="hljs-params">(object)</span>:</span>
-	<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self)</span>:</span>
-	print(<span class="hljs-string">'hello world!'</span>)
-object = Object()
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Object</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello world!'</span><span class="token punctuation">)</span>
+object <span class="token operator">=</span> Object<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2.特殊方法（元类type构造对象）</p>
-<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self)</span>:</span>
-	print(<span class="hljs-string">'Hello world!'</span>)
-object = type(<span class="hljs-string">'Object'</span>, (object,), {<span class="hljs-string">'func'</span>:func})
-<span class="hljs-comment">#arg1:str 类名 ;arg2:tuple 基类; arg3:dict 成员;</span>
-</code></pre>
-<p><em><strong>类的创建过程</strong></em><br>
-![类的创建过程](file:///C:/Users/LiuQixuan/Desktop/pypro/type_class.png)<br>
-【CODE】</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyType</span><span class="hljs-params">(type)</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, what, bases=None, dict=None)</span>:</span>
-  super(MyType, self).__init__(what, bases, dict)
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello world!'</span><span class="token punctuation">)</span>
+object <span class="token operator">=</span> type<span class="token punctuation">(</span><span class="token string">'Object'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>object<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'func'</span><span class="token punctuation">:</span>func<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#arg1:str 类名 ;arg2:tuple 基类; arg3:dict 成员;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em><strong>类的创建过程</strong></em><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="file:///C:/Users/LiuQixuan/Desktop/pypro/type_class.png" alt="类的创建过程"><br>【CODE】</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyType</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> what<span class="token punctuation">,</span> bases<span class="token operator">=</span>None<span class="token punctuation">,</span> dict<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  super<span class="token punctuation">(</span>MyType<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>what<span class="token punctuation">,</span> bases<span class="token punctuation">,</span> dict<span class="token punctuation">)</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>
-  obj = self.__new__(self, *args, **kwargs)
-  self.__init__(obj)
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span><span class="hljs-params">(object)</span>:</span>
-__metaclass__ = MyType
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
-  self.name = name
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls, *args, **kwargs)</span>:</span>
-  <span class="hljs-keyword">return</span> object.__new__(cls, *args, **kwargs)
-<span class="hljs-comment"># 第一阶段：解释器从上到下执行代码创建Foo类</span>
-<span class="hljs-comment"># 第二阶段：通过Foo类创建obj对象</span>
-obj = Foo()
-
-</code></pre>
+<span class="token keyword">def</span> <span class="token function">__call__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  obj <span class="token operator">=</span> self<span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+  self<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+__metaclass__ <span class="token operator">=</span> MyType
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+<span class="token keyword">def</span> <span class="token function">__new__</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> object<span class="token punctuation">.</span>__new__<span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 第一阶段：解释器从上到下执行代码创建Foo类</span>
+<span class="token comment" spellcheck="true"># 第二阶段：通过Foo类创建obj对象</span>
+obj <span class="token operator">=</span> Foo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="使用枚举类枚举类不可比较大小但是同一枚举类的成员可以做等值is-not-is判断"><a class="markdownIt-Anchor" href="#使用枚举类枚举类不可比较大小但是同一枚举类的成员可以做等值is-not-is判断"></a> 使用枚举类(枚举类不可比较大小，但是同一枚举类的成员可以做等值is / not is判断)</h3>
-<blockquote>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum
-month = Enum(<span class="hljs-string">'Mouth'</span>,(<span class="hljs-string">'Jan'</span>, <span class="hljs-string">'Feb'</span>, <span class="hljs-string">'Mar'</span>, <span class="hljs-string">'Apr'</span>, <span class="hljs-string">'May'</span>, <span class="hljs-string">'Jun'</span>, <span class="hljs-string">'Jul'</span>, <span class="hljs-string">'Aug'</span>, <span class="hljs-string">'Sep'</span>, <span class="hljs-string">'Oct'</span>, <span class="hljs-string">'Nov'</span>, <span class="hljs-string">'Dec'</span>))
-<span class="hljs-keyword">for</span> name ,member <span class="hljs-keyword">in</span> month.__members__.items():
-print(<span class="hljs-string">f'<span class="hljs-subst">{name}</span>=&gt;<span class="hljs-subst">{member}</span>=&gt;<span class="hljs-subst">{member.value}</span>'</span>)
-</code></pre>
+<h3 id="使用枚举类-枚举类不可比较大小，但是同一枚举类的成员可以做等值is-not-is判断"><a href="#使用枚举类-枚举类不可比较大小，但是同一枚举类的成员可以做等值is-not-is判断" class="headerlink" title="使用枚举类(枚举类不可比较大小，但是同一枚举类的成员可以做等值is / not is判断)"></a>使用枚举类(枚举类不可比较大小，但是同一枚举类的成员可以做等值is / not is判断)</h3><blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
+month <span class="token operator">=</span> Enum<span class="token punctuation">(</span><span class="token string">'Mouth'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token string">'Jan'</span><span class="token punctuation">,</span> <span class="token string">'Feb'</span><span class="token punctuation">,</span> <span class="token string">'Mar'</span><span class="token punctuation">,</span> <span class="token string">'Apr'</span><span class="token punctuation">,</span> <span class="token string">'May'</span><span class="token punctuation">,</span> <span class="token string">'Jun'</span><span class="token punctuation">,</span> <span class="token string">'Jul'</span><span class="token punctuation">,</span> <span class="token string">'Aug'</span><span class="token punctuation">,</span> <span class="token string">'Sep'</span><span class="token punctuation">,</span> <span class="token string">'Oct'</span><span class="token punctuation">,</span> <span class="token string">'Nov'</span><span class="token punctuation">,</span> <span class="token string">'Dec'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> name <span class="token punctuation">,</span>member <span class="token keyword">in</span> month<span class="token punctuation">.</span>__members__<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{name}=>{member}=>{member.value}'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="定义枚举类"><a class="markdownIt-Anchor" href="#定义枚举类"></a> 定义枚举类</h3>
-<blockquote>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum, unique
-<span class="hljs-meta">@unique#unique装饰器帮助检查Enum内部字段，保证字段不重复</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">My_weekday</span><span class="hljs-params">(Enum)</span>:</span>
-Sun = <span class="hljs-number">0</span>
-Mon = <span class="hljs-number">1</span>
-Tue = <span class="hljs-number">2</span>
-Wed = <span class="hljs-number">3</span>
-Thu = <span class="hljs-number">4</span>
-Fri = <span class="hljs-number">5</span>
-Sat = <span class="hljs-number">6</span> 
-my_weekday = My_weekday()<span class="hljs-comment">#my_weekday.Sun</span>
-print(my_weekday.Sun)<span class="hljs-comment">#my_weekday.Sun</span>
-print(my_weekday[<span class="hljs-string">'Sun'</span>])<span class="hljs-comment">#my_weekday.Sun</span>
-print(my_weekday(<span class="hljs-number">0</span>))<span class="hljs-comment">#my_weekday.Sun</span>
-print(my_weekday.Sun.value)<span class="hljs-comment">#0</span>
-<span class="hljs-keyword">for</span> name, member <span class="hljs-keyword">in</span> my_weekday.__members__.item():
-print(<span class="hljs-string">f'<span class="hljs-subst">{name}</span> <span class="hljs-subst">{member}</span> <span class="hljs-subst">{member.value}</span>'</span>)
+<h3 id="定义枚举类"><a href="#定义枚举类" class="headerlink" title="定义枚举类"></a>定义枚举类</h3><blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum<span class="token punctuation">,</span> unique
+@unique<span class="token comment" spellcheck="true">#unique装饰器帮助检查Enum内部字段，保证字段不重复</span>
+<span class="token keyword">class</span> <span class="token class-name">My_weekday</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+Sun <span class="token operator">=</span> <span class="token number">0</span>
+Mon <span class="token operator">=</span> <span class="token number">1</span>
+Tue <span class="token operator">=</span> <span class="token number">2</span>
+Wed <span class="token operator">=</span> <span class="token number">3</span>
+Thu <span class="token operator">=</span> <span class="token number">4</span>
+Fri <span class="token operator">=</span> <span class="token number">5</span>
+Sat <span class="token operator">=</span> <span class="token number">6</span> 
+my_weekday <span class="token operator">=</span> My_weekday<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#my_weekday.Sun</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_weekday<span class="token punctuation">.</span>Sun<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#my_weekday.Sun</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_weekday<span class="token punctuation">[</span><span class="token string">'Sun'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#my_weekday.Sun</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_weekday<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#my_weekday.Sun</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_weekday<span class="token punctuation">.</span>Sun<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#0</span>
+<span class="token keyword">for</span> name<span class="token punctuation">,</span> member <span class="token keyword">in</span> my_weekday<span class="token punctuation">.</span>__members__<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{name} {member} {member.value}'</span><span class="token punctuation">)</span>
 【output】
-<span class="hljs-string">"""
+<span class="token triple-quoted-string string">"""
 Sun  My_weekday.Sun 0
 Mon  My_weekday.Mon 1
 Tue  My_weekday.Tue 2
@@ -913,108 +866,97 @@ Thu  My_weekday.Thu 4
 Fri  My_weekday.Fri 5
 Sat  My_weekday.Sat 6
 """</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h2 id="高级面向对象"><a class="markdownIt-Anchor" href="#高级面向对象"></a> 高级面向对象</h2>
-<h3 id="元类types"><a class="markdownIt-Anchor" href="#元类types"></a> 元类types</h3>
-<blockquote>
+<h2 id="高级面向对象"><a href="#高级面向对象" class="headerlink" title="高级面向对象"></a>高级面向对象</h2><h3 id="元类types"><a href="#元类types" class="headerlink" title="元类types"></a>元类types</h3><blockquote>
 <p>动态地给对象添加方法(MethodType(func[, object/None], Object))</p>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> types <span class="hljs-keyword">import</span> MethodType
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> types <span class="token keyword">import</span> MethodType
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self, value)</span>:</span>
-self.age = value
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(object)</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name)</span>:</span>
- self.name = name
-student = Student(<span class="hljs-string">'Bob'</span>)
-student.age_setter = MethodType(age_setter,func)
-student.age_setter(<span class="hljs-number">21</span>)
-print(<span class="hljs-string">f'<span class="hljs-subst">{student.name}</span>is <span class="hljs-subst">{student.age}</span> years old.'</span>)
-</code></pre>
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+self<span class="token punctuation">.</span>age <span class="token operator">=</span> value
+<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+student <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span>
+student<span class="token punctuation">.</span>age_setter <span class="token operator">=</span> MethodType<span class="token punctuation">(</span>age_setter<span class="token punctuation">,</span>func<span class="token punctuation">)</span>
+student<span class="token punctuation">.</span>age_setter<span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{student.name}is {student.age} years old.'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>动态的给类添加方法</p>
-<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self, value)</span>:</span>
-	self.age = value
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(object)</span>:</span>
-	<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name)</span>:</span>
- 	self.name = name
-Student.age_setter = func
-Student.age_setter = MethodType(func, <span class="hljs-literal">None</span>, Student)
-student = Student(<span class="hljs-string">'Bob'</span>)
-student.age_setter(<span class="hljs-number">21</span>)
-print(<span class="hljs-string">f'<span class="hljs-subst">{student.name}</span>is <span class="hljs-subst">{student.age}</span> years old.'</span>)
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   self<span class="token punctuation">.</span>age <span class="token operator">=</span> value
+<span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+Student<span class="token punctuation">.</span>age_setter <span class="token operator">=</span> func
+Student<span class="token punctuation">.</span>age_setter <span class="token operator">=</span> MethodType<span class="token punctuation">(</span>func<span class="token punctuation">,</span> None<span class="token punctuation">,</span> Student<span class="token punctuation">)</span>
+student <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span>
+student<span class="token punctuation">.</span>age_setter<span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{student.name}is {student.age} years old.'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="元类type构造对象"><a class="markdownIt-Anchor" href="#元类type构造对象"></a> 元类type构造对象</h3>
-<blockquote>
-<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self)</span>:</span>
-	print(<span class="hljs-string">'Hello world!'</span>)
-object = type(<span class="hljs-string">'Object'</span>, (object,), {<span class="hljs-string">'func'</span>:func})
-<span class="hljs-comment">#arg1:str 类名 ;arg2:tuple 基类; arg3:dict('a' = a, 'b' = b...) 类变量/静态字段;</span>
-</code></pre>
+<h3 id="元类type构造对象"><a href="#元类type构造对象" class="headerlink" title="元类type构造对象"></a>元类type构造对象</h3><blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hello world!'</span><span class="token punctuation">)</span>
+object <span class="token operator">=</span> type<span class="token punctuation">(</span><span class="token string">'Object'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>object<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'func'</span><span class="token punctuation">:</span>func<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#arg1:str 类名 ;arg2:tuple 基类; arg3:dict('a' = a, 'b' = b...) 类变量/静态字段;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="使用slot限制添加属性"><a class="markdownIt-Anchor" href="#使用slot限制添加属性"></a> 使用Slot限制添加属性</h3>
-<blockquote>
+<h3 id="使用Slot限制添加属性"><a href="#使用Slot限制添加属性" class="headerlink" title="使用Slot限制添加属性"></a>使用Slot限制添加属性</h3><blockquote>
 <p>slot是一个特殊静态字段,tuple类型.slot只对当前类起作用，对其子类并不起作用</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(object)</span>:</span>
- __slot__ = (<span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>)
- <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, age)</span>:</span>
-     super(Student,self).__init__()
-     self.name = name
-     self.age = age
-<span class="hljs-meta"> @property</span>
- <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span><span class="hljs-params">(self)</span>:</span>
-     <span class="hljs-keyword">return</span> self.name
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ __slot__ <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">)</span>
+ <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     super<span class="token punctuation">(</span>Student<span class="token punctuation">,</span>self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+     self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+     self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+ @property
+ <span class="token keyword">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token keyword">return</span> self<span class="token punctuation">.</span>name
 
-<span class="hljs-meta"> @name.setter</span>
- <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span><span class="hljs-params">(self,name)</span>:</span>
-     self.name = name
+ @name<span class="token punctuation">.</span>setter
+ <span class="token keyword">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
 
-<span class="hljs-meta"> @property</span>
- <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">age</span><span class="hljs-params">(self)</span>:</span>
-     <span class="hljs-keyword">return</span> self.age
+ @property
+ <span class="token keyword">def</span> <span class="token function">age</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     <span class="token keyword">return</span> self<span class="token punctuation">.</span>age
 
-<span class="hljs-meta"> @age.setter</span>
- <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">age</span><span class="hljs-params">(self,name)</span>:</span>
-     self.age = age
-s1 = Student(<span class="hljs-string">'Bill'</span>,<span class="hljs-number">21</span>)
-s1.score = <span class="hljs-number">89</span>                [ERROR]:不能添加score字段
-</code></pre>
+ @age<span class="token punctuation">.</span>setter
+ <span class="token keyword">def</span> <span class="token function">age</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+s1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">'Bill'</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">)</span>
+s1<span class="token punctuation">.</span>score <span class="token operator">=</span> <span class="token number">89</span>                <span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span><span class="token punctuation">:</span>不能添加score字段
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="装饰器"><a class="markdownIt-Anchor" href="#装饰器"></a> 装饰器</h3>
-<blockquote>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><blockquote>
 <p>一般装饰器（@decorate）</p>
 </blockquote>
 <blockquote>
 <p>描述符装饰器</p>
 <blockquote>
 <p>实现了<code>__get__() __set__() __del__()@property @func.setter @func.deleter</code></p>
-<p>数据描述符（实现了get set）<br>
-非数据描述符（只实现get 没有实现set)</p>
+<p>数据描述符（实现了get set）<br>非数据描述符（只实现get 没有实现set)</p>
 </blockquote>
 </blockquote>
-<h3 id="python垃圾回收机制"><a class="markdownIt-Anchor" href="#python垃圾回收机制"></a> python垃圾回收机制</h3>
-<blockquote>
+<h3 id="python垃圾回收机制"><a href="#python垃圾回收机制" class="headerlink" title="python垃圾回收机制"></a>python垃圾回收机制</h3><blockquote>
 <ul>
 <li>引用计数器（当一个对象被引用机会增加其引用计数，当不被引用时减少引用计数，减少至0时在合适的时机下内存被回收）</li>
 <li>循环垃圾收集器（针对循环引用）</li>
 <li>手动内存回收 del obj.obj (将引用计数置零，只有最后引用该内存的对象释放后才执行析构函数__del__())</li>
 </ul>
 </blockquote>
-<h2 id="python-异常exception-调试debug-回溯traceback"><a class="markdownIt-Anchor" href="#python-异常exception-调试debug-回溯traceback"></a> python 异常（Exception）、调试（Debug）、回溯（Traceback)</h2>
-<h3 id="异常exception"><a class="markdownIt-Anchor" href="#异常exception"></a> 异常（Exception）</h3>
-<blockquote>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">try</span>:
-<span class="hljs-keyword">pass</span>
-<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-<span class="hljs-keyword">raise</span>
-<span class="hljs-keyword">else</span>:
-<span class="hljs-keyword">pass</span>
-<span class="hljs-keyword">finally</span>:
-<span class="hljs-keyword">pass</span>
-
-</code></pre>
-<h4 id="常见的异常"><a class="markdownIt-Anchor" href="#常见的异常"></a> 常见的异常：</h4>
-<blockquote>
+<h2 id="python-异常（Exception）、调试（Debug）、回溯（Traceback"><a href="#python-异常（Exception）、调试（Debug）、回溯（Traceback" class="headerlink" title="python 异常（Exception）、调试（Debug）、回溯（Traceback)"></a>python 异常（Exception）、调试（Debug）、回溯（Traceback)</h2><h3 id="异常（Exception）"><a href="#异常（Exception）" class="headerlink" title="异常（Exception）"></a>异常（Exception）</h3><blockquote>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+<span class="token keyword">pass</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+<span class="token keyword">raise</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+<span class="token keyword">pass</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+<span class="token keyword">pass</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="常见的异常："><a href="#常见的异常：" class="headerlink" title="常见的异常："></a>常见的异常：</h4><blockquote>
 <table>
 <thead>
 <tr>
@@ -1022,8 +964,7 @@ s1.score = <span class="hljs-number">89</span>                [ERROR]:不能添�
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>BaseException</td>
 <td>所有异常K的基类</td>
 </tr>
@@ -1207,196 +1148,186 @@ s1.score = <span class="hljs-number">89</span>                [ERROR]:不能添�
 <td>UserWarning</td>
 <td>用户代码生成的警告</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </blockquote>
 </blockquote>
-<h3 id="调试debug"><a class="markdownIt-Anchor" href="#调试debug"></a> 调试（Debug）</h3>
-<blockquote>
-<h4 id="单元测试"><a class="markdownIt-Anchor" href="#单元测试"></a> 单元测试</h4>
-<blockquote>
+<h3 id="调试（Debug）"><a href="#调试（Debug）" class="headerlink" title="调试（Debug）"></a>调试（Debug）</h3><blockquote>
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><blockquote>
 <p>单元测试的类在unittest包中使用时直接导入包<code>import unittest</code>.</p>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> unittest
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestClass</span><span class="hljs-params">(unitest.TestCase)</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
-  <span class="hljs-keyword">pass</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDown</span><span class="hljs-params">(self)</span>:</span>
-  <span class="hljs-keyword">pass</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_init</span><span class="hljs-params">(self)</span>:</span>
-  self.assertEqual()
-  self.assertTrue()
-  self.assertRaises()
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_func1</span><span class="hljs-params">(self)</span>:</span>
-  <span class="hljs-keyword">pass</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_func2</span><span class="hljs-params">(self)</span>:</span>
-  <span class="hljs-keyword">pass</span>
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">class</span> <span class="token class-name">TestClass</span><span class="token punctuation">(</span>unitest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">pass</span>
+<span class="token keyword">def</span> <span class="token function">tearDown</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">pass</span>
+<span class="token keyword">def</span> <span class="token function">test_init</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  self<span class="token punctuation">.</span>assertTrue<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  self<span class="token punctuation">.</span>assertRaises<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">test_func1</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">pass</span>
+<span class="token keyword">def</span> <span class="token function">test_func2</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">pass</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h4 id="文档测试doctest"><a class="markdownIt-Anchor" href="#文档测试doctest"></a> 文档测试(doctest)</h4>
-<blockquote>
+<h4 id="文档测试-doctest"><a href="#文档测试-doctest" class="headerlink" title="文档测试(doctest)"></a>文档测试(doctest)</h4><blockquote>
 <p>Python的文档测试模块可以直接提取注释中的代码并执行</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dict</span><span class="hljs-params">(dict)</span>:</span>
-<span class="hljs-string">'''
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Dict</span><span class="token punctuation">(</span>dict<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token triple-quoted-string string">'''
 Simple dict but also support access as x.y style.
 
-  &gt;&gt;&gt; d1 = Dict()
-  &gt;&gt;&gt; d1['x'] = 100
-  &gt;&gt;&gt; d1.x
+  >>> d1 = Dict()
+  >>> d1['x'] = 100
+  >>> d1.x
 100
-  &gt;&gt;&gt; d1.y = 200
-  &gt;&gt;&gt; d1['y']
+  >>> d1.y = 200
+  >>> d1['y']
 200
-  &gt;&gt;&gt; d2 = Dict(a=1, b=2, c='3')
-  &gt;&gt;&gt; d2.c
+  >>> d2 = Dict(a=1, b=2, c='3')
+  >>> d2.c
 '3'
-  &gt;&gt;&gt; d2['empty']
+  >>> d2['empty']
 Traceback (most recent call last):
   ...
 KeyError: 'empty'
-  &gt;&gt;&gt; d2.empty
+  >>> d2.empty
 Traceback (most recent call last):
   ...
 AttributeError: 'Dict' object has no attribute 'empty'
 '''</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, **kw)</span>:</span>
-  super(Dict, self).__init__(**kw)
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  super<span class="token punctuation">(</span>Dict<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token operator">**</span>kw<span class="token punctuation">)</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, key)</span>:</span>
-  <span class="hljs-keyword">try</span>:
-      <span class="hljs-keyword">return</span> self[key]
-  <span class="hljs-keyword">except</span> KeyError:
-      <span class="hljs-keyword">raise</span> AttributeError(<span class="hljs-string">r"'Dict' object has no attribute '%s'"</span> % key)
+<span class="token keyword">def</span> <span class="token function">__getattr__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">try</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> self<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+  <span class="token keyword">except</span> KeyError<span class="token punctuation">:</span>
+      <span class="token keyword">raise</span> AttributeError<span class="token punctuation">(</span>r<span class="token string">"'Dict' object has no attribute '%s'"</span> <span class="token operator">%</span> key<span class="token punctuation">)</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setattr__</span><span class="hljs-params">(self, key, value)</span>:</span>
-  self[key] = value
+<span class="token keyword">def</span> <span class="token function">__setattr__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  self<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
 
-<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">'__main__'</span>:
-<span class="hljs-keyword">import</span> doctest
-doctest.testmod()
-</code></pre>
+<span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
+<span class="token keyword">import</span> doctest
+doctest<span class="token punctuation">.</span>testmod<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 </blockquote>
-<h3 id="回溯traceback"><a class="markdownIt-Anchor" href="#回溯traceback"></a> 回溯（Traceback)</h3>
-<blockquote>
-<p>代码<br>
-以下代码功能相同</p>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> traceback
+<h3 id="回溯（Traceback"><a href="#回溯（Traceback" class="headerlink" title="回溯（Traceback)"></a>回溯（Traceback)</h3><blockquote>
+<p>代码<br>以下代码功能相同</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> traceback
 
-traceback.print_exc()
-traceback.format_exc()
-traceback.print_exception(*ss.exc_info())
-
-</code></pre>
+traceback<span class="token punctuation">.</span>print_exc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+traceback<span class="token punctuation">.</span>format_exc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+traceback<span class="token punctuation">.</span>print_exception<span class="token punctuation">(</span><span class="token operator">*</span>ss<span class="token punctuation">.</span>exc_info<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h2 id="with-用法"><a class="markdownIt-Anchor" href="#with-用法"></a> with 用法</h2>
-<blockquote>
+<h2 id="with-用法"><a href="#with-用法" class="headerlink" title="with 用法"></a>with 用法</h2><blockquote>
 <p>事前事后用with（前后文管理器）</p>
-<pre class="highlight"><code class="python">【version <span class="hljs-number">1.0</span>】
-file = open(<span class="hljs-string">"/src/tmp.txt"</span>)
-data = file.read()
-file.close()  
-<span class="hljs-comment">#可能会忘记关闭句柄</span>
-<span class="hljs-comment">#可能会出现异常</span>
-【version <span class="hljs-number">2.0</span>】
-file = open(<span class="hljs-string">"/src/tmp.txt"</span>)
-<span class="hljs-keyword">try</span>:
-data = file.read()
-<span class="hljs-keyword">finally</span>:
-file.close()
-<span class="hljs-comment">#总体结构安全性都有提升</span>
-【version <span class="hljs-number">3.0</span> <span class="hljs-keyword">with</span>】
-<span class="hljs-keyword">with</span> open(<span class="hljs-string">"/src/tmp.txt"</span>) <span class="hljs-keyword">as</span> file:
-data = file.read()
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">【version <span class="token number">1.0</span>】
+file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"/src/tmp.txt"</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token comment" spellcheck="true">#可能会忘记关闭句柄</span>
+<span class="token comment" spellcheck="true">#可能会出现异常</span>
+【version <span class="token number">2.0</span>】
+file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"/src/tmp.txt"</span><span class="token punctuation">)</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+data <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#总体结构安全性都有提升</span>
+【version <span class="token number">3.0</span> <span class="token keyword">with</span>】
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"/src/tmp.txt"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
+data <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>with 对处理对象需要自定义<code>__enter__() __exit__()</code>方法</p>
-<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__enter__</span><span class="hljs-params">(self)</span>:</span>
-print(<span class="hljs-string">'function:enter'</span>)
-<span class="hljs-keyword">return</span> <span class="hljs-string">"SAMPLE"</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__exit__</span><span class="hljs-params">(self, type, value, trace)</span>:</span>
- print(<span class="hljs-string">'function:exit'</span>)
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_sample</span><span class="hljs-params">()</span>:</span>
-<span class="hljs-keyword">return</span> Sample()
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Sample</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'function:enter'</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> <span class="token string">"SAMPLE"</span>
+<span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> type<span class="token punctuation">,</span> value<span class="token punctuation">,</span> trace<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'function:exit'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get_sample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">return</span> Sample<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="hljs-keyword">with</span> get_sample() <span class="hljs-keyword">as</span> sample:
-print(<span class="hljs-string">f'<span class="hljs-subst">{sample}</span>do somethings'</span>)
+<span class="token keyword">with</span> get_sample<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sample<span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{sample}do somethings'</span><span class="token punctuation">)</span>
 
 
-[result:]
-function:enter
+<span class="token punctuation">[</span>result<span class="token punctuation">:</span><span class="token punctuation">]</span>
+function<span class="token punctuation">:</span>enter
 SAMPLE do somethings
-function:exit
+function<span class="token punctuation">:</span>exit
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span>:</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, value)</span>:</span>
-self.num = value
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__enter__</span><span class="hljs-params">(self)</span>:</span>
-print(<span class="hljs-string">'function:enter'</span>)
-<span class="hljs-keyword">return</span> self
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__exit__</span><span class="hljs-params">(self, type, value, trace)</span>:</span>
- print(<span class="hljs-string">'function:exit'</span>)
- print(<span class="hljs-string">'m_type:{type}\tm_value:{value}\ttrace:{trace})
-def func(self, value):
- return self.num/value
-def get_sample(num):
-return Sample(num)
+<span class="token keyword">class</span> <span class="token class-name">Sample</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+self<span class="token punctuation">.</span>num <span class="token operator">=</span> value
+<span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'function:enter'</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> self
+<span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> type<span class="token punctuation">,</span> value<span class="token punctuation">,</span> trace<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'function:exit'</span><span class="token punctuation">)</span>
+ <span class="token keyword">print</span><span class="token punctuation">(</span>'m_type<span class="token punctuation">:</span><span class="token punctuation">{</span>type<span class="token punctuation">}</span>\tm_value<span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span>\ttrace<span class="token punctuation">:</span><span class="token punctuation">{</span>trace<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">func</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token keyword">return</span> self<span class="token punctuation">.</span>num<span class="token operator">/</span>value
+<span class="token keyword">def</span> <span class="token function">get_sample</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">return</span> Sample<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
 
-with get_sample() as sample:
-print(f'</span>{sample}do somethings<span class="hljs-string">')
-num = input("input a number:")
-sample.func(num)
+<span class="token keyword">with</span> get_sample<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sample<span class="token punctuation">:</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{sample}do somethings'</span><span class="token punctuation">)</span>
+num <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"input a number:"</span><span class="token punctuation">)</span>
+sample<span class="token punctuation">.</span>func<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
 
 
-#执行顺序：
-#with 后面的函数/或type对象使用类的__init__()创建出一个对象,然后调用__enter__()方法将返回值赋给as 后的变量。在with执行完毕后调用类中的__exit__（）方法，清理或关闭句柄。
-</span></code></pre>
+<span class="token comment" spellcheck="true">#执行顺序：</span>
+<span class="token comment" spellcheck="true">#with 后面的函数/或type对象使用类的__init__()创建出一个对象,然后调用__enter__()方法将返回值赋给as 后的变量。在with执行完毕后调用类中的__exit__（）方法，清理或关闭句柄。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li><code>open</code>(<em>file</em>, <em>mode=‘r’</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em>)</li>
+<li><code>open</code>(<em>file</em>, <em>mode=’r’</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em>)</li>
 </ul>
 </blockquote>
-<h2 id="f_string-处理"><a class="markdownIt-Anchor" href="#f_string-处理"></a> f_string 处理</h2>
-<p><code>__str__，__repr__</code></p>
+<h2 id="f-string-处理"><a href="#f-string-处理" class="headerlink" title="f_string 处理"></a>f_string 处理</h2><p><code>__str__，__repr__</code></p>
 <blockquote>
 <ul>
 <li><code>__str __（）</code>和<code>__repr __（）</code>方法处理对象如何呈现为字符串，因此您需要确保在类定义中包含至少一个这些方法。如果必须选择一个，请使用<code>__repr __（）</code>，因为它可以代替<code>__str __（）</code>。</li>
 <li><code>__str __（）</code>返回的字符串是对象的非正式字符串表示，应该可读。<code>__repr __（）</code>返回的字符串是官方表示，应该是明确的。调用<code>str（）</code>和<code>repr（）</code>比直接使用<code>__str __（）</code>和<code>__repr __（）</code>更好。</li>
 <li>默认情况下，f字符串将使用<code>__str __（）</code>，但如果包含转换标志<code>!r</code>，则可以确保它们使用<code>__repr __（）</code>。</li>
 </ul>
-<pre class="highlight"><code class="python"><span class="hljs-string">f"<span class="hljs-subst">{new_comedian}</span>"</span>
-<span class="hljs-string">'This __str__'</span>
-<span class="hljs-string">f"<span class="hljs-subst">{new_comedian!r}</span>"</span>
-<span class="hljs-string">'This __repr__'</span>
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">f<span class="token string">"{new_comedian}"</span>
+<span class="token string">'This __str__'</span>
+f<span class="token string">"{new_comedian!r}"</span>
+<span class="token string">'This __repr__'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h2 id="数组复制的5种方法"><a class="markdownIt-Anchor" href="#数组复制的5种方法"></a> 数组复制的5种方法</h2>
-<p>python中简单将一个数组赋值给另一个数组,实际上是两个引用指向同一块内存,可能无法达到预期目的.因此这里整理了几种数组拷贝复制的方法.</p>
+<h2 id="数组复制的5种方法"><a href="#数组复制的5种方法" class="headerlink" title="数组复制的5种方法"></a>数组复制的5种方法</h2><p>python中简单将一个数组赋值给另一个数组,实际上是两个引用指向同一块内存,可能无法达到预期目的.因此这里整理了几种数组拷贝复制的方法.</p>
 <blockquote>
 <ol>
 <li>切片</li>
 </ol>
-<pre class="highlight"><code class="python">newArr = oldArr[:]
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">newArr <span class="token operator">=</span> oldArr<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="2">
 <li>list()</li>
 </ol>
-<pre class="highlight"><code class="python">newArr = list(oldArr)
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">newArr <span class="token operator">=</span> list<span class="token punctuation">(</span>oldArr<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="3">
 <li>Arr*1</li>
 </ol>
-<pre class="highlight"><code class="python">newArr = oldArr*<span class="hljs-number">1</span>
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">newArr <span class="token operator">=</span> oldArr<span class="token operator">*</span><span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="4">
 <li>copy.copy()浅拷贝方法</li>
 </ol>
-<pre class="highlight"><code class="python">newArr = copy.copy(oldArr)
-newArr = oldArr.copy()
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">newArr <span class="token operator">=</span> copy<span class="token punctuation">.</span>copy<span class="token punctuation">(</span>oldArr<span class="token punctuation">)</span>
+newArr <span class="token operator">=</span> oldArr<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ol start="5">
 <li>copy.deepcopy()深拷贝方法</li>
 </ol>
-<pre class="highlight"><code class="python">newArr = copy.deepcopy(oldArr)
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">newArr <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>oldArr<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1604,12 +1535,12 @@ newArr = oldArr.copy()
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             递归入门
- 编写一个递归函数
-
+                            递归入门编写一个递归函数
 这个递归函数的功能是什么，怎样调用这个函数，即设计好递归函数的返回值和参数列表
 什么时候应该结束这个递归，它的边界条件（出口）是什么  （边界条件）
-在非边界情况时，怎样从第n层转变成第n+1层  (递推公
+在非边界情况时，怎样从第n层转变成第n+1层  (递推公式)
+
+
                         
                     </div>
                     <div class="publish-info">
@@ -1643,19 +1574,15 @@ newArr = oldArr.copy()
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             Python 科学计算
-
- [TOC]
- NumPy(MatLab 替代品之一)
-
+                            Python 科学计算
+[TOC]NumPy(MatLab 替代品之一)
 
 数组的算数和逻辑运算
 傅立叶变换和用于图形操作的例程
-与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数
-frmemeta
+  与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数frmemeta
 
 
- S
+SciPy（科
                         
                     </div>
                     <div class="publish-info">
@@ -1850,7 +1777,7 @@ frmemeta
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">30.1k</span> 字
+                <span class="white-color">25.7k</span> 字
             
 
             
@@ -2091,5 +2018,11 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
