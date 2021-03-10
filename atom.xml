@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangyihao.top/"/>
-  <updated>2021-03-05T16:23:49.140Z</updated>
+  <updated>2021-03-06T15:32:45.655Z</updated>
   <id>https://zhangyihao.top/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Test</title>
-    <link href="https://zhangyihao.top/2021/03/06/test/"/>
-    <id>https://zhangyihao.top/2021/03/06/test/</id>
-    <published>2021-03-05T16:21:40.000Z</published>
-    <updated>2021-03-05T16:23:49.140Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MATH for Ostgraduate Entrance Examination</title>
-    <link href="https://zhangyihao.top/2021/03/05/math-for-ostgraduate-entrance-examination/"/>
-    <id>https://zhangyihao.top/2021/03/05/math-for-ostgraduate-entrance-examination/</id>
-    <published>2021-03-05T12:36:13.000Z</published>
-    <updated>2021-03-05T12:36:13.932Z</updated>
+    <title>Python&#39;s Variable vs C&#39;s</title>
+    <link href="https://zhangyihao.top/2021/03/06/python-s-variable-vs-c-s/"/>
+    <id>https://zhangyihao.top/2021/03/06/python-s-variable-vs-c-s/</id>
+    <published>2021-03-06T13:50:55.000Z</published>
+    <updated>2021-03-06T15:32:45.655Z</updated>
     
     <summary type="html">
     
@@ -65,6 +43,36 @@
   </entry>
   
   <entry>
+    <title>MATH for Postgraduate Entrance Examination</title>
+    <link href="https://zhangyihao.top/2021/03/05/math-for-ostgraduate-entrance-examination/"/>
+    <id>https://zhangyihao.top/2021/03/05/math-for-ostgraduate-entrance-examination/</id>
+    <published>2021-03-05T12:36:13.000Z</published>
+    <updated>2021-03-10T07:17:26.592Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="https://zhangyihao.top/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="math for Postgraduate entrance examination" scheme="https://zhangyihao.top/tags/math-for-Postgraduate-entrance-examination/"/>
+    
+  </entry>
+  
+  <entry>
     <title>递归</title>
     <link href="https://zhangyihao.top/2020/07/17/di-gui/"/>
     <id>https://zhangyihao.top/2020/07/17/di-gui/</id>
@@ -77,7 +85,8 @@
       
         
         
-          &lt;h2 id=&quot;递归入门&quot;&gt;&lt;a href=&quot;#递归入门&quot; class=&quot;headerlink&quot; title=&quot;递归入门&quot;&gt;&lt;/a&gt;递归入门&lt;/h2&gt;&lt;h3 id=&quot;编写一个递归函数&quot;&gt;&lt;a href=&quot;#编写一个递归函数&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;递归入门&quot;&gt;递归入门&lt;/h2&gt;
+&lt;h3
         
       
     
@@ -97,7 +106,8 @@
     
       &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B&quot;&gt;函数式编程&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;面向对象&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;面向对象&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%8F%98%E9%87%8F&quot;&gt;变量&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E6%96%B9%E6%B3%95%E5%AD%98%E5%82%A8%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD&quot;&gt;方法(存储在内存中)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%B1%9E%E6%80%A7property-def-funcself&quot;&gt;属性（@property def func(self)）&lt;/a&gt;&lt;/li&gt;
@@ -106,7 +116,8 @@
 &lt;li&gt;&lt;a href=&quot;#%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB&quot;&gt;定义枚举类&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%AB%98%E7%BA%A7%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;高级面向对象&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E9%AB%98%E7%BA%A7%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&quot;&gt;高级面向对象&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%85%83%E7%B1%BBtypes&quot;&gt;元类types&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%85%83%E7%B1%BBtype%E6%9E%84%E9%80%A0%E5%AF%B9%E8%B1%A1&quot;&gt;元类type构造对象&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E4%BD%BF%E7%94%A8slot%E9%99%90%E5%88%B6%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7&quot;&gt;使用Slot限制添加属性&lt;/a&gt;&lt;/li&gt;
@@ -114,7 +125,8 @@
 &lt;li&gt;&lt;a href=&quot;#python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6&quot;&gt;python垃圾回收机制&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#python-%E5%BC%82%E5%B8%B8exception%E8%B0%83%E8%AF%95debug%E5%9B%9E%E6%BA%AFtraceback&quot;&gt;python 异常（Exception）、调试（Debug）、回溯（Traceback)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#python-%E5%BC%82%E5%B8%B8exception%E8%B0%83%E8%AF%95debug%E5%9B%9E%E6%BA%AFtraceback&quot;&gt;python 异常（Exception）、调试（Debug）、回溯（Traceback)&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%BC%82%E5%B8%B8exception&quot;&gt;异常（Exception）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E8%B0%83%E8%AF%95debug&quot;&gt;调试（Debug）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%9B%9E%E6%BA%AFtraceback&quot;&gt;回溯（Traceback)&lt;/a&gt;&lt;/li&gt;
@@ -124,11 +136,14 @@
 &lt;li&gt;&lt;a href=&quot;#f_string-%E5%A4%84%E7%90%86&quot;&gt;f_string 处理&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E6%95%B0%E7%BB%84%E5%A4%8D%E5%88%B6%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95&quot;&gt;数组复制的5种方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;函数式编程&quot;&gt;&lt;a href=&quot;#函数式编程&quot; class=&quot;headerlink&quot; title=&quot;函数式编程&quot;&gt;&lt;/a&gt;函数式编程&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;函数式编程&quot;&gt;函数式编程&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;高阶函数(参数里有函数类型)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;map/reduce(functools.reduce())&lt;br&gt;filter&lt;br&gt;sorted&lt;/p&gt;
+&lt;p&gt;map/reduce(functools.reduce())&lt;br&gt;
+filter&lt;br&gt;
+sorted&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;返回函数（返回函数类型）&lt;/li&gt;
@@ -153,19 +168,25 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Python-科学计算&quot;&gt;&lt;a href=&quot;#Python-科学计算&quot; class=&quot;headerlink&quot; title=&quot;Python 科学计算&quot;&gt;&lt;/a&gt;Python 科学计算&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;TOC&quot;&gt;&lt;a href=&quot;#TOC&quot; class=&quot;headerlink&quot; title=&quot;[TOC]&quot;&gt;&lt;/a&gt;[TOC]&lt;/h2&gt;&lt;h2 id=&quot;NumPy-MatLab-替代品之一&quot;&gt;&lt;a href=&quot;#NumPy-MatLab-替代品之一&quot; class=&quot;headerlink&quot; title=&quot;NumPy(MatLab 替代品之一)&quot;&gt;&lt;/a&gt;NumPy(MatLab 替代品之一)&lt;/h2&gt;&lt;blockquote&gt;
+      &lt;h1&gt;Python 科学计算&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;TOC&quot;&gt;[TOC]&lt;/h2&gt;
+&lt;h2 id=&quot;NumPy-MatLab-替代品之一&quot;&gt;NumPy(MatLab 替代品之一)&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;数组的算数和逻辑运算&lt;/li&gt;
 &lt;li&gt;傅立叶变换和用于图形操作的例程&lt;/li&gt;
-&lt;li&gt;  与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数&lt;br&gt;frmemeta&lt;/li&gt;
+&lt;li&gt;与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数&lt;br&gt;
+frmemeta&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;SciPy（科学计算）&quot;&gt;&lt;a href=&quot;#SciPy（科学计算）&quot; class=&quot;headerlink&quot; title=&quot;SciPy（科学计算）&quot;&gt;&lt;/a&gt;SciPy（科学计算）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;SciPy（科学计算）&quot;&gt;SciPy（科学计算）&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;p&gt;SciPy是一个开源的算法库和数学工具包。&lt;/p&gt;
 &lt;p&gt;其包含最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程常用的计算。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;Matplotlib（科学绘图）&quot;&gt;&lt;a href=&quot;#Matplotlib（科学绘图）&quot; class=&quot;headerlink&quot; title=&quot;Matplotlib（科学绘图）&quot;&gt;&lt;/a&gt;Matplotlib（科学绘图）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;Matplotlib（科学绘图）&quot;&gt;Matplotlib（科学绘图）&lt;/h2&gt;
+&lt;blockquote&gt;
 &lt;p&gt;Matplotlib是Numpy的数值可视化包，它利用通用的图形用户界面工具包向应用程序嵌入式绘图提供接口。&lt;/p&gt;
 &lt;/blockquote&gt;
     
@@ -192,10 +213,8 @@
         
         
           &lt;p&gt;1.二叉树的链式存储结构：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&lt;cstdio&gt;
-typedef struct BTNode
-{
-    char
+&lt;pre class=&quot;line-numbers language-language-c++&quot;&gt;&lt;code class=&quot;language-language-c++&quot;&gt;#include&lt;cstdio&gt;
+typedef struct
         
       
     
@@ -218,9 +237,8 @@ typedef struct BTNode
         
         
           &lt;p&gt;1.判断素数&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;bool isprime(int a){
-    if(a&lt;=1) return false;
-    int
+&lt;pre class=&quot;line-numbers language-language-c++&quot;&gt;&lt;code class=&quot;language-language-c++&quot;&gt;bool isprime(int a){
+    if(a&lt;=1) return
         
       
     
@@ -236,7 +254,7 @@ typedef struct BTNode
     <link href="https://zhangyihao.top/2020/05/24/c-primer-notes/"/>
     <id>https://zhangyihao.top/2020/05/24/c-primer-notes/</id>
     <published>2020-05-24T10:43:51.000Z</published>
-    <updated>2021-03-05T15:01:23.016Z</updated>
+    <updated>2021-03-09T14:36:48.159Z</updated>
     
     <summary type="html">
     
@@ -244,14 +262,15 @@ typedef struct BTNode
       
         
         
-          &lt;p&gt;. &lt;/p&gt;
-&lt;p&gt;   浅析new和delete&lt;/p&gt;
-&lt;p&gt;   在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code
+          &lt;p&gt;浅析new和delete&lt;/p&gt;
+&lt;p&gt;在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-language-c++&quot;&gt;&lt;code
         
       
     
     </summary>
+    
+      <category term="Algorithm" scheme="https://zhangyihao.top/categories/Algorithm/"/>
     
     
       <category term="C++ language" scheme="https://zhangyihao.top/tags/C-language/"/>

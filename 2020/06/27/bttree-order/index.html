@@ -13,10 +13,12 @@
 #include
 typedef struct BTNode
 {
-    char data;
-    struct BTNode *lchild;
-    struct BTNode *lchild;
-}BTN">
+	char data;
+	struct BTNode *lchild;
+	struct BTNode *lchild;
+}BTNode;
+
+2.前">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -95,16 +97,12 @@ typedef struct BTNode
     <li class="hide-on-med-and-down">
         <a href="/" class="waves-effect waves-light">
             
-            <i class="fa fa-home"></i>
-            
             <span>首页</span>
         </a>
     </li>
     
     <li class="hide-on-med-and-down">
         <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
             
             <span>标签</span>
         </a>
@@ -113,16 +111,12 @@ typedef struct BTNode
     <li class="hide-on-med-and-down">
         <a href="/categories" class="waves-effect waves-light">
             
-            <i class="fa fa-bookmark"></i>
-            
             <span>分类</span>
         </a>
     </li>
     
     <li class="hide-on-med-and-down">
         <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
             
             <span>归档</span>
         </a>
@@ -131,27 +125,21 @@ typedef struct BTNode
     <li class="hide-on-med-and-down">
         <a href="/about" class="waves-effect waves-light">
             
-            <i class="fa fa-user-circle-o"></i>
-            
             <span>关于我</span>
         </a>
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/contact" class="waves-effect waves-light">
+        <a href="/categories/Algorithm" class="waves-effect waves-light">
             
-            <i class="fa fa-envelope"></i>
-            
-            <span>留言板</span>
+            <span>算法</span>
         </a>
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/Algorithm" class="waves-effect waves-light">
+        <a href="/categories/数学" class="waves-effect waves-light">
             
-            <i class="fa book"></i>
-            
-            <span>Algorithm</span>
+            <span>数学</span>
         </a>
     </li>
     
@@ -171,8 +159,6 @@ typedef struct BTNode
         
             <a href="/" class="waves-effect waves-light">
               
-                <i class="fa fa-home"></i>
-              
               <span>首页</span>
             </a>
 
@@ -183,8 +169,6 @@ typedef struct BTNode
 
         
             <a href="/tags" class="waves-effect waves-light">
-              
-                <i class="fa fa-tags"></i>
               
               <span>标签</span>
             </a>
@@ -197,8 +181,6 @@ typedef struct BTNode
         
             <a href="/categories" class="waves-effect waves-light">
               
-                <i class="fa fa-bookmark"></i>
-              
               <span>分类</span>
             </a>
 
@@ -209,8 +191,6 @@ typedef struct BTNode
 
         
             <a href="/archives" class="waves-effect waves-light">
-              
-                <i class="fa fa-archive"></i>
               
               <span>归档</span>
             </a>
@@ -223,8 +203,6 @@ typedef struct BTNode
         
             <a href="/about" class="waves-effect waves-light">
               
-                <i class="fa fa-user-circle-o"></i>
-              
               <span>关于我</span>
             </a>
 
@@ -234,11 +212,9 @@ typedef struct BTNode
       <li class="hide-on-med-and-down nav-item" >
 
         
-            <a href="/contact" class="waves-effect waves-light">
+            <a href="/categories/Algorithm" class="waves-effect waves-light">
               
-                <i class="fa fa-envelope"></i>
-              
-              <span>留言板</span>
+              <span>算法</span>
             </a>
 
             
@@ -247,11 +223,9 @@ typedef struct BTNode
       <li class="hide-on-med-and-down nav-item" >
 
         
-            <a href="/Algorithm" class="waves-effect waves-light">
+            <a href="/categories/数学" class="waves-effect waves-light">
               
-                <i class="fa book"></i>
-              
-              <span>Algorithm</span>
+              <span>数学</span>
             </a>
 
             
@@ -287,7 +261,7 @@ typedef struct BTNode
         <li>
             <a href="/" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-home"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
                 首页
             </a>
@@ -296,7 +270,7 @@ typedef struct BTNode
         <li>
             <a href="/tags" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-tags"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
                 标签
             </a>
@@ -305,7 +279,7 @@ typedef struct BTNode
         <li>
             <a href="/categories" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-bookmark"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
                 分类
             </a>
@@ -314,7 +288,7 @@ typedef struct BTNode
         <li>
             <a href="/archives" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-archive"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
                 归档
             </a>
@@ -323,27 +297,27 @@ typedef struct BTNode
         <li>
             <a href="/about" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-user-circle-o"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
                 关于我
             </a>
         </li>
         
         <li>
-            <a href="/contact" class="waves-effect waves-light">
+            <a href="/categories/Algorithm" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw fa-envelope"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
-                留言板
+                算法
             </a>
         </li>
         
         <li>
-            <a href="/Algorithm" class="waves-effect waves-light">
+            <a href="/categories/数学" class="waves-effect waves-light">
                 
-                <i class="fa fa-fw book"></i>
+                <i class="fa fa-fw fa-link"></i>
                 
-                Algorithm
+                数学
             </a>
         </li>
         
@@ -359,7 +333,7 @@ typedef struct BTNode
                 
                     <a href="/" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-home"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
                         首页
                     </a>
@@ -370,7 +344,7 @@ typedef struct BTNode
                 
                     <a href="/tags" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-tags"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
                         标签
                     </a>
@@ -381,7 +355,7 @@ typedef struct BTNode
                 
                     <a href="/categories" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-bookmark"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
                         分类
                     </a>
@@ -392,7 +366,7 @@ typedef struct BTNode
                 
                     <a href="/archives" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-archive"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
                         归档
                     </a>
@@ -403,7 +377,7 @@ typedef struct BTNode
                 
                     <a href="/about" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
                         关于我
                     </a>
@@ -412,22 +386,22 @@ typedef struct BTNode
         
         <li class="m-nav-item">
                 
-                    <a href="/contact" class="waves-effect waves-light">
+                    <a href="/categories/Algorithm" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw fa-envelope"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
-                        留言板
+                        算法
                     </a>
               
             </li>
         
         <li class="m-nav-item">
                 
-                    <a href="/Algorithm" class="waves-effect waves-light">
+                    <a href="/categories/数学" class="waves-effect waves-light">
                         
-                        <i class="fa fa-fw book"></i>
+                        <i class="fa fa-fw fa-link"></i>
                         
-                        Algorithm
+                        数学
                     </a>
               
             </li>
@@ -449,7 +423,7 @@ typedef struct BTNode
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -617,145 +591,145 @@ typedef struct BTNode
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1.二叉树的链式存储结构：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">#include<cstdio>
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">#include<cstdio>
 typedef struct BTNode
 {
-    char data;
-    struct BTNode *lchild;
-    struct BTNode *lchild;
+	char data;
+	struct BTNode *lchild;
+	struct BTNode *lchild;
 }BTNode;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2.前序遍历的递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void preorder(BTNode *p)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void preorder(BTNode *p)
 {
-    if(p!=NULL)
-    {
-        Visit(p);//对p访问操作 
-        
-        preorder(p->lchild);
-        preorder(p->rchild);
-    }
+	if(p!=NULL)
+	{
+		Visit(p);//对p访问操作 
+		
+		preorder(p->lchild);
+		preorder(p->rchild);
+	}
  }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3.中序遍历的递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void inorder(BTNode *p)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void inorder(BTNode *p)
  {
-     if(p!=NULL)
-     {
-         inorder(p->lchild);
-         Visit(p);
-         inorder(p->rchild);
-     }
+ 	if(p!=NULL)
+ 	{
+ 		inorder(p->lchild);
+ 		Visit(p);
+ 		inorder(p->rchild);
+	 }
  } 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>4.后序遍历的递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void postorder(BTNode *p)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void postorder(BTNode *p)
  {
-     if(p!=NULL){
-         postorder(p->lchild);
-         postorder(p->rchild);
-         Visit(p);
-     }
+ 	if(p!=NULL){
+ 		postorder(p->lchild);
+ 		postorder(p->rchild);
+ 		Visit(p);
+	 }
  }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5.层次遍历：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void level(BTNode *p)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void level(BTNode *p)
  {
-     int front,rear;
-     BTNode *que[maxSize];
-     front=rear=0;
-     BTNode *q;
-     if(p!=NULL)
-     {
-         rear=(rear+1)%maxsize;
-         que[rear]=p;
-         while(front!=rear)
-         {
-             front=(front+1)%maxsize;
-             q=que[front];
-             Visit(q);
-             if(q->lchild!=NULL)
-             {
-                 rear=(rear+1)%maxsize;
-                 que[rear]=q->lchild;
-             }
-             if(q->rchild!=NULL)
-             {
-                 rear=(rear+1)%maxsize;
-                 que[rear]=q->rchild;
-             }
-         }
-     }
+ 	int front,rear;
+ 	BTNode *que[maxSize];
+ 	front=rear=0;
+ 	BTNode *q;
+ 	if(p!=NULL)
+ 	{
+ 		rear=(rear+1)%maxsize;
+ 		que[rear]=p;
+ 		while(front!=rear)
+		 {
+ 			front=(front+1)%maxsize;
+ 			q=que[front];
+ 			Visit(q);
+ 			if(q->lchild!=NULL)
+ 			{
+ 				rear=(rear+1)%maxsize;
+ 				que[rear]=q->lchild;
+			 }
+ 			if(q->rchild!=NULL)
+ 			{
+ 				rear=(rear+1)%maxsize;
+ 				que[rear]=q->rchild;
+			 }
+		 }
+	 }
  }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>6.先序遍历的非递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void preordernonrecursion(BTNode *bt)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void preordernonrecursion(BTNode *bt)
  {
-     if(bt!=NULL)
-     {
-         BTNode *stack[maxsize];
-         int top=-1;
-         BTNode *p;
-         stack[++top]=bt;
-         while(top!=-1)
-         {
-             p=stack[top--];
-             Visit(p);
-             if(p->rchild!=NULL) stack[++top]=p->rchild;
-             if(p->lchild!=NULL) stack[++top]=p->lchild;
-         }
-     }
+ 	if(bt!=NULL)
+ 	{
+ 		BTNode *stack[maxsize];
+ 		int top=-1;
+ 		BTNode *p;
+ 		stack[++top]=bt;
+ 		while(top!=-1)
+ 		{
+ 			p=stack[top--];
+ 			Visit(p);
+ 			if(p->rchild!=NULL) stack[++top]=p->rchild;
+ 			if(p->lchild!=NULL) stack[++top]=p->lchild;
+		 }
+	 }
   } 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>7.中序遍历的非递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++"> void inordernonrecursion(BTNode *p)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++"> void inordernonrecursion(BTNode *p)
 {
-    if(bt!=NULL)
-    {
-        BTNode *stack[maxsize];
-        int top=-1;
-        BTNode *p;
-        p=bt;
-        while(top!=-1||p!=NULL)
-        {
-            while(p!=NULL)
-            {
-                stack[++top]=p;
-                p=p->lchild;
-            }
-            if(top!=-1)
-            {
-                p=stack[top--];
-                Visit(p);
-                p=p->rchild;
-            }
-        }
-    }
+	if(bt!=NULL)
+	{
+		BTNode *stack[maxsize];
+		int top=-1;
+		BTNode *p;
+		p=bt;
+		while(top!=-1||p!=NULL)
+		{
+			while(p!=NULL)
+			{
+				stack[++top]=p;
+				p=p->lchild;
+			}
+			if(top!=-1)
+			{
+				p=stack[top--];
+				Visit(p);
+				p=p->rchild;
+			}
+		}
+	}
 }
  
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>8.后序遍历的非递归实现：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">void postorderNonrecursion(BTNode *bt)
+<pre class="line-numbers language-language-c++"><code class="language-language-c++">void postorderNonrecursion(BTNode *bt)
 {
-    if(bt!=NULL)
-    {
-        BTNode *stack1[maxsize]; int top1=-1;
-        BTNode *stack2[maxsize]; int top2=-1;
-        BTNode *p=NULL;
-        stack1[++top1]=bt;
-        while(top!=-1)
-        {
-            p=stack1[top1--];
-            stack2[++top2]=p;
-            if(p->lchild!=NULL) stack1[++top1]=p->lchild;
-            if(p->rchild!=NULL) stack1[++top1]=p->rchild;
-        }
-        while(top2!=-1)
-        {
-            p=stack2[top2--];
-            Visit(p);
-        }
-    }
+	if(bt!=NULL)
+	{
+		BTNode *stack1[maxsize]; int top1=-1;
+		BTNode *stack2[maxsize]; int top2=-1;
+		BTNode *p=NULL;
+		stack1[++top1]=bt;
+		while(top!=-1)
+		{
+			p=stack1[top1--];
+			stack2[++top2]=p;
+			if(p->lchild!=NULL) stack1[++top1]=p->lchild;
+			if(p->rchild!=NULL) stack1[++top1]=p->rchild;
+		}
+		while(top2!=-1)
+		{
+			p=stack2[top2--];
+			Visit(p);
+		}
+	}
  } 
  
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -881,7 +855,7 @@ typedef struct BTNode
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <h4 class="reward-title">点击就送屠龙宝刀！</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -939,6 +913,31 @@ typedef struct BTNode
     
 
     
+        <div class="disqus-card card" data-aos="fade-up">
+    <div id="disqus_thread" class="card-content">
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+    </div>
+</div>
+
+<script type="text/javascript">
+    disqus_config = function () {
+        this.page.url = 'https://zhangyihao.top/2020/06/27/bttree-order/';
+        this.page.identifier = '/2020/06/27/bttree-order/';
+        this.page.title = '树的遍历';
+    };
+    let disqus_shortname = 'limber';
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+        let d = document, s = d.createElement('script');
+        // 如：s.src = 'https://blinkfox.disqus.com/embed.js';
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    
 
     
 
@@ -957,7 +956,7 @@ typedef struct BTNode
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Python科学计算">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python科学计算">
                         
                         <span class="card-title">Python科学计算</span>
                     </div>
@@ -966,14 +965,18 @@ typedef struct BTNode
                     <div class="summary block-with-text">
                         
                             Python 科学计算
-[TOC]NumPy(MatLab 替代品之一)
+
+[TOC]
+NumPy(MatLab 替代品之一)
+
 
 数组的算数和逻辑运算
 傅立叶变换和用于图形操作的例程
-  与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数frmemeta
+与线性代数有关的操作。 NumPy 拥有线性代数和随机数生成的内置函数
+frmemeta
 
 
-SciPy（科
+SciPy
                         
                     </div>
                     <div class="publish-info">
@@ -1011,7 +1014,7 @@ SciPy（科
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Notes">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Notes">
                         
                         <span class="card-title">Notes</span>
                     </div>
@@ -1214,7 +1217,7 @@ bool isprime(int a){
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">25.7k</span> 字
+                <span class="white-color">16.5k</span> 字
             
 
             
@@ -1455,11 +1458,11 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 </html>
